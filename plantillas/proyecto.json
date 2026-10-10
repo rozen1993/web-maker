@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "status": "plantilla",
+  "project_id": null,
+  "campaign_id": null,
+  "lot_id": null,
+  "idea": null,
+  "accion_principal": null,
+  "publico": null,
+  "mercado": {
+    "pais": null,
+    "ciudad_o_zona": null,
+    "idioma": null,
+    "dispositivo_serp": null,
+    "cobertura_volumenes": null
+  },
+  "alcance": {
+    "web_existente": null,
+    "objetivo": null,
+    "paginas": [],
+    "materiales_verificados": [],
+    "responsable_contenido": null,
+    "direccion_visual": null,
+    "stack": "Astro + Tailwind CSS",
+    "plazo": null,
+    "max_horas": null,
+    "criterios_entrega": [],
+    "publicacion_authorization": null
+  },
+  "arquitectura": {
+    "framework": "Astro",
+    "estilos": "Tailwind CSS",
+    "lenguaje_logica": "TypeScript",
+    "versiones_verificadas": null,
+    "modulos": [],
+    "modulos_disponibles": ["servicios", "portfolio", "blog", "catalogo", "tienda", "directorio_recursos", "reservas", "cuentas"],
+    "modulos_combinables": true,
+    "renderizado": "por_definir_segun_flujos",
+    "datos_centralizados": true,
+    "fuentes_de_datos": [],
+    "edicion_contenido": null,
+    "integraciones": [],
+    "dependencias_pendientes": [],
+    "datos_de_ejemplo_publicables_como_reales": false
+  },
+  "diseno": {
+    "referencias": [],
+    "identidad_existente": null,
+    "direccion_seleccionada": null,
+    "paginas_representativas": [],
+    "tokens_y_componentes": null,
+    "vistas_a_comprobar": ["movil", "escritorio"],
+    "revision_implementacion_completada": false
+  },
+  "calidad": {
+    "guia": "PERFILES-Y-CALIDAD.md",
+    "estado_entrega": "en_construccion",
+    "estados_entrega": ["en_construccion", "preview_verificada", "lista_para_publicar", "publicada_verificada", "operativa_verificada"],
+    "resultados_permitidos": ["aprobado", "fallo", "pendiente", "no_aplica"],
+    "flujos_criticos": [],
+    "comprobaciones": [],
+    "defectos_materiales_abiertos": [],
+    "url_preview": null,
+    "url_publica": null,
+    "publicacion_verificada": false,
+    "operacion_verificada": false
+  },
+  "models": {
+    "produccion": {
+      "model": "GPT-6.1 Sol",
+      "selection_verified": false
+    },
+    "diseno": {
+      "model": "GPT-6 Astra",
+      "reasoning": "high",
+      "selection_verified": false
+    }
+  },
+  "workflow": {
+    "phase": "brief",
+    "phases": [
+      "brief",
+      "investigacion",
+      "contenido",
+      "diseno",
+      "construccion",
+      "verificacion_seguimiento"
+    ],
+    "advance_automatically_within_authorization": true,
+    "seo_listo": false,
+    "seo_resultados_observados": null,
+    "pendientes": [],
+    "siguiente_accion": "Completar el brief sin ejecutar consultas de pago."
+  },
+  "dataforseo": {
+    "policy_status": "propuesta",
+    "operational_instructions_only": true,
+    "mcp_gateway_or_enforcement_installed": false,
+    "authorization": null,
+    "coordinator_id": null,
+    "single_paying_coordinator": true,
+    "allow_concurrent_paid_calls": false,
+    "subagents_may_pay": false,
+    "budget_usd": 1,
+    "budget_scope": "acumulado_por_sitio_para_investigacion_inicial_no_mensual",
+    "max_call_usd": 0.1,
+    "spent_usd": 0,
+    "reserved_usd": 0,
+    "totals_source": "shared_jsonl_ledger",
+    "totals_are_derived_not_manually_editable": true,
+    "totals_reconciled": false,
+    "totals_reconciled_at": null,
+    "remaining_budget_usd_verified": null,
+    "provider_balance_usd_verified": null,
+    "provider_balance_verified_at": null,
+    "control_root": ".",
+    "control_root_base": "kit_repository_root",
+    "shared_ledger_path": ".control/dataforseo.jsonl",
+    "ledger_status": "not_initialized_by_template",
+    "new_chat_or_account_resets_budget": false,
+    "new_clone_resets_budget": false,
+    "existing_portfolio_requires_linked_reconciled_ledger": true,
+    "allowed_endpoint_families_proposed": [
+      "labs_keyword_suggestions",
+      "google_ads_search_volume",
+      "google_organic_serp"
+    ],
+    "endpoint_contracts_and_prices_require_runtime_verification": true,
+    "paid_calls_allowed_when_remaining_budget_unknown": false,
+    "reserve_verified_max_cost_before_call": true,
+    "request_id_unique_per_attempt": true,
+    "request_states": [
+      "propuesta",
+      "reservado",
+      "completado",
+      "costependiente"
+    ],
+    "unknown_cost_policy": "Conservar reserva y cupo; no repetir ni liberar hasta reconciliar con evidencia.",
+    "ledger_aggregation": "Consolidar eventos por request_id: coste real completado o reserva pendiente, nunca ambos.",
+    "limits": {
+      "all_attempts_include_retries": true,
+      "labs_keyword_suggestions": {
+        "max_attempts": 2,
+        "max_items_per_attempt": 100
+      },
+      "google_ads_search_volume": {
+        "max_attempts": 1,
+        "max_keywords_per_attempt": 200,
+        "only_if_adds_information": true
+      },
+      "google_organic_serp": {
+        "max_attempts": 20,
+        "tasks_per_call": 1,
+        "depth": 10,
+        "max_crawl_pages": 1,
+        "extras": false
+      },
+      "retries": {
+        "max_per_query": 1,
+        "max_total_per_site": 2,
+        "included_in_endpoint_and_money_limits": true,
+        "auto_retry_unknown_cost_or_timeout": false
+      }
+    },
+    "cache": {
+      "serp_max_age_days": 7,
+      "volume_max_age_days": 30,
+      "match_date_endpoint_and_all_parameters": true,
+      "fresh_serp_when_current_evidence_requested": true
+    },
+    "portfolio_lot": {
+      "status": "propuesta_sin_lote_creado",
+      "authorization": null,
+      "proposed_budget_usd": 10,
+      "scope": "acumulado_por_lote_autorizado_compartido_entre_proyectos",
+      "applies_only_to_authorized_batches": true,
+      "requires_identified_authorized_lot_when_batch_used": true
+    },
+    "provider_daily_limit": {
+      "proposed_usd": 3,
+      "scope": "global_diario",
+      "configured": false,
+      "authorization": null,
+      "configure_automatically": false
+    },
+    "helper": {
+      "helper_path": null,
+      "portable_discovery": "Leer la skill instalada desde el catalogo disponible y resolver la ruta desde SKILL.md.",
+      "operations": [
+        "check <endpoint> --count N",
+        "log <endpoint> <cost>"
+      ],
+      "estimates_may_be_stale": true,
+      "exit_code_zero_authorizes_payment": false,
+      "helper_log_replaces_shared_ledger": false
+    }
+  }
+}

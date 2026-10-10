@@ -1,0 +1,38 @@
+# Credenciales y configuración privada
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+credentials.*.json
+service-account*.json
+.aws/
+.ssh/
+
+# Dependencias y compilación de las webs
+node_modules/
+.astro/
+dist/
+.vercel/
+.netlify/
+
+# Datos privados, cartera y webs generadas (repositorios separados)
+.control/
+.seo-cache/
+evidencias/
+/proyectos/
+/projects/
+
+# Temporales y cachés; conservar scripts y el PDF de la guía
+tmp/
+.cache/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
