@@ -1,89 +1,84 @@
-# Empieza una web desde la terminal
+﻿# Empieza una web desde la terminal
 
-Clona o descarga este kit **una vez** y abre su carpeta. La raíz es donde están `AGENTS.md` e `iniciar.mjs`; puede tener cualquier nombre y estar en otro equipo. Descargarlo no inicia ninguna web. Conserva también la carpeta oculta `.codex/` incluida en el clon.
+Clona o descarga el kit una vez y abre su carpeta. La raíz contiene `AGENTS.md` e `iniciar.mjs`, puede tener cualquier nombre y debe conservar `.codex/`. Necesitas Node 20+ y Codex CLI con sesión disponible, o Codex en tu IDE. Descargar el kit no instala skills ni conecta servicios.
 
-Necesitas Node 20 o superior. Para que el iniciador abra Codex, necesitas también Codex CLI instalado y una sesión disponible; puedes usar el chat del IDE en su lugar. Las skills, modelos y servicios se comprueban después: no se instalan ni conectan al descargar el kit.
+## 1. Responde una pregunta cada vez
 
-## 1. Ejecuta el iniciador
-
-Abre una terminal **en la raíz del kit** y ejecuta:
+Desde la raíz ejecuta:
 
 ```sh
 node iniciar.mjs
 ```
 
-Responde con tus palabras. Verás **una pregunta cada vez**, sobre idea, público, mercado, acción principal, alcance y materiales. Según lo que necesites, aparecerán preguntas de tienda o reservas: comprar en línea frente a pedir por contacto, disponibilidad, proveedor, gestión y edición. Si te falta algo, indícalo; no tienes que conocer arquitectura ni rellenar JSON.
+Describe idea, público, mercado, acción principal, alcance y materiales con tus palabras. El iniciador pregunta también por pagos, stock, editor o reservas cuando correspondan. No exige conocimientos de SEO ni JSON.
 
-Ejemplo: una tienda de café con blog para compradores de Perú, en español, con pago en línea. El sistema conserva esa intención; si todavía no elegiste proveedor de pagos, lo registra como dependencia pendiente.
+Define si quieres preview o publicación, con destino y autorización explícitos. Preview es el punto de partida; crear la ficha no contrata servicios ni publica.
 
-También defines si quieres solo preview o publicación, con destino y autorización explícitos. La opción inicial es preview; no se contrata hosting ni se publica por crear una ficha.
+La entrevista no consume DataForSEO. Solo pregunta por una **preexploración pequeña**: USD 0 por defecto y USD 0.10 sugeridos, autorizables expresamente. Ese cupo sirve para estimar la investigación, no para autorizar todo el SEO. La investigación principal se presupuesta después según tu proyecto; no se limita por defecto a USD 1.
 
-El presupuesto de datos parte de **USD 0**. La entrevista no usa IA ni llama a DataForSEO. Si eliges un presupuesto positivo, debes autorizarlo explícitamente dentro del perfil permitido, con techo inicial de USD 1 por web. Es un máximo acumulado, no un gasto obligatorio ni una cuota mensual. Los demás servicios y la publicación conservan sus autorizaciones propias.
+## 2. Lee la meta inicial
 
-## 2. Lee la meta y deja trabajar a Codex
+El iniciador guarda en `proyectos/<nombre>/`:
 
-Al terminar, el iniciador guarda en `proyectos/<nombre>/`:
+- `proyecto.json`: respuestas, alcance y autorizaciones.
+- `META.md`: páginas y cantidades, funciones, contenido, entrega, criterios comprobables, exclusiones y dependencias.
+- `ESTADO.md`: etapa y pendientes.
+- `INICIAR-CODEX.md`: mensaje de arranque.
 
-- `proyecto.json`: respuestas y alcance.
-- `META.md`: meta visible que guiará la entrega.
-- `ESTADO.md`: situación inicial y pendientes.
-- `INICIAR-CODEX.md`: mensaje de arranque para Codex.
+Sol concreta la meta antes de explorar, sin otra aprobación habitual. Resuelve las decisiones esenciales aún dentro de la entrevista. Por ejemplo, una tienda con blog conserva catálogo, pago en línea y artículos acordados; un proveedor pendiente se registra, y no se transforma la tienda en pedido por WhatsApp.
 
-`META.md` define páginas y cantidades, funciones, entregables, lo que queda fuera, flujos a comprobar y dependencias pendientes. Codex la completa con decisiones derivadas de tus respuestas antes de investigar; no te pide una aprobación adicional para avanzar. Si una decisión esencial sigue sin respuesta, la identifica y continúa lo que pueda resolver de forma independiente.
-
-En el ejemplo, la meta podría incluir inicio, catálogo, fichas de los productos que aportaste, carrito, checkout, confirmación e índice de blog con los artículos acordados. No se inventan productos, precios ni pruebas comerciales. Sol redacta los artículos del alcance y fija cantidades explícitas en la meta. Sin proveedor de pagos, la integración y su comprobación siguen pendientes; una pantalla de checkout no acredita una tienda operativa.
-
-El iniciador intenta abrir **Codex CLI interactivo con GPT-6.1 Sol / high**. Si no está instalado o no se puede abrir, usa el mensaje de `INICIAR-CODEX.md` en el chat de Codex con esta carpeta abierta. El inicio de sesión, permisos o acceso a modelos pueden requerir pasos del entorno; no se eluden para prometer una sola pausa.
-
-Si quieres elegir desde el principio el chat del IDE, ejecuta:
+El iniciador intenta abrir Codex CLI con **GPT-6.1 Sol / high**. Si falta el CLI o prefieres el IDE, ejecuta:
 
 ```sh
 node iniciar.mjs --solo-preparar
 ```
 
-Hace la entrevista y prepara los mismos archivos; luego pega el mensaje generado en el chat. **El comando va en la terminal; el contenido de `INICIAR-CODEX.md` va en el chat.**
+Pega `INICIAR-CODEX.md` en el chat con esta carpeta abierta. **El comando va en la terminal; el mensaje generado va en el chat.** Inicio de sesión, confianza y permisos siguen dependiendo del entorno.
 
-## 3. Elige entre tres diseños reales
+## 3. Aprueba el presupuesto de investigación
 
-Codex investiga con lo autorizado y prepara el contenido antes del diseño. Contenido, SEO, programación y verificaciones usan **GPT-6.1 Sol / high**. Diseño y revisión visual usan **GPT-6 Astra / ultra**.
+Sol hace una exploración acotada con fuentes gratuitas y el cupo de DataForSEO que hayas autorizado. Define temas, mercados, incertidumbres y evidencia necesaria; no ejecuta todavía la investigación principal.
 
-El kit incluye configuración local: `.codex/config.toml` para el coordinador Sol high y `.codex/agents/disenador.toml` para el rol de diseño Astra ultra. El cliente debe cargar la configuración, confiar en el repositorio cuando corresponda y tener acceso a ambos modelos. Sol delega al rol `disenador` en la fase adecuada. El chat del IDE puede requerir otra forma de selección o traspaso.
+Recibirás `PRESUPUESTO-SEO.md`: propuesta identificada y versionada, consultas previstas, cantidades, ubicación/idioma/dispositivo, tarifas verificadas y sus fuentes, resultados esperados y cobertura pendiente. Muestra por separado **gasto y reservas previos, máximo adicional y total acumulado del proyecto**, con margen incluido y exclusiones. Puedes elegir una opción o ajustar alcance antes de aprobar. No basta el saldo de la cuenta ni un presupuesto escrito por el agente.
 
-El agente comprueba la selección real y la capacidad de delegar. Si no puede hacerlo, registra el problema y prepara el traspaso; no afirma que cambió de modelo por escribir su nombre ni sustituye silenciosamente el modelo solicitado. Los identificadores y esfuerzos admitidos dependen del cliente y de la cuenta.
+Esta es la primera pausa ordinaria después de la entrevista. Tu aprobación debe identificar la propuesta y sus límites exactos. Sin ella se conserva `dataforseo.investigacion.authorization: null` y no se hacen compras de investigación principal. La autorización cubre sus llamadas; no se pide permiso por cada una.
 
-Recibirás un comparador con **A, B y C**, tres mockups navegables con contenido real y diferencias en **composición, tipografía y estilo**. Incluye escritorio, móvil y una página interior representativa: producto en tienda, artículo en blog, servicio o ficha según el alcance. En una landing de una sola página, se compara el recorrido de sus secciones. Son URLs de vistas previas realmente iniciadas, no tres descripciones o paletas.
+Al presentar la propuesta se cierran las compras de preexploración para mantener estable el acumulado. Tras aprobar, todas las nuevas consultas consumen el máximo adicional aprobado, incluso las que aclaren una pregunta inicial.
 
-El agente revisa y mejora las propuestas internamente antes de mostrarlas; descarta las que no cumplen el contenido y los criterios visuales. El nombre del modelo o un prompt no garantiza un resultado excelente.
+Después, Sol aplica el sistema completo `seo` de AgriciDaniel y DataForSEO dentro de lo autorizado, prepara arquitectura y contenido reales y registra la evaluación de las 26 subskills en `SEO-COBERTURA.md`. Las disciplinas pertinentes siguen su procedimiento completo; las que no apliquen llevan una razón. Falta de acceso es pendiente o bloqueo, no una excusa para marcar «no aplica».
 
-Esta es la **única pausa ordinaria después de la entrevista**. Responde, por ejemplo:
+## 4. Elige una homepage
+
+**GPT-6 Astra / ultra** prepara **A, B y C** con el contenido real, diferencias de composición, tipografía y lenguaje visual. Recibirás un comparador navegable con URLs realmente comprobadas y homepages responsive revisadas en navegador, en escritorio y móvil. Una vista interior se añade cuando ayude a valorar el recorrido; no hace falta construir tres webs enteras para elegir.
+
+Esta es la segunda pausa ordinaria. Responde, por ejemplo:
 
 ```text
 Elijo B. Conserva su composición y tipografía; usa el tratamiento de fotos de A.
 ```
 
-La elección queda guardada. Después Codex extiende esa dirección sin pedir permiso por fase.
+El agente guarda elección y ajustes antes de continuar. Si pides cambios a las propuestas, permanece en esta etapa.
 
-## 4. Recibe una entrega comprobada contra la meta
+El kit solicita Sol high para coordinación, investigación, contenido y QA; Astra ultra para mockups y desarrollo de **toda** la web, mediante `disenador` y `desarrollador` en `.codex/`. El cliente debe cargar esos roles y tu cuenta tener acceso. El agente registra selección real; si no es posible, explica el impedimento y prepara un traspaso sin sustituir modelos silenciosamente.
 
-Codex implementa en **Astro + Tailwind CSS**, comprueba tipos y build, recorre móvil y escritorio, revisa enlaces, contenido y SEO, y prueba los flujos críticos. Corrige los defectos materiales y repite las comprobaciones afectadas hasta cumplir la meta o dejar claro un bloqueo externo.
+## 5. Recibe una entrega comprobada
 
-La entrega incluye URL real de preview o publicación autorizada, ubicación del código, comparación con `META.md`, qué está comprobado, qué falta, gasto de datos y forma de mantenimiento. Los pagos se prueban en modo de prueba, sin cobros reales. El registro en `ESTADO.md` distingue preview, publicación y operación real.
+Astra desarrolla el sitio elegido en **Astro + Tailwind CSS** con TypeScript y datos centralizados. Sol ejecuta la auditoría SEO completa, tipos, build, rutas, enlaces, accesibilidad, recorridos de móvil/escritorio y pruebas de los flujos críticos. Astra corrige defectos de código y diseño; Sol comprueba las correcciones hasta satisfacer `META.md` o dejar un bloqueo externo explícito.
 
-Una dependencia esencial, credenciales faltantes, un modelo no disponible o una ampliación de coste/alcance puede necesitar tu decisión. Codex continúa el trabajo independiente y no declara resuelto lo que no probó. Publicar requiere autorización existente; ninguna plantilla publica por sí sola. El SEO comprobado no garantiza posiciones ni resultados orgánicos.
+La entrega incluye URL real, código, comparación contra la meta, cobertura SEO, evidencia, pendientes y costes acumulados. Una preview local funciona mientras su servidor siga activo. Una publicación autorizada exige comprobar la URL pública. Pagos se prueban en modo de prueba, sin cobros reales; una pantalla simulada no acredita operación.
 
-La preview local funciona mientras su servidor siga ejecutándose. Una URL pública tiene su propio hosting y debe comprobarse después de publicar.
+No hay aprobaciones ordinarias adicionales de contenido, arquitectura, construcción o pruebas. Accesos, permisos, cambios de alcance/coste y publicación sin autorización se resuelven solo cuando impiden una acción concreta. El SEO comprobado no garantiza posiciones ni resultados orgánicos. La recomendación de mantenimiento no activa consultas ni gastos recurrentes.
 
 ## Otra web u otro día
 
-Para una web nueva, vuelve a ejecutar `node iniciar.mjs` **en la misma copia del kit** y usa otro nombre. Cada proyecto guarda sus archivos en `proyectos/<nombre>/`; no clones por web.
-
-Para retomar, abre el kit en Codex y pega:
+Para otra web, ejecuta `node iniciar.mjs` en esta misma copia y usa otro nombre. Para retomar, abre el kit y pega:
 
 ```text
-Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md y CONTENIDO.md
-si existe. Continúa con las decisiones y autorizaciones guardadas, sin repetir
-la entrevista ni la elección visual resueltas. Conserva el presupuesto acumulado
-y reconcilia el registro de la cartera antes de cualquier compra.
+Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md,
+CONTENIDO.md, PRESUPUESTO-SEO.md y SEO-COBERTURA.md si existen.
+Conserva decisiones y autorizaciones; continúa la siguiente fase pendiente.
+No repitas la entrevista, aprobación del presupuesto ni elección visual resueltas.
+Reconcilia gasto y reservas con el registro privado compartido antes de comprar.
 ```
 
-Respalda los proyectos y el registro privado por separado: están excluidos de Git. Si cambias de equipo, restaura o vincula el registro original; clonar no vuelve a poner a cero los presupuestos.
+Respalda proyectos y registro privado fuera de Git. Un traslado o clon conserva la misma cartera: no reinicia presupuestos ni reemplaza su historial.

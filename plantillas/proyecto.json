@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "status": "plantilla",
   "project_id": null,
   "campaign_id": null,
@@ -52,7 +52,8 @@
   "diseno": {
     "numero_propuestas": 3,
     "opciones": ["A", "B", "C"],
-    "formato": "mockups_navegables_con_contenido_real",
+    "formato": "tres_inicios_navegables_con_contenido_real",
+    "interior_representativo_si_aporta": true,
     "url_comparador": null,
     "eleccion_usuario": null,
     "eleccion_registrada_at": null,
@@ -82,7 +83,7 @@
       "model": "GPT-6.1 Sol",
       "model_id": "gpt-6.1-sol",
       "reasoning": "high",
-      "aplica_a": ["coordinacion", "investigacion", "contenido", "programacion", "verificacion"],
+      "aplica_a": ["coordinacion", "consultoria_seo", "investigacion", "contenido", "auditoria"],
       "selection_verified": false
     },
     "diseno": {
@@ -91,6 +92,57 @@
       "reasoning": "ultra",
       "agent_role": "disenador",
       "selection_verified": false
+    },
+    "desarrollo": {
+      "model": "GPT-6 Astra",
+      "model_id": "gpt-6-astra",
+      "reasoning": "ultra",
+      "agent_role": "desarrollador",
+      "aplica_a": ["web_completa", "programacion", "integraciones", "correcciones"],
+      "selection_verified": false
+    }
+  },
+  "seo": {
+    "orquestador": "seo",
+    "catalogue_version_reference": "AgriciDaniel 1.9.6; verificar catalogo instalado al ejecutar",
+    "coverage_mode": "catalogo_completo_con_ejecucion_integra_de_procedimientos_aplicables",
+    "coverage_document": "SEO-COBERTURA.md",
+    "coverage_states": ["pendiente", "completada", "no_aplica", "bloqueada"],
+    "missing_access_is_not_no_aplica": true,
+    "catalogue_reconciled_with_installed_skill": false,
+    "coverage_catalogue": [
+      {"skill": "seo-audit", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-page", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-technical", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-content", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-schema", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-images", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-sitemap", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-geo", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-performance", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-visual", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-plan", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-programmatic", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-competitor-pages", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-hreflang", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-local", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-maps", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-google", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-backlinks", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-cluster", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-sxo", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-drift", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-ecommerce", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-firecrawl", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-dataforseo", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-image-gen", "status": "pendiente", "justificacion": null, "evidencia": []},
+      {"skill": "seo-flow", "status": "pendiente", "justificacion": null, "evidencia": []}
+    ],
+    "final_audit": {
+      "skill": "seo-audit",
+      "status": "pendiente",
+      "mandatory_specialists": ["seo-technical", "seo-content", "seo-schema", "seo-sitemap", "seo-performance", "seo-visual", "seo-geo", "seo-sxo"],
+      "conditional_specialists": ["seo-google", "seo-local", "seo-maps", "seo-backlinks", "seo-cluster", "seo-drift", "seo-ecommerce"]
     }
   },
   "workflow": {
@@ -98,6 +150,8 @@
     "phases": [
       "brief",
       "meta",
+      "exploracion",
+      "presupuesto_seo",
       "investigacion",
       "contenido",
       "diseno",
@@ -107,7 +161,8 @@
     ],
     "advance_automatically_within_authorization": true,
     "preguntas_una_por_vez": true,
-    "pausa_ordinaria_tras_entrevista": "seleccion_visual",
+    "pausas_ordinarias": ["aprobacion_presupuesto_seo", "seleccion_visual"],
+    "research_budget_wait_status": "esperando_aprobacion_presupuesto_seo",
     "selection_wait_status": "esperando_eleccion_visual",
     "require_extra_phase_approvals": false,
     "bloqueos_externos_se_declaran": true,
@@ -117,6 +172,7 @@
     "siguiente_accion": "Completar el brief sin ejecutar consultas de pago."
   },
   "dataforseo": {
+    "phase": "exploracion",
     "policy_status": "propuesta",
     "operational_instructions_only": true,
     "mcp_gateway_or_enforcement_installed": false,
@@ -125,8 +181,42 @@
     "single_paying_coordinator": true,
     "allow_concurrent_paid_calls": false,
     "subagents_may_pay": false,
-    "budget_usd": 1,
-    "budget_scope": "acumulado_por_sitio_para_investigacion_inicial_no_mensual",
+    "budget_usd": 0,
+    "budget_scope": "maximo_total_acumulado_del_proyecto_incluida_exploracion_no_mensual",
+    "budget_is_not_a_target_spend": true,
+    "authorization_scope_required_per_phase": true,
+    "legacy_authorization_is_not_global_permission": true,
+    "exploracion": {
+      "status": "pendiente",
+      "budget_usd": 0,
+      "suggested_budget_usd": 0.1,
+      "authorization": null,
+      "max_call_usd": 0.1,
+      "allowed_endpoint_families": ["labs_keyword_suggestions", "google_organic_serp"],
+      "limits": {
+        "all_attempts_include_retries": true,
+        "labs_keyword_suggestions": {"max_attempts": 1, "max_items_per_attempt": 25},
+        "google_organic_serp": {"max_attempts": 3, "tasks_per_call": 1, "depth": 10, "max_crawl_pages": 1, "extras": false},
+        "retries": {"max_per_query": 1, "max_total_per_site": 1, "included_in_endpoint_and_money_limits": true, "auto_retry_unknown_cost_or_timeout": false}
+      },
+      "closed_at": null,
+      "spent_at_close_usd": null,
+      "reserved_at_close_usd": null,
+      "unused_budget_transfers_automatically": false
+    },
+    "investigacion": {
+      "status": "pendiente_presupuesto",
+      "proposal_document": "PRESUPUESTO-SEO.md",
+      "proposal": null,
+      "authorization": null,
+      "additional_budget_usd": null,
+      "approved_project_total_usd": null,
+      "approval_must_match_proposal_id_and_version": true,
+      "freeze_new_paid_calls_while_awaiting_approval": true,
+      "proposal_required_fields": ["id", "version", "project_id", "created_at", "scope", "evidence", "calls", "pricing_sources", "prior_spent_usd", "prior_reserved_usd", "additional_max_usd", "project_total_max_usd", "exclusions", "uncertainties"],
+      "total_formula": "prior_spent_usd + prior_reserved_usd + additional_max_usd",
+      "additional_max_includes_margin_and_retries": true
+    },
     "max_call_usd": 0.1,
     "spent_usd": 0,
     "reserved_usd": 0,
@@ -144,11 +234,7 @@
     "new_chat_or_account_resets_budget": false,
     "new_clone_resets_budget": false,
     "existing_portfolio_requires_linked_reconciled_ledger": true,
-    "allowed_endpoint_families_proposed": [
-      "labs_keyword_suggestions",
-      "google_ads_search_volume",
-      "google_organic_serp"
-    ],
+    "allowed_endpoint_families_proposed": [],
     "endpoint_contracts_and_prices_require_runtime_verification": true,
     "paid_calls_allowed_when_remaining_budget_unknown": false,
     "reserve_verified_max_cost_before_call": true,
@@ -161,31 +247,7 @@
     ],
     "unknown_cost_policy": "Conservar reserva y cupo; no repetir ni liberar hasta reconciliar con evidencia.",
     "ledger_aggregation": "Consolidar eventos por request_id: coste real completado o reserva pendiente, nunca ambos.",
-    "limits": {
-      "all_attempts_include_retries": true,
-      "labs_keyword_suggestions": {
-        "max_attempts": 2,
-        "max_items_per_attempt": 100
-      },
-      "google_ads_search_volume": {
-        "max_attempts": 1,
-        "max_keywords_per_attempt": 200,
-        "only_if_adds_information": true
-      },
-      "google_organic_serp": {
-        "max_attempts": 20,
-        "tasks_per_call": 1,
-        "depth": 10,
-        "max_crawl_pages": 1,
-        "extras": false
-      },
-      "retries": {
-        "max_per_query": 1,
-        "max_total_per_site": 2,
-        "included_in_endpoint_and_money_limits": true,
-        "auto_retry_unknown_cost_or_timeout": false
-      }
-    },
+    "limits": null,
     "cache": {
       "serp_max_age_days": 7,
       "volume_max_age_days": 30,
@@ -201,7 +263,7 @@
       "requires_identified_authorized_lot_when_batch_used": true
     },
     "provider_daily_limit": {
-      "proposed_usd": 3,
+      "proposed_usd": null,
       "scope": "global_diario",
       "configured": false,
       "authorization": null,

@@ -1,60 +1,60 @@
-# Kit de webs con Astro, Tailwind y SEO
+﻿# Kit de webs con Astro, Tailwind y SEO completo
 
-Convierte una idea en una web con contenido, diseño, SEO y verificaciones. Admite servicios, portfolios, blogs, catálogos, tiendas, directorios y reservas combinados según tu proyecto.
+Convierte tu idea en una web con contenido, diseño, SEO y verificaciones. Admite servicios, portfolios, blogs, catálogos, tiendas, directorios y reservas combinados según el proyecto.
 
-**Empieza en [EMPEZAR.md](EMPEZAR.md).** Clona o descarga el kit **una vez**. Para cada web, reutiliza esa carpeta y ejecuta en su terminal:
+**Empieza en [EMPEZAR.md](EMPEZAR.md).** Clona o descarga el kit una vez. Para cada web ejecuta desde su raíz:
 
 ```sh
 node iniciar.mjs
 ```
 
-Necesitas **Node 20 o superior**. El iniciador te entrevista **una pregunta cada vez**, guarda el proyecto en `proyectos/<nombre>/` y muestra una meta concreta. La entrevista no usa IA ni consume DataForSEO. Después intenta abrir Codex CLI interactivo con **GPT-6.1 Sol / high**; si no está instalado, deja el mensaje preparado para el chat. Descargar o abrir archivos no ejecuta el sistema.
-
-Si prefieres trabajar en el IDE:
+Necesitas **Node 20 o superior**. El iniciador hace una pregunta cada vez, guarda el proyecto en `proyectos/<nombre>/` e intenta abrir Codex CLI con **GPT-6.1 Sol / high**. La entrevista es código local: no utiliza IA ni compra datos. Para continuar en el chat del IDE:
 
 ```sh
 node iniciar.mjs --solo-preparar
 ```
 
-Esta opción realiza la misma entrevista y prepara `INICIAR-CODEX.md` para pegarlo en el chat, sin abrir Codex CLI. No necesitas editar JSON, elegir subskills ni redactar un megaprompt.
+Pega allí el mensaje de `INICIAR-CODEX.md`. No necesitas editar JSON, elegir subskills ni escribir un megaprompt.
 
-## Qué sucede después
+## El recorrido
 
-Codex lee la ficha y `META.md`, investiga dentro de lo autorizado y prepara contenido. **GPT-6 Astra / ultra** construye y revisa tres mockups A/B/C con contenido real, distintos en composición, tipografía y estilo. Los presenta en navegador mediante URLs reales, con escritorio, móvil e interior representativo cuando corresponda. **GPT-6.1 Sol / high** realiza contenido, SEO, programación y comprobaciones.
+1. **Entrevista y meta inicial:** Sol concreta público, páginas, cantidades, funciones, contenido y criterios de entrega en `META.md`.
+2. **Exploración pequeña y presupuesto:** con fuentes gratuitas y, solo si autorizaste, un cupo mínimo de DataForSEO, Sol identifica qué investigación necesita el proyecto. Presenta `PRESUPUESTO-SEO.md` con el coste adicional máximo y el total acumulado. **Tú apruebas expresamente esa propuesta antes de la investigación principal.**
+3. **SEO y contenido completos:** Sol aplica la skill `seo` de AgriciDaniel, evalúa sus **26 subskills** y ejecuta los procedimientos completos que correspondan. Registra trabajo, evidencia y pendientes en `SEO-COBERTURA.md`; no reduce la investigación a una selección básica por defecto.
+4. **Tres homepages A/B/C:** **GPT-6 Astra / ultra** prepara mockups reales, distintos en composición, tipografía y lenguaje visual, comprobados en navegador en escritorio y móvil. Añade una vista interior representativa cuando ayude a decidir. **Tú eliges A, B, C o una combinación concreta.**
+5. **Toda la web:** Astra ultra desarrolla la dirección elegida en **Astro + Tailwind CSS**, con TypeScript, componentes y datos centralizados.
+6. **Auditoría y entrega:** Sol high realiza la auditoría SEO completa y las pruebas del alcance. Astra ultra corrige defectos de código y diseño hasta cumplir `META.md`; Sol verifica las correcciones.
 
-Codex comprueba selección real y capacidad de delegación: escribir un modelo en el prompt no lo selecciona ni garantiza acceso. Si falta el modelo requerido, prepara el traspaso y registra el impedimento; no lo sustituye silenciosamente.
-
-La única pausa ordinaria tras la entrevista es para **elegir A, B, C o una combinación concreta**. Luego implementa, prueba y corrige hasta entregar lo acordado en `META.md`. Una dependencia esencial, acceso faltante, coste fuera de alcance o publicación sin autorización puede requerir tu intervención; continúa las tareas independientes. El CLI también puede pedir inicio de sesión o permisos del entorno: el kit no los evita.
+Hay **dos pausas ordinarias después de la entrevista: presupuesto y elección visual**. El resto avanza dentro de lo autorizado. Un acceso indispensable, modelo no disponible o permiso del entorno se señala como bloqueo concreto y se continúa el trabajo independiente. Si se acordó preview, la entrega es una preview; publicar requiere autorización previa.
 
 ## Qué necesitas
 
-- Node 20+ para el iniciador; herramientas de construcción y navegador para comprobar las webs.
-- Codex CLI instalado y con sesión disponible, o Codex en tu IDE con acceso a la carpeta.
-- Acceso a los modelos indicados y orquestación compatible en ese entorno.
-- Skills `astro`, `frontend-design` y las skills SEO pertinentes de agricidaniel instaladas. El clon no las instala.
-- Para datos de pago: MCP DataForSEO y credenciales fuera de Git. El presupuesto inicial es **USD 0**; un importe positivo necesita autorización explícita dentro del perfil permitido. Se verifican precios, saldo y registro antes de comprar.
+- Node 20+, Codex CLI o Codex en el IDE, herramientas de build y navegador.
+- Acceso real a Sol high y Astra ultra, y un cliente que cargue la configuración y permita delegación o traspaso.
+- Skills `astro`, `frontend-design` y el sistema `seo` de AgriciDaniel con sus 26 subskills. Son instalaciones externas; el clon no las instala.
+- Para datos de pago, MCP DataForSEO y credenciales fuera de Git. La preexploración parte de **USD 0**; **USD 0.10** es una sugerencia que requiere autorización explícita. La investigación principal tiene su presupuesto concreto, aprobado después de explorar; no existe un techo universal de USD 1.
 
-Una tienda, reservas o edición con panel pueden requerir proveedores y accesos adicionales. La plantilla no autoriza suscripciones, cobros reales ni publicación. Los proyectos registran versiones y lockfile al construirse; el kit no garantiza que una versión o modelo esté disponible en otro equipo.
+La configuración solicita los modelos, pero no garantiza acceso de tu cuenta ni demuestra cuál ejecutó una tarea. El coordinador registra la selección real por fase y prepara un traspaso si falta soporte. Una tienda, CMS o reservas pueden requerir proveedores y accesos adicionales; no se contratan por crear la ficha. El SEO comprobado no garantiza posiciones ni resultados orgánicos.
 
 ## Archivos del kit
 
-| Archivo | Para qué sirve |
+| Archivo | Uso |
 |---|---|
-| [EMPEZAR.md](EMPEZAR.md) | Uso paso a paso y ejemplo |
-| [iniciar.mjs](iniciar.mjs) | Entrevista terminal y preparación del proyecto |
-| [.codex/config.toml](.codex/config.toml) y [.codex/agents/disenador.toml](.codex/agents/disenador.toml) | Configuración local del coordinador Sol high y del rol de diseño Astra ultra |
-| [AGENTS.md](AGENTS.md) | Reglas del coordinador, modelos y costes |
-| [PROMPT-MAESTRO.md](PROMPT-MAESTRO.md) | Mensajes para chat, continuidad y revisiones |
-| [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md) | Módulos y comprobaciones por tipo de web |
-| [SISTEMA-PILOTO.md](SISTEMA-PILOTO.md) | Procedimiento y política de costes |
-| [plantillas/proyecto.json](plantillas/proyecto.json) | Ficha que completa el sistema |
+| [EMPEZAR.md](EMPEZAR.md) | Pasos de uso |
+| [iniciar.mjs](iniciar.mjs) | Entrevista y preparación del proyecto |
+| [.codex/config.toml](.codex/config.toml) y [.codex/agents/](.codex/agents/) | Sol coordinador; Astra en los roles `disenador` y `desarrollador` |
+| [AGENTS.md](AGENTS.md) | Reglas operativas y control de costes |
+| [PROMPT-MAESTRO.md](PROMPT-MAESTRO.md) | Mensajes de arranque y continuidad |
+| [SEO-COMPLETO.md](SEO-COMPLETO.md) | Cobertura de las 26 subskills y auditoría final |
+| [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md) | Módulos y pruebas |
+| [SISTEMA-PILOTO.md](SISTEMA-PILOTO.md) | Flujo y presupuesto por proyecto |
+| [plantillas/proyecto.json](plantillas/proyecto.json) | Ficha del proyecto |
+| [plantillas/PRESUPUESTO-SEO.md](plantillas/PRESUPUESTO-SEO.md) | Propuesta de costes que prepara el coordinador antes de pedir aprobación |
 
-Conserva la carpeta oculta `.codex/` al clonar o descargar. El cliente debe cargar esta configuración y la cuenta debe tener acceso a los modelos; Sol delega al rol `disenador` durante la etapa visual. La configuración no evita login, confianza del repositorio ni permisos del entorno, y otros clientes pueden requerir un traspaso.
-
-La [guía PDF del 9/10/2026](output/pdf/guia-de-uso.pdf) se conserva como historial: **no incluye el iniciador CLI ni el flujo actualizado**. Para usar el kit, sigue `EMPEZAR.md` y los archivos actuales.
+Conserva `.codex/` al clonar. La [guía PDF del 9/10/2026](output/pdf/guia-de-uso.pdf) es histórica y no contiene este flujo; sigue los archivos actuales.
 
 ## Un kit, varios proyectos privados
 
-Cada web vive en `proyectos/<nombre>/`, con ficha, meta, decisiones, contenido y código propios. No clones el kit de nuevo para cada web. Las webs pueden tener repositorios propios; `proyectos/`, `.control/`, `.seo-cache/`, credenciales y evidencias privadas quedan fuera de Git y requieren respaldo separado.
+Cada web conserva ficha, meta, contenido, presupuesto, cobertura SEO y código propios en `proyectos/<nombre>/`. Las webs pueden tener repositorios propios. `proyectos/`, `.control/`, `.seo-cache/`, credenciales y evidencias privadas quedan fuera de Git: respáldalos por separado.
 
-El registro DataForSEO de una cartera nueva es `.control/dataforseo.jsonl`. Al trasladar o volver a clonar una cartera existente, vincula su registro privado original o restaura su copia completa y reconcíliala antes de pagar. **Un clon no reinicia presupuestos, gasto ni reservas.** Un único coordinador compra datos. Estos archivos son instrucciones, no un bloqueo técnico del MCP ni un límite configurado en el proveedor.
+Para una cartera nueva, el registro es `.control/dataforseo.jsonl`, resuelto desde la raíz del kit. Al trasladar una cartera, vincula o restaura su registro privado completo y reconcílialo antes de pagar. **Un clon no reinicia autorizaciones, gasto ni reservas.** Sol es el único comprador; los demás agentes solicitan y reutilizan datasets. Estas reglas no son un bloqueo técnico del MCP ni un límite configurado en el proveedor.

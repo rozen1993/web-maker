@@ -1,228 +1,113 @@
-# Sistema repetible de webs con SEO y presupuesto controlado
+﻿# Sistema repetible de webs con SEO y presupuesto por proyecto
 
-Versión 4 — 10 de octubre de 2026. Entrevista terminal, meta visible, tres diseños y entrega comprobada.
+Versión 5 — 10 de octubre de 2026. Entrevista, exploración pequeña, presupuesto aprobado, SEO completo, tres homepages y entrega verificada.
 
-Este sistema recibe una idea o negocio que TÚ elijas, utiliza tus skills instaladas de agricidaniel, prepara contenido, diseña con Astra ultra e implementa con GPT-6.1 Sol / high en **Astro + Tailwind CSS**. Adapta estructura, contenido y funciones al proyecto: servicios, tiendas, blogs, catálogos, portfolios, directorios o combinaciones. Puedes usarlo para proyectos propios, asociaciones o clientes.
+El usuario elige idea y modalidad de negocio o asociación. **GPT-6.1 Sol / high** coordina, investiga, prepara contenido y verifica; **GPT-6 Astra / ultra** diseña las propuestas y desarrolla toda la web en **Astro + Tailwind CSS**. Las skills de AgriciDaniel y DataForSEO aportan procedimientos y evidencia según el proyecto. El SEO comprobado no garantiza resultados orgánicos.
 
-**Para usarlo, empieza en [EMPEZAR.md](EMPEZAR.md).** Clona una vez y ejecuta `node iniciar.mjs` en la raíz para cada proyecto, con Node 20+. La entrevista hace una pregunta cada vez, sin IA ni consultas externas, y guarda ficha, meta, estado y mensaje para Codex. Intenta abrir el CLI interactivo Sol high; `--solo-preparar` permite usar el mensaje en el chat del IDE. Descargar no ejecuta; no necesitas editar los archivos manualmente.
+Para empezar: [EMPEZAR.md](EMPEZAR.md). Ejecutar `node iniciar.mjs` desde la raíz, con Node 20+. La entrevista es local, sin IA ni compras; `--solo-preparar` permite continuar en el IDE. Las skills globales y los servicios son externos al kit: descubrirlos y verificar acceso, sin modificar sus archivos ni instalar/conectar por inferencia.
 
-## 1. Qué aporta cada pieza
+## 1. Fases y responsabilidades
 
-- **Skill seo:** distribuye el trabajo entre especialistas.
-- **Subskills:** procedimientos para planificación, intención, contenido, técnica, imágenes, schema, SEO local y demás necesidades.
-- **MCP DataForSEO:** acceso a datos externos que algunas fases necesitan.
-- **Este protocolo:** decide cuándo utilizar cada capacidad, comparte los datos y limita el gasto por proyecto y entre proyectos.
-- **Tú:** eliges qué proyecto desarrollar, su propósito, el presupuesto y la dirección visual.
-
-La amplitud de la skill permite cubrir muchos tipos de SEO. No es necesario ejecutar todas las subskills ni comprar todos los tipos de datos en cada web.
-
-### Base común y módulos por tipo de web
-
-La base compartida incluye Astro, Tailwind, datos validados, navegación accesible, metadatos, imágenes, componentes y comprobaciones. Cada proyecto mantiene su dirección visual, arquitectura, contenido y recorridos. Reutilizar una base no obliga a repetir la misma portada ni las mismas secciones.
-
-| Módulo | Qué añade | Decisión que puede necesitar del usuario |
+| Fase | Responsable | Trabajo y condición para avanzar |
 |---|---|---|
-| Servicios o landing | Oferta, casos, proceso y contacto | Qué acción debe facilitar y quién recibe la consulta |
-| Portfolio | Proyectos, galerías, piezas y fichas | Qué trabajos y materiales pueden mostrarse |
-| Blog o publicación | Artículos, autores, temas y navegación editorial | Quién publica y si necesita un panel de edición |
-| Catálogo | Productos o servicios, categorías, filtros y consulta | Pedido/cotización y datos reales de cada producto |
-| Tienda | Catálogo, variantes, carrito, checkout y pedidos | Forma de cobro, moneda, disponibilidad y entrega |
-| Directorio o recursos | Fichas, búsqueda, filtros y fuentes | De dónde provienen los datos y quién los mantiene |
-| Reservas | Servicio, disponibilidad, solicitud o confirmación | Cómo se gestionan cupos y qué significa una reserva confirmada |
+| Entrevista y meta | Sol high | Una pregunta cada vez; resolver alcance esencial y escribir/muestra `META.md` con páginas, cantidades, funciones, contenidos, criterios, entrega, límites y pendientes. Sin aprobación extra del plan. |
+| Exploración acotada | Sol high | Revisar idea, fuentes y demanda inicial con datos gratuitos y el cupo previo autorizado. Evaluar qué investigación necesita la meta; guardar fuentes originales. |
+| Presupuesto de investigación | Sol high; aprobación del usuario | Presentar `PRESUPUESTO-SEO.md` identificado/versionado. Esperar aprobación explícita de sus límites; registrar autorización exacta. |
+| Investigación y contenido completos | Sol high | Aplicar principal `seo`, evaluar las 26 subskills y ejecutar los procedimientos pertinentes; arquitectura y texto real antes del diseño. |
+| Tres homepages | Astra ultra, rol `disenador` | Mockups A/B/C con contenido real, URL comprobada, navegador, escritorio y móvil; interior representativo cuando aporte. Revisar internamente antes de presentar. |
+| Elección visual | Usuario | Elegir A, B, C o combinación concreta; guardar elección/ajustes en ficha y `ESTADO.md`. |
+| Desarrollo completo | Astra ultra, rol `desarrollador` | Implementar toda la web elegida en Astro + Tailwind, con TypeScript, componentes y fuente de datos validada. |
+| Auditoría, pruebas y correcciones | Sol high audita; Astra ultra corrige | Ejecutar `seo-audit` completo y flujos del alcance. Astra corrige defectos de código/diseño; Sol verifica hasta satisfacer META o declarar un bloqueo concreto. |
 
-Los módulos se combinan: tienda + blog, servicios + portfolio + reservas, directorio + publicación. Cuentas, pagos recurrentes o contenido privado se añaden cuando sean parte del encargo. El sistema no cambia tu idea para encajarla en una plantilla.
+**Dos pausas ordinarias después de la entrevista: presupuesto y diseño.** No añadir aprobaciones por fase de contenido, arquitectura, código o pruebas ni pedir permiso por compras ya cubiertas. Un acceso/modelo imprescindible, permiso del entorno, coste fuera de autorización o publicación no autorizada puede impedir una acción; conservar el alcance, señalar la condición y continuar el trabajo independiente.
 
-Una tienda con pago, un CMS o reservas pueden necesitar servicios y accesos adicionales. Astro + Tailwind sigue siendo la base de la web; las dependencias se resuelven según la función y lo que ya tienes disponible. Se registra cualquier integración pendiente y se continúa el trabajo independiente. No se activa una suscripción ni se convierte una tienda en catálogo sin tu decisión.
+`.codex/config.toml` solicita Sol high; `.codex/agents/disenador.toml` y `.codex/agents/desarrollador.toml` solicitan Astra ultra. Comprobar carga real del cliente, capacidad de delegación y acceso de la cuenta. Registrar modelo/esfuerzo ejecutados por fase, con evidencia del entorno. Escribir sus nombres no verifica ejecución; si falta soporte, informar y preparar un traspaso sin sustitución silenciosa. No eludir permisos para aparentar continuidad.
 
-El detalle de módulos y comprobaciones está en [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md). Activar otro módulo no multiplica el presupuesto de DataForSEO: se comparte la investigación, y se justifica cualquier ampliación por temas, mercados o información faltante.
+## 2. Un alcance combinable
 
-### Instrucciones técnicas actualizadas
+Aplicar [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md): servicios, portfolio, blog, catálogo, tienda, directorio/recursos, reservas y cuentas solo cuando sean necesarias. No imponer un negocio existente, piloto o modelo comercial.
 
-La revisión del 9/10/2026 recomendó para proyectos nuevos Tailwind 4 mediante `@tailwindcss/vite`; `@astrojs/tailwind` corresponde al soporte legado de Tailwind 3. Contrastar documentación vigente y versiones instaladas antes de construir, sin actualizar proyectos existentes indiscriminadamente. Registrar versiones y lockfile de cada proyecto. [Documentación oficial de estilos](https://docs.astro.build/en/guides/styling/).
+La entrevista resuelve pagar dentro del sitio frente a pedir por contacto, editor, stock/disponibilidad, materiales, integraciones y destino de entrega. Reutilizar respuestas y explicitar supuestos reversibles. Una tienda con pago no se sustituye por catálogo; una reserva simulada no se declara confirmada. Proveedores o accesos pendientes se registran y no se contratan automáticamente.
 
-Para contenido repetido, usar colecciones y esquemas de Astro compatibles con la versión instalada. No copiar `Astro.glob()` de ejemplos antiguos: se eliminó en Astro 6. [Guía oficial de actualización](https://docs.astro.build/en/guides/upgrade-to/v6/#removed-astroglob).
+Antes de explorar, concretar `META.md`; la investigación puede precisar arquitectura sin ampliar o reducir silenciosamente la entrega. Mantener `proyecto.json`, `META.md`, `ESTADO.md`, `CONTENIDO.md`, `PRESUPUESTO-SEO.md`, `SEO-COBERTURA.md` y `.seo-cache/`. Crear `evidencias/` cuando existan capturas/artefactos, sin informes duplicados. Las versiones, lockfile y APIs de Astro/Tailwind se contrastan con documentación oficial vigente y el proyecto real; no actualizar una web existente indiscriminadamente ni copiar APIs obsoletas de ejemplos locales.
 
-Astro admite integraciones comerciales y un frontend propio. En tiendas, los datos que necesiten frescura y los pagos se verifican con el servidor o proveedor correspondiente; renderizar con SSR no actualiza por sí solo un catálogo cargado durante build. [Guía de comercio electrónico](https://docs.astro.build/en/guides/ecommerce/), [colecciones de contenido](https://docs.astro.build/en/guides/content-collections/).
+## 3. Preexploración: cupo pequeño y separado
 
-## 2. Perfil inicial de DataForSEO
+El iniciador pregunta únicamente por este cupo. **USD 0 por defecto; USD 0.10 sugeridos**, con autorización explícita. El máximo aceptado por la entrada de preexploración es USD 1; es un límite de esa exploración acotada, **no un presupuesto universal de investigación ni una razón para rechazar proyectos mayores**. La entrevista y este kit no ejecutan compras.
 
-Estos son límites operativos propuestos. El iniciador parte de **USD 0 autorizado**. Un importe positivo necesita autorización explícita dentro del perfil. Crear estos archivos no activa gasto, publicación ni cambios de cuenta.
+| Control previo | Límite |
+|---|---|
+| Importe | El autorizado expresamente para este proyecto, dentro de la entrada acotada |
+| Máximo por intento | USD 0.10 y siempre dentro del importe restante |
+| SERP | Hasta 3 intentos; una tarea por llamada, `depth: 10`, `max_crawl_pages: 1`, sin extras |
+| Labs Keyword Suggestions | Hasta 1 intento, máximo 25 ítems |
+| Reintentos | Máximo 1 por consulta y 1 total en la preexploración, incluidos en los cupos anteriores |
+| Parámetros | País, ciudad si aplica, idioma y dispositivo explícitos; granularidad real por endpoint |
 
-| Control | Valor del perfil base | Alcance |
-|---|---:|---|
-| Presupuesto por web | **USD 1** | Acumulado de investigación y ajustes iniciales, hasta la entrega; no se reinicia por chat ni por día |
-| Máximo por llamada | **USD 0.10** | Estimación máxima según parámetros reales antes de enviarla |
-| Búsquedas SERP | **20 llamadas** | Un motor, dispositivo y ubicación por consulta; también cuentan variaciones y reintentos |
-| Profundidad inicial SERP | **10 resultados / 1 página** | No garantiza diez enlaces orgánicos: puede haber otros bloques |
-| Descubrimiento de palabras | **2 llamadas de hasta 100 sugerencias** | Dos semillas útiles, sin paginación ni clickstream |
-| Volúmenes adicionales | **1 lote de hasta 200 palabras** | Solo si añade información que no llegó con las sugerencias |
-| Reintentos | **Máximo 1 por consulta y 2 en todo el proyecto** | Incluidos en los cupos anteriores; nunca automáticos si el coste previo es incierto |
-| Presupuesto de una tanda de proyectos | **USD 10 propuestos** | Un techo compartido que debe autorizarse; no asigna ni exige una cantidad de webs |
-| Límite diario del proveedor | **USD 3 propuestos** | Global para la cuenta; requiere configuración real en DataForSEO |
-| Revisión posterior de un sitio | **USD 0.25 por revisión autorizada** | Separada del presupuesto inicial; sin ejecución mensual automática |
+Los cupos son techos, no consumo obligatorio. Un reintento permitido usa un request_id nuevo y cuenta como intento. Si no hay precio máximo verificable, saldo suficiente conocido, registro reconciliado o autorización, no pagar. Ante timeout o coste desconocido, conservar reserva y no repetir automáticamente.
 
-El dólar por web es un techo de autonomía para una primera versión de alcance reducido, no un precio obligatorio de SEO ni una cobertura universal para tiendas o portales grandes. Si hay demasiados temas o mercados para el lote base, la IA identifica lo que falta y estima una ampliación concreta. Al llegar al techo, continúa contenido, diseño y código con los datos disponibles; solo se detienen las nuevas compras. No declara investigación completa por haber agotado un cupo.
+Con USD 0, usar fuentes gratuitas para preparar la propuesta y declarar incertidumbre. La evidencia de preexploración no se presenta como investigación completa. Las tarifas se verifican antes de cada intento; ningún ejemplo histórico ni saldo observado en otra sesión demuestra coste/saldo actual.
 
-El seguimiento no se activa por el simple paso del tiempo. Cada revisión tiene periodo, objetivo y presupuesto; una vez autorizada, no se pide permiso para cada consulta incluida.
+## 4. Presupuesto principal: propuesta concreta y aprobación
 
-### Cuánto cuesta un lote concreto
+Después de explorar, dimensionar la investigación completa de este proyecto: temas, URLs, mercados, decisiones de conversión y disciplinas de [SEO-COMPLETO.md](SEO-COMPLETO.md). No aplicar el antiguo USD 1 como límite universal. Evitar compras repetidas entre módulos y subskills.
 
-Tarifas públicas consultadas el 9 de octubre de 2026, sin extras:
+`PRESUPUESTO-SEO.md` y su vista en la ficha deben contener:
 
-| Operación | Cálculo | USD |
-|---|---:|---:|
-| Dos llamadas Labs Keyword Suggestions con hasta 100 ítems cada una | 2 × (0.012 + 100 × 0.00012) | 0.048 |
-| Veinte consultas Google SERP Live, una página cada una | 20 × 0.002 | 0.040 |
-| Total cuando bastan esos datos | Suma | **0.088** |
-| Opcional: un lote Google Ads Search Volume Live | 1 × 0.09 | 0.090 |
-| Total incluyendo ese lote adicional | Suma | **0.178** |
+- ID y versión de la propuesta, fecha, proyecto, objetivo y estado de conciliación del registro.
+- Gasto confirmado previo, reservas pendientes previas y operaciones/cupos consumidos de la preexploración y otras fases.
+- Por endpoint: finalidad, contrato/parámetros, tareas/llamadas, cantidad máxima de ítems, ubicación, idioma, dispositivo y extras pertinentes.
+- Tarifas máximas verificadas, fuente y fecha de comprobación; máximos por llamada y por endpoint, cupos de intentos y reintentos.
+- Resultados/entregables esperados, cobertura que permite decidir y limitaciones/incertidumbres.
+- **Máximo adicional**, con margen explícito incluido, y **total máximo acumulado del proyecto**: gasto previo + reservas previas + máximo adicional.
+- Qué queda fuera: hosting, servicios comerciales, créditos ajenos, activación SEM u otras operaciones no incluidas; alternativas si cambian alcance o evidencia.
+- Recomendación de mantenimiento/consultoría separada, que no autoriza recurrencia ni compras futuras.
+- Autorización `null` hasta aprobación explícita; después, texto exacto del usuario, fecha, propuesta/versión y límites aprobados.
 
-Fuentes: [Labs Google](https://dataforseo.com/pricing/dataforseo-labs/dataforseo-google-api), [Google SERP](https://dataforseo.com/pricing/google-serp/google-organic-serp-api), [Google Ads](https://dataforseo.com/pricing/keywords-data/google-ads).
+Presentar una estimación comprensible antes de comprar la investigación principal. El máximo adicional es dinero nuevo permitido; el total acumulado ya incluye gastos/reservas previos, que **no se reinician ni se suman dos veces**. Si cambia versión, no trasladar por inferencia la aprobación a un presupuesto mayor o distinto. Actualizar el proyecto con la autorización exacta y comprobar su compatibilidad con los límites de cuenta/cartera/lote existentes.
 
-Suggestions ya incluye volúmenes: no volver a comprarlos sin motivo. Google Ads puede aportar una ubicación distinta admitida por el endpoint, palabras adicionales o datos faltantes. Comprobar las ubicaciones admitidas por cada herramienta instalada: la revisión original observó país en Suggestions y ubicaciones más específicas en SERP. Declara siempre la granularidad real.
+Al cerrar la preexploración, congelar nuevas compras mientras se espera aprobación: la base de gasto/reservas de la propuesta debe permanecer estable. **Toda llamada nueva después de aprobar consume el máximo adicional**, aunque aclare una pregunta de preexploración. Una reserva previa pendiente no se libera ni se repite sin evidencia.
 
-Este cálculo no incluye ranking garantizado, todas las APIs del catálogo, créditos de IA, alojamiento ni revisiones futuras. Este cálculo es histórico y debe actualizarse antes de comprar; el saldo de la cuenta no constituye autorización. No se verificó el saldo ni se gastó DataForSEO al preparar este sistema.
+Con aprobación vigente, ejecutar sin nuevas confirmaciones por cada llamada cubierta. Si falta una dependencia para presupuestar, presentar lo conocido y señalar lo pendiente; no declarar autorizado el coste desconocido. Una ampliación necesita propuesta y autorización concretas; no se compra para alcanzar una puntuación.
 
-## 3. El control real: tres niveles
+## 5. Un comprador y un registro acumulado
 
-**Instrucción:** el agente recibe los topes por web y consulta. Es una regla que debe cumplir.
+Sol coordinador es el único comprador DataForSEO. Subagentes solicitan datasets y reutilizan respuestas/caché; no reciben compradores ni presupuestos separados. Ni el iniciador ni estos documentos interceptan el MCP.
 
-**Registro y coordinación:** un único coordinador ejecuta las llamadas de pago y registra todas las reservas y costes. Los especialistas reutilizan los resultados. Esto evita que cada subskill compre la misma investigación.
+Una cartera nueva usa `.control/dataforseo.jsonl`, resuelto desde la raíz del kit. Una cartera existente conserva su registro privado original o copia completa vinculada. Un chat, cuenta, clon, traslado, fase o módulo no reinicia autorizaciones, gasto, reservas ni cupos. No sustituir un historial por registro vacío. Respaldarlo fuera de Git.
 
-**Límite del proveedor:** DataForSEO puede rechazar peticiones que excedan un máximo diario. Es la protección aplicada por el propio servicio.
+Si existe un lote autorizado, sus límites y los del proyecto deben permitir simultáneamente la operación. No inventar lotes ni trasladar saldo. Un proyecto individual no requiere lote. Un límite diario del proveedor solo existe si su configuración fue comprobada; no configurarlo por inferencia ni presentarlo como protección local.
 
-En la instalación original, revisada el 9/10/2026, se encontró el helper en:
-`C:/Users/MARCO/.codex/skills/seo/scripts/dataforseo_costs.py`.
+Antes de cada intento:
 
-Es una ruta de referencia histórica. En otro equipo, localizarlo desde el `SKILL.md` instalado. Esa revisión de solo lectura encontró:
+1. Leer contrato y precios vigentes del endpoint. Descubrir el helper desde el `SKILL.md` instalado, consultar su uso y ejecutar el check requerido; las tablas aproximadas del helper no prueban precio actual ni autorización.
+2. Reconciliar JSONL por request_id, autorización, gasto/reservas y cupos del proyecto/cartera/lote pertinente; verificar saldo suficiente actual.
+3. Escribir evento `reservado` **antes** de llamar: fecha, proyecto/campaña/lote autorizado, endpoint, parámetros completos, autorización y coste máximo. La reserva consume importe y cupo. Si no puede escribirse/reconciliarse, no llamar.
+4. Guardar respuesta original, task_id y coste facturado. Escribir `completado` y sustituir la reserva por coste real, sin contar total y subtareas dos veces. Ejecutar el log requerido por la skill; ese log global no sustituye el JSONL de cartera.
+5. Si no se conoce el coste, escribir `costependiente` y conservar reserva/cupo hasta resolver con evidencia. Un fallo confirmado sin cargo puede completarse con 0; el intento sigue contado.
 
-- No había configuración personalizada de costes en las ubicaciones que usaba el helper; regían sus valores predeterminados: USD 10 diarios y umbral de aprobación de USD 0.50.
-- Estimaba con una tabla aproximada. Por ejemplo, volumen figuraba como USD 0.05, mientras Google Ads Live publicaba USD 0.09 en la fecha de revisión.
-- No calcula presupuesto por web ni recibe todos los parámetros que modifican el coste.
-- Las operaciones check y log están separadas y no reservan presupuesto.
-- No intercepta las llamadas MCP; en Windows no protege su registro con bloqueo entre procesos.
-- Un resultado blocked no se expresa necesariamente como fallo de proceso. Hay que leer el JSON, no fiarse del código de salida.
+Estados de evento: `propuesta`, `reservado`, `completado`, `costependiente`. Cada reintento tiene ID propio y referencia el anterior. Los totales en `proyecto.json` son vistas derivadas con fecha; no editarlos manualmente para ajustar límites. Diferencias o reservas no reconciliadas impiden nuevas compras.
 
-Se conserva el procedimiento check/log que pide la subskill, pero la estimación vigente y el registro por proyecto de este protocolo son necesarios. No se modificaron la skill global, su helper, su ledger histórico ni tu cuenta.
+Caché por fecha, endpoint y parámetros completos: SERP 7 días, volúmenes 30. Datos actuales solicitados requieren consultas nuevas autorizadas. Los defaults US/English/depth 100 de la skill DataForSEO no se aplican frente a parámetros y límites explícitos del proyecto.
 
-### Configurar el límite que sí aplica el proveedor
+## 6. SEO completo y contenido antes del diseño
 
-En el panel DataForSEO, abre **API Settings → API Limits**, configura el máximo diario global deseado y comprueba que quedó guardado. El valor sugerido para este perfil es USD 3. Considera los demás proyectos que utilicen esa misma cuenta, porque también les afectará.
+Leer la skill principal `seo` y su routing, evaluar las 26 subskills en `SEO-COBERTURA.md` y ejecutar los flujos completos pertinentes según [SEO-COMPLETO.md](SEO-COMPLETO.md). No marcar una disciplina como cubierta por nombrarla ni como no aplicable por carecer de acceso. Cargar referencias al usar la disciplina, sin leerlas todas al comienzo.
 
-DataForSEO permite límites globales y por API/endpoint. Su día se reinicia a las 00:00 UTC, es decir, a las 19:00 de Lima. Rechaza las tareas que exceden el límite con código 40203. [Documentación oficial](https://dataforseo.com/help-center/limit-my-payments).
+El contenido fija por página visitante, intención, jerarquía, pruebas disponibles, dudas, metadatos y acción. Sol redacta el contenido incluido en el alcance y guarda fuentes originales; no inventa productos, precios, stock, casos, credenciales ni resultados. Contenido especializado conserva revisión competente pendiente cuando corresponda.
 
-**Estado al preparar la copia original el 9/10/2026: ese límite no se configuró ni comprobó en la cuenta.** Verificar su estado real al utilizarlo. Los archivos locales no pueden activarlo por sí solos.
+## 7. Tres homepages y toda la web
 
-## 4. Reglas para que las subskills compartan presupuesto
+Astra ultra recibe META, contenido, identidad, referencias y responsabilidad explícita de archivos. Preparar A/B/C realmente distintas; construir un comparador navegable, iniciar las previews y comprobar URLs, capturas completas y recorridos en escritorio/móvil. La homepage es la prueba principal; añadir interior representativo cuando aporte a la decisión, sin exigir tres webs completas. En una landing, comparar sus secciones y recorrido.
 
-1. **Un solo comprador de datos.** El coordinador es el único que llama a DataForSEO. Las demás subskills o subagentes le solicitan información y reciben datasets guardados.
-2. **Una reserva antes de enviar.** Se registra proyecto, tanda, endpoint, parámetros, pregunta, coste máximo y request_id único. Se compara gasto confirmado + reservas pendientes + nueva reserva contra todos los límites.
-3. **Un registro al terminar.** Se guarda el coste devuelto y el task_id; se sustituye la reserva por el coste, sin sumar ambos ni contar a la vez el total y sus subtareas.
-4. **Un error no equivale a coste cero.** Si se pierde la respuesta, se mantiene la reserva y se marca coste pendiente. Se resuelve con evidencia antes de repetir o liberar.
-5. **No ampliar por iniciativa propia.** No añadir backlinks, rastreos de pago, mapas masivos, monitorización de IA, clickstream, operadores especiales, profundidad o paginación. Son ampliaciones posibles cuando tú las autorizas con su presupuesto.
-6. **Sin bucles para alcanzar una puntuación.** Terminar investigación cuando hay datos suficientes para decidir intención y arquitectura, aunque sobre presupuesto. Los informes no deben desencadenar consultas infinitas.
+Revisar e iterar propuestas antes de presentarlas. Registrar `esperando_eleccion_visual` y esperar elección o combinación concreta; silencio no elige. Guardar elección/ajustes antes de construir. Astra ultra desarrolla después **todas las páginas y flujos acordados**, con componentes reutilizables y datos centralizados/validados. La dirección elegida se extiende al recorrido interior; no basta una portada cuidada.
 
-Si usas tus dos cuentas en paralelo, dedica una al coordinador que compra datos. La otra puede trabajar contenido, diseño o código con los datasets compartidos. Dos chats con acceso a un mismo archivo no constituyen por sí solos un bloqueo técnico.
+## 8. Verificación y entrega
 
-El iniciador automatiza la entrevista y prepara archivos; **no es una pasarela que impida llamadas directas de pago**. Para permitir varios compradores simultáneos con un bloqueo duro por sitio haría falta que todas las llamadas pasaran por un ejecutor con reservas atómicas y acceso exclusivo a las credenciales. Ese control de pagos no está implementado: se mantiene un único comprador.
+Sol high ejecuta `seo-audit` completo: rastreo, ocho especialistas siempre y siete condicionales según el protocolo instalado, puntuación sustentada, informe, plan priorizado y caché. Con slots limitados, completar las disciplinas secuencialmente. Aplicar también tipos, build, rutas/enlaces, accesibilidad, diseño responsive y E2E de los módulos activos.
 
-## 5. Una ficha de entrada y seis fases
+Astra ultra corrige defectos de código/diseño y Sol verifica las partes afectadas. No repetir auditorías completas sin causa ni cerrar fallos críticos por un límite de ciclos. Comparar cada entregable de `META.md` con evidencia, entorno y resultado: `aprobado`, `fallo`, `pendiente` o `no_aplica`.
 
-La entrevista pregunta solo lo que falta, **una pregunta cada vez**, y adapta las preguntas funcionales a los módulos de la idea:
+Registrar el estado real: `en_construccion`, `preview_verificada`, `lista_para_publicar`, `publicada_verificada` u `operativa_verificada`. Una preview no demuestra publicación, indexación, GSC/GBP, rendimiento de campo o conversiones reales; dejar esos elementos externos pendientes. `lista_para_publicar` exige dependencias esenciales resueltas y controles previos aprobados; publicación exige URL pública revisada, operación exige recepción/registro del flujo real. Pagos se prueban con eventos controlados en modo de prueba, sin cobros reales.
 
-- Idea y público: ¿para quién es y qué necesidad atiende?
-- Acción principal: ¿contacto, compra, registro, participación, lectura u otra?
-- Mercado: país, ciudad si aplica, idioma y alcance territorial.
-- Materiales: información, fotos, pruebas disponibles y responsable del contenido especializado.
-- Punto de partida: web/dominio, identidad y referencias que deban conservarse.
-- Alcance y autonomía: qué debe incluir la primera versión, presupuesto de datos y autorización de publicación.
-
-No es necesario saber SEO ni elegir subskills manualmente para cada fase.
-
-Al terminar la entrevista se muestra `META.md`. Sol concreta páginas y cantidades, funciones, entregables, exclusiones, flujos a probar y pendientes a partir de las respuestas **antes de investigar**, sin una aprobación adicional. Puede redactar contenido nuevo del alcance; no inventa productos, precios, testimonios ni pruebas comerciales. La entrevista registra si la entrega será solo preview o incluirá publicación autorizada, con destino y límites explícitos.
-
-La configuración local `.codex/config.toml` solicita `gpt-6.1-sol` con razonamiento `high`; `.codex/agents/disenador.toml` define el rol `disenador` con `gpt-6-astra` y `ultra`. Sol coordina y delega al rol visual al llegar al diseño. Comprobar que el cliente carga la configuración, admite la delegación y que la cuenta tiene acceso: el nombre en un prompt no selecciona el modelo. Si falta soporte, preparar el traspaso sin sustituciones silenciosas y continuar el trabajo independiente. Inicio de sesión, confianza y permisos del CLI pueden exigir pasos externos y no se eluden. [Comandos del CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli), [configuración de subagentes](https://learn.chatgpt.com/docs/agent-configuration/subagents).
-
-| Fase | Modelo y skills | Resultado que permite avanzar |
-|---|---|---|
-| 1. Encargo | Sol high + seo-plan; seo-page si se trabaja una URL existente | Entrevista, ficha y META.md, sin cambiar tu proyecto o forma de asociación |
-| 2. Investigación | Sol high + seo-dataforseo si se autoriza; seo-sxo para intención; seo-cluster si la arquitectura lo necesita | Datos guardados, búsquedas agrupadas por intención, competidores pertinentes y mapa de URLs |
-| 3. Contenido | Sol high + seo-content; seo-local cuando corresponda | Texto real, jerarquía, metadatos y materiales por página |
-| 4. Diseño | Astra ultra + frontend-design | Tres mockups A/B/C revisados, URLs reales, móvil/escritorio/interior pertinente y elección guardada |
-| 5. Implementación | Sol high + astro; seo-technical, seo-schema, seo-images, seo-sitemap según necesidad | Web Astro + Tailwind y flujos correspondientes a sus módulos |
-| 6. Verificación | Sol high; Astra ultra para revisión visual; skills pertinentes según alcance/accesos | Entrega comparada con META.md, pruebas, correcciones, línea base y pendientes explícitos |
-
-Se activa seo-hreflang para sitios multilingües; seo-ecommerce para tiendas; seo-programmatic para generación a escala cuando corresponda. Esas capacidades no autorizan automáticamente compras adicionales. Un seo-audit solicitado sigue su procedimiento completo, pero sus especialistas comparten datos y no reciben presupuestos separados.
-
-Las fases avanzan sin aprobación por fase. Tras la entrevista, la **única pausa ordinaria** es la elección A/B/C o combinación; luego implementar, probar y corregir hasta la entrega contra la meta. Una incógnita decisiva, dependencia esencial, modelo/acceso no disponible, coste fuera de autorización o publicación no autorizada puede requerir intervención: detener solo la acción dependiente y continuar el trabajo independiente. Una autorización existente no se vuelve a pedir.
-
-### El contenido guía al diseño
-
-Por página, definir antes del diseño: visitante, intención, información principal, pruebas disponibles, dudas y acción. Usar textos reales. Para una dirección nueva, Astra ultra prepara **tres mockups A/B/C** distintos en composición, tipografía y estilo, con escritorio, móvil e interior representativo cuando corresponda. Mantener las restricciones de una identidad existente; si ya existe elección, no repetirla. Construir un comparador navegable con URLs de previews realmente iniciadas: no bastan tres descripciones o paletas. Revisar capturas completas y recorridos antes de presentar, iterar internamente, corregir y descartar propuestas que no cumplan el contenido y la calidad visual. El usuario elige A, B, C o una combinación concreta antes de extenderla.
-
-Luego Sol high implementa esa dirección en Astro + Tailwind. Astra ultra revisa el resultado contra el diseño elegido y se corrigen defectos materiales. En una tienda se revisan ficha de producto y compra; en un blog, artículo y navegación; en servicios, página interior y contacto. Ajustar la longitud y disposición del contenido es válido, conservando la información útil. No inventar datos para completar una sección visual.
-
-En el ejemplo de autismo, el sistema pregunta si se trata de información, comunidad o servicio profesional, y quién valida las afirmaciones especializadas. Ese dato cambia la arquitectura y la revisión editorial; no implica elegir el negocio por ti.
-
-## 6. Cuándo está terminado
-
-Antes de entregar, comparar cada elemento de `META.md` con la evidencia: páginas y cantidades, funciones, entregables, exclusiones, flujos críticos y pendientes. La meta se muestra al terminar la entrevista y Sol la concreta a partir de las respuestas antes de investigar, sin una aprobación adicional. No se cierra un elemento por existir código. Una entrega se verifica por resultados observables:
-
-- El contenido responde al propósito y sus afirmaciones tienen respaldo.
-- Las páginas y sus enlaces funcionan en móvil y escritorio.
-- El contacto o acción principal se prueba de extremo a extremo.
-- Metadatos, canonical, robots, sitemap e indexabilidad son coherentes con el entorno.
-- Schema e imágenes se ajustan a los datos reales y al sitio.
-- No quedan bloqueos críticos en el alcance comprobado; se documenta lo que no pudo probarse.
-- La publicación, si está autorizada, se verifica en su URL real.
-- La medición queda disponible o se identifica el acceso pendiente.
-
-Cada comprobación se registra como aprobado, fallo, pendiente o no aplica, con evidencia. Antes de cerrar se corrigen fallos materiales de diseño, contenido y funcionamiento; se repiten las pruebas afectadas. Las pruebas específicas de cada módulo se suman a esta lista, no se sustituyen por una revisión de la portada.
-
-El estado de entrega separa `preview_verificada`, `lista_para_publicar`, `publicada_verificada` y `operativa_verificada`. Un build correcto no acredita revisión visual; un carrito diseñado no acredita cobros; un botón que abre WhatsApp no demuestra recepción de pedido. No se declara listo el alcance si falta una dependencia esencial. La calidad se demuestra con estas comprobaciones y correcciones; un prompt, modelo o puntuación no la garantiza.
-
-Un score de la skill no es una probabilidad de posicionar. SEO implementado y probado es una entrega; visibilidad y resultados orgánicos se observan después. El presupuesto controla el trabajo de investigación, no compra una posición en Google.
-
-## 7. Cómo repetir sin empezar desde cero
-
-Conserva esta estructura dentro de la raíz del kit, donde está `AGENTS.md`:
-
-```text
-AGENTS.md                         reglas comunes para Codex
-EMPEZAR.md                        guía de entrevista terminal e inicio
-PROMPT-MAESTRO.md                  mensaje corto para iniciar o retomar
-PERFILES-Y-CALIDAD.md              módulos y comprobaciones específicas
-iniciar.mjs                       entrevista y apertura del CLI o mensaje IDE
-.codex/                           configuración local del coordinador y diseñador
-plantillas/proyecto.json           ficha y límites copiables
-.control/dataforseo.jsonl          registro compartido; se crea al operar
-proyectos/
-  nombre-elegido/
-    proyecto.json                 ficha, autorización y tanda
-    META.md                       alcance concreto y criterios de entrega
-    INICIAR-CODEX.md               mensaje preparado para iniciar el trabajo
-    ESTADO.md                     fase, decisiones, pendientes, siguiente paso
-    CONTENIDO.md                  textos y mapa de páginas
-    .seo-cache/                   datos y resultados de las subskills
-    sitio/                        implementación
-```
-
-No crees todas las carpetas por adelantado. El coordinador crea lo necesario al iniciar cada proyecto.
-
-El repositorio comparte las instrucciones, plantillas y guía PDF. `proyectos/`, `.control/`, cachés y evidencias privadas quedan fuera de Git; las webs pueden tener repositorios separados. Las skills y credenciales se configuran en el entorno que utiliza el clon.
-
-Si retomas una cartera desde otro clon, vincula el registro privado existente o restaura su copia completa antes de operar. `control_root: "."` en la plantilla se resuelve desde la raíz del kit; el coordinador guarda la ubicación efectiva del registro de la cartera. Clonar no reinicia presupuestos ni autoriza nuevas compras. Conserva un respaldo privado de `.control/`, porque no se sube a GitHub.
-
-La caché de la skill se mantiene en .seo-cache/, con sus esquemas. Añade parámetros, fecha de obtención y fecha de actualización del dato cuando exista. Para la planificación inicial, reutiliza SERPs hasta 7 días y volúmenes hasta 30 días si siguen respondiendo la misma pregunta. Son ventanas propuestas por este sistema, no reglas del proveedor. Si pides evidencia actual, cambian parámetros o hay una contradicción, decide una actualización dentro del presupuesto.
-
-Se pueden compartir datos públicos entre proyectos cuando coincidan consulta, parámetros, fecha y mercado. No mezclar contenido privado, medición, credenciales ni identidad comercial de distintas webs. Live en Labs describe el modo de respuesta; no significa que su volumen se mida en ese instante.
-
-Para otra web, ejecuta de nuevo `node iniciar.mjs` en la misma copia del kit; no clones por web. Reutiliza componentes y comprobaciones. Distribuye trabajo de contenido/código entre agentes; concentra investigación de pago en el coordinador. No reinicies gasto ni reservas al abrir otro chat.
-
-## 8. Uso inmediato
-
-Abre esta carpeta en Codex y utiliza [EMPEZAR.md](EMPEZAR.md). El coordinador aplica [AGENTS.md](AGENTS.md), [los perfiles](PERFILES-Y-CALIDAD.md) y copia [la ficha](plantillas/proyecto.json) para el proyecto que elijas. [PROMPT-MAESTRO.md](PROMPT-MAESTRO.md) conserva las opciones ampliadas para lotes y revisiones.
-
-Si trabajas fuera de la copia del kit, indica su ruta o copia las reglas comunes al proyecto correspondiente. No supongas que una carpeta ajena hereda estas instrucciones. Compartir la URL de GitHub no instala las skills ni inicia el procedimiento por sí solo: Codex debe poder leer los archivos del repositorio.
-
-Ejecuta `node iniciar.mjs` o `node iniciar.mjs --solo-preparar` desde la raíz. Si usas directamente el chat, describe la idea en pocas líneas; Sol entrevista una pregunta cada vez. No necesitas redactar un megaprompt nuevo para cada web.
+Entregar URL real, código, comparación contra META, cobertura SEO, evidencias/pendientes y coste acumulado. Recomendar mantenimiento cuando corresponda, sin activarlo automáticamente. Si solo se autorizó preview, entregarla sin imponer publicación como paso final.

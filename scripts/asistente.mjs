@@ -58,7 +58,7 @@ export function inferModules(action, functions = '') {
 export function parseBudget(value) {
   const text = value.trim();
   if (text === '') return 0;
-  if (!/^(?:0(?:[.,]\d+)?|1(?:[.,]0+)?)$/.test(text)) throw new Error('Indica 0, 1 u otro importe entre 0 y 1 USD.');
+  if (!/^(?:0(?:[.,]\d+)?|1(?:[.,]0+)?)$/.test(text)) throw new Error('Indica un tope para la exploración inicial entre 0 y 1 USD.');
   return Number(text.replace(',', '.'));
 }
 
@@ -125,11 +125,11 @@ export async function interview({ input = process.stdin, output = process.stdout
       const confirmation = await question('confirmacion_publicacion', `¿Autorizas expresamente publicar esta web en ${publication.target}, tras verificar el alcance, sin contratar servicios ni activar cobros? [no; escribe sí para autorizar]`, { fallback: 'no' });
       publication.authorized = /^(si|sí)$/iu.test(confirmation) && !missing(publication.target);
     }
-    const budgetText = await question('presupuesto', '¿Qué presupuesto acumulado autorizas como máximo para DataForSEO en esta investigación?\n0 = sin consultas de pago (predeterminado); 1 = perfil base; otro importe de 0 a 1 USD. [0]', { fallback: '0', validate: parseBudget });
+    const budgetText = await question('presupuesto', '¿Qué tope acumulado propones SOLO para la pequeña exploración inicial del rubro con DataForSEO?\n0 = sin consultas de pago (predeterminado); sugerido USD 0.10; permitido entre 0 y 1 USD. Este importe no cubre ni autoriza la investigación completa: después recibirás un presupuesto concreto para aprobar. [0]', { fallback: '0', validate: parseBudget });
     const budget = parseBudget(budgetText);
     let authorized = false;
     if (budget > 0) {
-      const confirm = await question('confirmacion_datos', `La entrevista está completa. ¿Autorizas expresamente hasta USD ${budget.toFixed(2)} acumulados para esta web, máximo USD 0.10 por intento y solo los endpoints/cupos del perfil base de AGENTS.md?\nLa autorización no reemplaza tarifas, saldo, registro único ni reconciliación. [no; escribe sí para autorizar]`, { fallback: 'no' });
+      const confirm = await question('confirmacion_datos', `La entrevista está completa. ¿Autorizas expresamente hasta USD ${budget.toFixed(2)} acumulados SOLO para exploracion_inicial, máximo USD 0.10 por intento: hasta 3 intentos SERP (una tarea, depth 10, max_crawl_pages 1, sin extras) y 1 intento de sugerencias (máximo 25 ítems)? Los reintentos cuentan dentro de esos cupos: máximo 1 por consulta y 1 en total.\nLa investigación completa sigue sin autorización; el coordinador cerrará la exploración y te pedirá aprobar su presupuesto (ya gastado + reservas pendientes + máximo adicional = máximo total). Esta autorización no reemplaza tarifas, saldo, registro único ni reconciliación. [no; escribe sí para autorizar]`, { fallback: 'no' });
       authorized = /^(si|sí)$/iu.test(confirm);
     }
     return {
@@ -165,9 +165,10 @@ export function createProject(template, intake, root) {
   const criteria = [
     'Contenido real y acción principal definida en cada página acordada.',
     'Astro + Tailwind CSS + TypeScript; datos centralizados, tipos y build aprobados.',
-    'Tres mockups A/B/C con contenido real, escritorio, móvil e interior representativo; elección registrada.',
+    'Tres mockups de homepage A/B/C con contenido real, escritorio y móvil, URL comprobada y elección registrada; Astra ultra desarrolla después la web completa.',
     'Navegación, enlaces, imágenes, teclado, contraste y flujos críticos comprobados en navegador.',
-    'SEO técnico comprobado; medición y dependencias faltantes registradas con evidencia.',
+    'Catálogo completo de skills SEO AgriciDaniel evaluado y auditoría SEO total del alcance aplicable con correcciones verificadas; medición y dependencias faltantes registradas con evidencia.',
+    'Exploración inicial cerrada y presupuesto SEO concreto aprobado expresamente antes de la investigación completa.',
   ];
   Object.assign(project, {
     status: 'brief_completado', project_id: intake.slug, campaign_id: `${intake.slug}-inicial`,
@@ -189,27 +190,47 @@ export function createProject(template, intake, root) {
   project.diseno = {
     ...project.diseno, referencias: intake.references === 'ninguna' ? [] : list(intake.references),
     propuestas: ['A', 'B', 'C'], direccion_seleccionada: null,
-    vistas_a_comprobar: ['escritorio', 'movil', 'interior_representativo'],
+    vistas_a_comprobar: ['homepage_escritorio', 'homepage_movil'],
   };
   project.models = {
     ...project.models,
-    produccion: { ...project.models?.produccion, model: 'GPT-6.1 Sol', model_id: 'gpt-6.1-sol', reasoning: 'high', requested: true, selection_verified: false },
+    produccion: { ...project.models?.produccion, model: 'GPT-6.1 Sol', model_id: 'gpt-6.1-sol', reasoning: 'high', aplica_a: ['coordinacion', 'consultoria_seo', 'investigacion', 'contenido', 'auditoria'], requested: true, selection_verified: false },
     diseno: { ...project.models?.diseno, model: 'GPT-6 Astra', model_id: 'gpt-6-astra', reasoning: 'ultra', agent_role: 'disenador', requested: true, selection_verified: false },
+    desarrollo: { ...project.models?.desarrollo, model: 'GPT-6 Astra', model_id: 'gpt-6-astra', reasoning: 'ultra', agent_role: 'desarrollador', requested: true, selection_verified: false },
   };
   project.workflow = {
     ...project.workflow, phase: 'meta', advance_automatically_within_authorization: true,
-    pausa_ordinaria: 'eleccion_visual_A_B_C', pendientes: pending,
-    siguiente_accion: 'Mostrar META enriquecida, concretar cantidades pendientes y avanzar con investigación/contenido dentro de autorización.',
+    phases: project.workflow?.phases ?? ['brief', 'meta', 'exploracion', 'presupuesto_seo', 'investigacion', 'contenido', 'diseno', 'seleccion_visual', 'construccion', 'verificacion_seguimiento'],
+    pausas_ordinarias: ['aprobacion_presupuesto_seo', 'seleccion_visual'], pendientes: pending,
+    siguiente_accion: 'Mostrar META enriquecida, concretar cantidades pendientes y realizar solo la exploración inicial autorizada; cerrar esa fase y presentar presupuesto SEO para aprobación expresa antes de la investigación completa.',
   };
+  delete project.workflow.pausa_ordinaria;
+  delete project.workflow.pausa_ordinaria_tras_entrevista;
+  project.seo = { ...project.seo, coverage_catalogue: project.seo?.coverage_catalogue ?? [] };
   project.dataforseo = {
-    ...project.dataforseo, budget_usd: intake.budget,
-    policy_status: intake.authorized ? 'autorizada_condicionada_a_verificacion_operativa' : 'sin_autorizacion',
-    authorization: intake.authorized ? {
-      type: 'explicit_interview_confirmation', confirmed_at: now, response: intake.answers.confirmacion_datos.raw,
-      project_id: intake.slug, budget_usd: intake.budget, max_call_usd: 0.1,
-      endpoint_families: ['labs_keyword_suggestions', 'google_ads_search_volume', 'google_organic_serp'],
-      limits_reference: 'AGENTS.md perfil base', scope: 'investigacion_inicial_acumulada_por_sitio',
-    } : null,
+    ...project.dataforseo, phase: 'exploracion', budget_usd: intake.budget,
+    budget_scope: 'maximo_total_acumulado_del_proyecto_incluida_exploracion_no_mensual', max_call_usd: 0.1,
+    policy_status: intake.authorized ? 'solo_exploracion_autorizada_condicionada_a_verificacion_operativa' : 'sin_autorizacion',
+    authorization: null, limits: null,
+    exploracion: {
+      ...project.dataforseo?.exploracion, budget_usd: intake.budget, suggested_budget_usd: 0.1, status: 'pendiente', max_call_usd: 0.1,
+      authorization: intake.authorized ? {
+        type: 'explicit_interview_confirmation', confirmed_at: now, response: intake.answers.confirmacion_datos.raw,
+        project_id: intake.slug, budget_usd: intake.budget, max_call_usd: 0.1,
+        endpoint_families: ['labs_keyword_suggestions', 'google_organic_serp'],
+        limits_reference: 'AGENTS.md exploración inicial', scope: 'exploracion_inicial',
+      } : null,
+      limits: {
+        all_attempts_include_retries: true,
+        labs_keyword_suggestions: { max_attempts: 1, max_items_per_attempt: 25 },
+        google_organic_serp: { max_attempts: 3, tasks_per_call: 1, depth: 10, max_crawl_pages: 1, extras: false },
+        retries: { max_per_query: 1, max_total_per_site: 1, included_in_endpoint_and_money_limits: true, auto_retry_unknown_cost_or_timeout: false },
+      },
+    },
+    investigacion: {
+      ...project.dataforseo?.investigacion, status: 'pendiente_presupuesto', proposal: null, authorization: null,
+      additional_budget_usd: null, approved_project_total_usd: null,
+    },
     control_root: '.', control_root_base: 'kit_repository_root',
     shared_ledger_candidate_absolute_path: resolve(root, '.control', 'dataforseo.jsonl'),
     shared_ledger_resolved_path: null,
@@ -227,16 +248,16 @@ export function createProject(template, intake, root) {
 }
 
 export function codexPrompt(slug) {
-  return `Inicia el proyecto proyectos/${slug}. Lee AGENTS.md y PERFILES-Y-CALIDAD.md; en proyectos/${slug}/ lee META.md, ESTADO.md, proyecto.json e INICIAR-CODEX.md. Muestra su META enriquecida antes de trabajar y concreta cantidades pendientes. Avanza automáticamente con Sol 6.1 high en contenido, SEO y programación. Para diseño usa el rol disenador si está disponible y verifica Astra ultra: tres mockups reales A/B/C, escritorio/móvil/interior, comprobados en navegador; pausa para la elección visual. Después vuelve a Sol 6.1 high y termina el alcance autorizado. Verifica la selección real; un prompt no cambia el modelo. Respeta presupuesto y registro compartido. No publiques sin autorización explícita.`;
+  return `Inicia el proyecto proyectos/${slug}. Lee AGENTS.md, PERFILES-Y-CALIDAD.md, SEO-COMPLETO.md y plantillas/PRESUPUESTO-SEO.md; en proyectos/${slug}/ lee META.md, ESTADO.md, proyecto.json e INICIAR-CODEX.md. Muestra su META enriquecida y concreta cantidades antes de trabajar. Sol 6.1 high coordina, hace consultoría SEO, contenido y auditoría. Evalúa el catálogo completo de skills SEO AgriciDaniel disponible y registra cobertura aplicable, evidencia y motivos de no_aplica en SEO-COBERTURA.md; no uses herramientas de pago irrelevantes. Realiza solo la pequeña exploración inicial previamente autorizada, cierra sus pagos y presenta en PRESUPUESTO-SEO.md un presupuesto concreto (ya gastado + reservas pendientes + máximo adicional = máximo total, tarifas/endpoints/cantidades/fecha/exclusiones); espera aprobación explícita antes de la investigación completa. Esa aprobación habilita investigación completa y contenido dentro de los límites acordados. Para diseño usa el rol disenador si está disponible y verifica Astra ultra: tres mockups de homepage A/B/C con contenido real, escritorio/móvil y URL comprobada; espera elección A/B/C o combinación concreta. Después verifica Astra ultra en el rol desarrollador para implementar TODA la web elegida en Astro + Tailwind CSS + TypeScript. Sol 6.1 high realiza después la auditoría SEO total del alcance aplicable y coordina correcciones con Astra ultra hasta verificar la entrega. Verifica la selección real en cada fase; un prompt no cambia el modelo. Respeta presupuesto y registro compartido, no reinicies autorizaciones/gasto desde otro chat o clon y no prometas rankings. No publiques sin autorización explícita.`;
 }
 
 function renderMeta(project) {
   const meta = project.meta;
-  return `# META — ${project.project_id}\n\n${meta.objetivo}\n\nIdea: ${project.idea}\n\nAcción principal: ${project.accion_principal}. Idioma: ${project.mercado.idioma}.\n\nEntrega solicitada: ${project.alcance.entrega_solicitada}. ${project.alcance.publicacion_authorization ? "Publicación autorizada expresamente en " + project.alcance.publicacion_authorization.target + "; requiere verificar destino, accesos y alcance." : project.alcance.entrega_prevista === "preview_verificada" ? "Publicación fuera de esta entrega." : "Publicación solicitada: revisar la declaración original y obtener/verificar autorización y destino antes de ejecutar."}\n\nPáginas/funciones declaradas: ${project.intake.responses.paginas_funciones.value}.\nCantidad inicial: ${meta.cantidad_paginas ?? 'pendiente de concretar'}. El coordinador debe distinguir páginas de funciones, fijar rutas y cantidades antes de investigar; mostrar la META enriquecida sin pedir aprobación habitual.\n\n## Partidas y criterios comprobables\n\n${meta.criterios.map(item => `- [ ] ${item}`).join('\n')}\n- [ ] Revisar módulos activos (${project.arquitectura.modulos.join(', ') || 'por clasificar desde la idea'}) contra PERFILES-Y-CALIDAD.md.\n- [ ] Resolver las dependencias esenciales antes de declarar la entrega verificada.\n\n## Dependencias\n\n${meta.dependencias_pendientes.length ? meta.dependencias_pendientes.map(item => `- ${item}`).join('\n') : '- Verificar declaraciones, contactos, materiales e integraciones; ninguna prueba se da por aprobada.'}\n\n## Datos y límites\n\nDataForSEO: máximo propuesto USD ${project.dataforseo.budget_usd.toFixed(2)}; ${project.dataforseo.authorization ? 'autorización expresa registrada, sujeta a verificación de tarifas/saldo/registro y cupos' : 'sin autorización de pago'}. No se ha realizado ninguna consulta. Localizar el registro privado original y reconciliar antes de pagar; no crear un registro vacío para sustituir historial.\n\nLa meta comprueba una entrega; no promete ventas, posiciones ni visitas.\n`;
+  return `# META — ${project.project_id}\n\n${meta.objetivo}\n\nIdea: ${project.idea}\n\nAcción principal: ${project.accion_principal}. Idioma: ${project.mercado.idioma}.\n\nEntrega solicitada: ${project.alcance.entrega_solicitada}. ${project.alcance.publicacion_authorization ? "Publicación autorizada expresamente en " + project.alcance.publicacion_authorization.target + "; requiere verificar destino, accesos y alcance." : project.alcance.entrega_prevista === "preview_verificada" ? "Publicación fuera de esta entrega." : "Publicación solicitada: revisar la declaración original y obtener/verificar autorización y destino antes de ejecutar."}\n\nPáginas/funciones declaradas: ${project.intake.responses.paginas_funciones.value}.\nCantidad inicial: ${meta.cantidad_paginas ?? 'pendiente de concretar'}. El coordinador debe distinguir páginas de funciones, fijar rutas y cantidades antes de investigar; mostrar la META enriquecida sin pedir aprobación habitual.\n\n## Partidas y criterios comprobables\n\n${meta.criterios.map(item => `- [ ] ${item}`).join('\n')}\n- [ ] Revisar módulos activos (${project.arquitectura.modulos.join(', ') || 'por clasificar desde la idea'}) contra PERFILES-Y-CALIDAD.md.\n- [ ] Resolver las dependencias esenciales antes de declarar la entrega verificada.\n\n## Dependencias\n\n${meta.dependencias_pendientes.length ? meta.dependencias_pendientes.map(item => `- ${item}`).join('\n') : '- Verificar declaraciones, contactos, materiales e integraciones; ninguna prueba se da por aprobada.'}\n\n## Datos y límites\n\nDataForSEO: tope acumulado inicial USD ${project.dataforseo.exploracion.budget_usd.toFixed(2)} SOLO para la exploración inicial; ${project.dataforseo.exploracion.authorization ? 'autorización expresa de exploracion_inicial registrada, sujeta a tarifas/saldo/registro y cupos' : 'sin autorización de pago'}. La investigación completa está pendiente de presupuesto y aprobación explícita; USD 1 solo es el máximo aceptado para esta mini exploración. No se ha realizado ninguna consulta. Localizar el registro privado original y reconciliar antes de pagar; no crear un registro vacío para sustituir historial.\n\nAl cerrar la exploración, detener sus pagos y presentar PRESUPUESTO-SEO.md: ya gastado + reservas pendientes + máximo adicional = máximo total, precios vigentes, endpoints/cantidades, fecha y exclusiones. Esperar aprobación expresa antes de la investigación completa. Evaluar el catálogo completo de skills SEO AgriciDaniel y mantener SEO-COBERTURA.md. Sol 6.1 high coordina, investiga, prepara contenido y audita; Astra ultra realiza los mockups de homepage y desarrolla toda la web después de tu elección.\n\nLa meta comprueba una entrega; no promete ventas, posiciones ni visitas.\n`;
 }
 
 function renderHandoff(project) {
-  return `# Iniciar en Codex\n\nPega este prompt en un chat de Codex abierto en la raíz del kit:\n\n\`\`\`text\n${codexPrompt(project.project_id)}\n\`\`\`\n\nModelos solicitados: gpt-6.1-sol high para producción; gpt-6-astra ultra para diseño. Verificar selección real en cada traspaso y registrarla; las flags solicitadas no prueban selección. No cambiar configuración global. Si no existe selección o delegación compatible, preparar un traspaso concreto y decirlo; no atribuir el trabajo a un modelo no comprobado.\n\nEl coordinador lee las skills astro y frontend-design y las skills SEO necesarias disponibles, contrasta APIs/versiones con documentación oficial y reutiliza la entrevista. Muestra primero la meta concreta enriquecida y trabaja hasta terminar el alcance. Elabora contenido real antes del diseño. Astra ultra realiza tres propuestas distintas A/B/C con vistas de escritorio, móvil e interior representativo, abre los mockups y verifica capturas/recorridos en navegador. La única pausa ordinaria es la elección A/B/C o combinación concreta. Después Sol 6.1 high implementa y verifica la dirección elegida en Astro + Tailwind CSS + TypeScript.\n\nAvanzar dentro de lo autorizado sin pedir aprobación por fase. Si falta una decisión esencial, una integración, autorización adicional de pago/publicación o selección del modelo, pausar solo lo dependiente y continuar lo independiente. No convertir tienda con pago en catálogo ni presentar un flujo simulado como operativo. Registrar aprobados, fallos, pendientes y evidencia en ESTADO.md.\n\nCrear CONTENIDO.md y mantener .seo-cache/ según las skills utilizadas. Reconciliar el registro único de cartera antes de pagos, comprobar la autorización de proyecto.json y conservar historial. Este asistente únicamente prepara archivos y solicita una sesión interactiva; no ejecuta herramientas SEO, compras ni publicación.\n`;
+  return `# Iniciar en Codex\n\nPega este prompt en un chat de Codex abierto en la raíz del kit:\n\n\`\`\`text\n${codexPrompt(project.project_id)}\n\`\`\`\n\nModelos solicitados: gpt-6.1-sol high para coordinación, consultoría SEO, contenido y auditoría; gpt-6-astra ultra para mockups y desarrollo completo de la web. Verificar selección real en cada traspaso y registrarla; las flags solicitadas no prueban selección. No cambiar configuración global. Si no existe selección o delegación compatible, preparar un traspaso concreto y decirlo; no atribuir el trabajo a un modelo no comprobado.\n\nEl coordinador lee SEO-COMPLETO.md y plantillas/PRESUPUESTO-SEO.md, además de AGENTS.md; lee astro y frontend-design, evalúa el catálogo completo de skills SEO AgriciDaniel disponible y registra en SEO-COBERTURA.md cada área con su aplicabilidad, evidencia y motivos de no_aplica. Lee las skills al aplicarlas y contrasta APIs/versiones con documentación oficial. Reutiliza la entrevista y muestra la META concreta enriquecida.\n\nPrimera pausa planificada: después de la pequeña exploración inicial dentro de su autorización, cerrar sus pagos y presentar PRESUPUESTO-SEO.md con ya gastado + reservas pendientes + máximo adicional = máximo total, endpoints, cantidades, precios vigentes, fecha y exclusiones. Solicitar aprobación explícita del presupuesto antes de la investigación completa. La confirmación de esta entrevista solo autoriza exploracion_inicial; no existe autorización de investigación completa ni un tope universal de USD 1 para ella. Con presupuesto aprobado, completar investigación y contenido real.\n\nSegunda pausa planificada: Astra ultra, rol disenador, realiza tres propuestas de homepage A/B/C con contenido real y diferencias de composición/tipografía/lenguaje visual, vistas de escritorio y móvil y URL comprobada con capturas/recorridos. Esperar A/B/C o combinación concreta. Tras registrar la elección, Astra ultra, rol desarrollador, implementa toda la web en Astro + Tailwind CSS + TypeScript. Sol 6.1 high realiza la auditoría SEO total aplicable y coordina con Astra las correcciones hasta la entrega verificada.\n\nAvanzar dentro de lo autorizado sin añadir aprobaciones de contenido, arquitectura, programación o pruebas. Si falta una decisión esencial, integración, autorización adicional de pago/publicación o selección del modelo, pausar solo lo dependiente y continuar lo independiente. No convertir tienda con pago en catálogo ni presentar un flujo simulado como operativo. Registrar aprobados, fallos, pendientes y evidencia en ESTADO.md.\n\nCrear CONTENIDO.md, SEO-COBERTURA.md y PRESUPUESTO-SEO.md cuando corresponda; mantener .seo-cache/ según las skills utilizadas. Reconciliar el registro único de cartera antes de pagos y comprobar la autorización específica de fase en proyecto.json. Conservar historial: otro chat, clon o cuenta no reinicia gasto ni autorizaciones. Este asistente únicamente prepara archivos y solicita una sesión interactiva; no ejecuta herramientas SEO, compras ni publicación. No prometer rankings ni resultados por terminar las fases.\n`;
 }
 
 export async function saveProject({ root, intake }) {
@@ -247,7 +268,7 @@ export async function saveProject({ root, intake }) {
   const project = createProject(template, intake, root);
   const directory = join(root, 'proyectos', intake.slug);
   const meta = renderMeta(project);
-  const state = `# ESTADO — ${intake.name}\n\nEstado de entrega: en_construccion.\nEntrevista completada: ${intake.completed_at}.\nMeta: META.md (inicial, concretar cantidades antes de investigar).\nDirección visual: pendiente de elección A/B/C.\nModelos: Sol 6.1 high y Astra ultra solicitados; selección no verificada.\n\n## Comprobaciones\n\n- pendiente: contenido, tipos/build, rutas/enlaces, flujos, accesibilidad, SEO, navegador móvil/escritorio. Entorno: todavía no implementado; evidencia: ninguna.\n- pendiente: contacto/materiales e integraciones declaradas.\n- pendiente: registro de cartera original y reconciliación antes de pagar.\n- pendiente: publicación; ${project.alcance.publicacion_authorization ? "autorización expresa registrada para " + project.alcance.publicacion_authorization.target + ", ejecución y verificación pendientes" : "revisar declaración original; autorización/destino pendientes de verificar"}.\n\nSiguiente acción: enriquecer y mostrar META, después investigación y contenido dentro del alcance autorizado.\n`;
+  const state = `# ESTADO — ${intake.name}\n\nEstado de entrega: en_construccion.\nEntrevista completada: ${intake.completed_at}.\nMeta: META.md (inicial, concretar cantidades antes de investigar).\nExploración inicial: pendiente; autorización ${project.dataforseo.exploracion.authorization ? 'expresa registrada solo para exploracion_inicial' : 'no concedida'}.\nInvestigación completa: pendiente_presupuesto; autorización no concedida.\nPausas planificadas: aprobación expresa del presupuesto SEO después de explorar; elección A/B/C después de presentar mockups.\nDirección visual: pendiente de elección A/B/C.\nModelos: Sol 6.1 high para coordinación/SEO/contenido/auditoría y Astra ultra para mockups/desarrollo total solicitados; selección no verificada.\n\n## Comprobaciones\n\n- pendiente: contenido, tipos/build, rutas/enlaces, flujos, accesibilidad, auditoría SEO total aplicable, navegador móvil/escritorio. Entorno: todavía no implementado; evidencia: ninguna.\n- pendiente: cobertura del catálogo completo de skills SEO AgriciDaniel en SEO-COBERTURA.md.\n- pendiente: presupuesto concreto en PRESUPUESTO-SEO.md con ya gastado + reservas pendientes + máximo adicional = máximo total, tarifas/endpoints/cantidades/fecha/exclusiones; cerrar pagos de exploración y solicitar aprobación antes de la investigación completa.\n- pendiente: contacto/materiales e integraciones declaradas.\n- pendiente: registro de cartera original y reconciliación antes de pagar.\n${project.alcance.entrega_prevista === "preview_verificada" ? "- no_aplica: publicación fuera de esta entrega de preview." : "- pendiente: publicación; " + (project.alcance.publicacion_authorization ? "autorización expresa registrada para " + project.alcance.publicacion_authorization.target + ", ejecución y verificación pendientes" : "revisar declaración original; autorización/destino pendientes de verificar") + "."}\n\nSiguiente acción: enriquecer y mostrar META, evaluar catálogo SEO completo y realizar solo exploración inicial dentro de autorización; después presentar presupuesto para aprobación expresa.\n`;
   await mkdir(join(root, 'proyectos'), { recursive: true });
   const [actualRoot, actualProjects] = await Promise.all([realpath(root), realpath(join(root, 'proyectos'))]);
   const projectsRelative = relative(actualRoot, actualProjects);

@@ -8,11 +8,12 @@ Lee AGENTS.md, META.md, CONTENIDO.md y las referencias del proyecto indicado por
 Aplica la skill frontend-design disponible y Astro + Tailwind para los mockups.
 No estas solo en el repositorio: respeta cambios ajenos y los archivos asignados.
 Prepara tres direcciones A/B/C distintas en composicion, tipografia y lenguaje visual,
-con el mismo contenido real y respetando la marca. Incluye inicio y una pagina interior
-representativa de cada direccion en escritorio y movil, con una vista navegable comparable.
-Si el alcance es una sola landing, compara su recorrido completo sin inventar paginas interiores.
+con el mismo contenido real y respetando la marca. Construye tres paginas de inicio
+de prueba en escritorio y movil, con una vista navegable comparable. Anade un interior
+representativo si ayuda a decidir; no desarrolles tres webs completas antes de la seleccion.
 Revisa y corrige internamente legibilidad, jerarquia, responsive e identidad antes de entregar.
-Registra tokens y decisiones para que Sol high implemente la opcion elegida con fidelidad.
+Registra tokens y decisiones para que el agente desarrollador Astra ultra implemente
+toda la web con fidelidad despues de la eleccion. Sol high coordina SEO, contenido y auditoria.
 No elijas por el usuario, no extiendas la web final antes de su seleccion y no finjas
 integraciones operativas en un mockup. No inventes casos, clientes, credenciales ni testimonios.
 No ejecutes consultas DataForSEO ni otras compras, ni publiques. Solicita datos al coordinador.

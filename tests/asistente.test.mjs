@@ -53,10 +53,29 @@ test('tubería conserva todas las líneas, usa la plantilla vigente y muestra un
   assert.deepEqual(result.project.arquitectura.modulos, ['servicios']);
   assert.equal(result.project.dataforseo.authorization, null);
   assert.equal(result.project.dataforseo.budget_usd, 0);
+  assert.equal(result.project.dataforseo.exploracion.authorization, null);
+  assert.equal(result.project.dataforseo.exploracion.budget_usd, 0);
+  assert.equal(result.project.dataforseo.investigacion.authorization, null);
+  assert.equal(result.project.dataforseo.investigacion.proposal, null);
+  assert.equal(result.project.dataforseo.investigacion.additional_budget_usd, null);
+  assert.equal(result.project.dataforseo.investigacion.approved_project_total_usd, null);
+  assert.equal(result.project.schema_version, 4);
+  assert.equal(result.project.dataforseo.investigacion.freeze_new_paid_calls_while_awaiting_approval, true);
+  assert.equal(result.project.dataforseo.investigacion.approval_must_match_proposal_id_and_version, true);
+  assert.ok(result.project.dataforseo.investigacion.proposal_required_fields.includes('pricing_sources'));
+  assert.ok(result.project.dataforseo.investigacion.proposal_required_fields.includes('prior_reserved_usd'));
+  assert.equal(result.project.dataforseo.exploracion.unused_budget_transfers_automatically, false);
+  assert.equal(result.project.dataforseo.exploracion.closed_at, null);
+  assert.equal(result.project.seo.coverage_catalogue.length, 26);
+  assert.equal(result.project.seo.coverage_catalogue.every(area => area.status === 'pendiente'), true);
+  assert.equal(result.project.seo.final_audit.skill, 'seo-audit');
   assert.equal(result.project.alcance.publicacion_authorization, null);
   assert.equal(result.project.models.diseno.selection_verified, false);
   assert.match(streams.text(), /META — mi-web/);
   assert.match(streams.text(), /Publicación fuera de esta entrega/);
+  const initialState = await readFile(join(result.directory, 'ESTADO.md'), 'utf8');
+  assert.match(initialState, /no_aplica: publicación fuera de esta entrega de preview/);
+  assert.doesNotMatch(initialState, /pendiente: publicación/);
   assert.match(streams.text(), /Empresas locales/);
   assert.match(streams.text(), /pega exactamente/);
   assert.deepEqual((await readdir(result.directory)).sort(), ['ESTADO.md', 'INICIAR-CODEX.md', 'META.md', 'proyecto.json']);
@@ -71,16 +90,49 @@ test('EOF parcial o en la autorización no guarda archivos ni habilita pagos', a
   }
 });
 
-test('presupuesto requiere sí expreso al terminar y nunca escribe un registro de gastos', async t => {
+test('presupuesto autoriza solo exploración mediante sí expreso y nunca habilita investigación completa ni escribe gastos', async t => {
   for (const [confirmation, authorized] of [['no', false], ['quizá', false], ['sí', true]]) {
     const root = await fixture(t);
     await mkdir(join(root, '.control'));
     const ledger = join(root, '.control', 'dataforseo.jsonl');
     const oldLedger = '{"historial":"no sustituir"}\n';
     await writeFile(ledger, oldLedger);
-    const result = await runAssistant({ root, ...io([...base({ budget: '0,50' }), confirmation]), prepareOnly: true });
-    assert.equal(Boolean(result.project.dataforseo.authorization), authorized);
+    const streams = io([...base({ budget: '0,50' }), confirmation]);
+    const result = await runAssistant({ root, ...streams, prepareOnly: true });
+    assert.equal(Boolean(result.project.dataforseo.exploracion.authorization), authorized);
+    assert.equal(result.project.dataforseo.authorization, null);
     assert.equal(result.project.dataforseo.budget_usd, 0.5);
+    assert.equal(result.project.dataforseo.exploracion.budget_usd, 0.5);
+    assert.equal(result.project.dataforseo.phase, 'exploracion');
+    assert.equal(result.project.dataforseo.limits, null);
+    assert.equal(result.project.dataforseo.investigacion.authorization, null);
+    assert.equal(result.project.dataforseo.investigacion.status, 'pendiente_presupuesto');
+    assert.equal(result.project.dataforseo.investigacion.proposal, null);
+    assert.equal(result.project.dataforseo.investigacion.additional_budget_usd, null);
+    assert.equal(result.project.dataforseo.investigacion.approved_project_total_usd, null);
+    assert.deepEqual(result.project.workflow.pausas_ordinarias, ['aprobacion_presupuesto_seo', 'seleccion_visual']);
+    assert.match(streams.text(), /sugerido USD 0\.10/);
+    const totalFormula = /ya gastado \+ reservas pendientes \+ máximo adicional = máximo total/;
+    assert.match(streams.text(), totalFormula);
+    for (const filename of ['META.md', 'ESTADO.md', 'INICIAR-CODEX.md']) {
+      assert.match(await readFile(join(result.directory, filename), 'utf8'), totalFormula, filename);
+    }
+    assert.equal(result.project.dataforseo.investigacion.total_formula, 'prior_spent_usd + prior_reserved_usd + additional_max_usd');
+    assert.match(streams.text(), /La investigación completa sigue sin autorización/);
+    if (authorized) {
+      const authorization = result.project.dataforseo.exploracion.authorization;
+      assert.equal(authorization.scope, 'exploracion_inicial');
+      assert.deepEqual(authorization.endpoint_families, ['labs_keyword_suggestions', 'google_organic_serp']);
+      assert.equal(authorization.budget_usd, 0.5);
+      assert.equal(authorization.max_call_usd, 0.1);
+    }
+    const limits = result.project.dataforseo.exploracion.limits;
+    assert.deepEqual(limits.google_organic_serp, { max_attempts: 3, tasks_per_call: 1, depth: 10, max_crawl_pages: 1, extras: false });
+    assert.deepEqual(limits.labs_keyword_suggestions, { max_attempts: 1, max_items_per_attempt: 25 });
+    assert.equal(limits.google_ads_search_volume, undefined);
+    assert.equal(limits.retries.max_per_query, 1);
+    assert.equal(limits.retries.max_total_per_site, 1);
+    assert.equal(limits.retries.auto_retry_unknown_cost_or_timeout, false);
     assert.equal(result.project.dataforseo.totals_reconciled, false);
     assert.equal(result.project.dataforseo.shared_ledger_resolved_path, null);
     assert.equal(await readFile(ledger, 'utf8'), oldLedger);
@@ -205,7 +257,27 @@ test('arranque TTY solicita Sol high con argumentos separados y sin shell; stub,
   assert.equal(invocation.options.stdio, 'inherit');
   assert.equal(result.project.models.produccion.selection_verified, false);
   assert.equal(result.project.models.diseno.reasoning, 'ultra');
+  assert.deepEqual(result.project.models.produccion.aplica_a, ['coordinacion', 'consultoria_seo', 'investigacion', 'contenido', 'auditoria']);
+  assert.equal(result.project.models.desarrollo.model_id, 'gpt-6-astra');
+  assert.equal(result.project.models.desarrollo.reasoning, 'ultra');
+  assert.equal(result.project.models.desarrollo.agent_role, 'desarrollador');
+  assert.equal(result.project.models.desarrollo.selection_verified, false);
+  assert.deepEqual(result.project.models.desarrollo.aplica_a, ['web_completa', 'programacion', 'integraciones', 'correcciones']);
   assert.match(invocation.args.at(-1), /rol disenador/);
+  assert.match(invocation.args.at(-1), /Astra ultra en el rol desarrollador para implementar TODA la web/);
+  assert.match(invocation.args.at(-1), /catálogo completo de skills SEO AgriciDaniel/);
+  assert.match(invocation.args.at(-1), /SEO-COMPLETO\.md y plantillas\/PRESUPUESTO-SEO\.md/);
+  assert.match(invocation.args.at(-1), /ya gastado \+ reservas pendientes \+ máximo adicional = máximo total/);
+  assert.match(invocation.args.at(-1), /espera aprobación explícita antes de la investigación completa/);
+  assert.match(invocation.args.at(-1), /auditoría SEO total/);
+  assert.doesNotMatch(invocation.args.at(-1), /vuelve a Sol|Sol 6\.1 high.*programación/);
+  const handoff = await readFile(join(result.directory, 'INICIAR-CODEX.md'), 'utf8');
+  assert.match(handoff, /Primera pausa planificada/);
+  assert.match(handoff, /El coordinador lee SEO-COMPLETO\.md y plantillas\/PRESUPUESTO-SEO\.md, además de AGENTS\.md/);
+  assert.match(handoff, /Segunda pausa planificada/);
+  assert.match(handoff, /Astra ultra, rol desarrollador, implementa toda la web/);
+  assert.match(handoff, /endpoints, cantidades, precios vigentes, fecha y exclusiones/);
+  assert.match(handoff, /otro chat, clon o cuenta no reinicia gasto ni autorizaciones/);
 });
 
 test('--solo-preparar omite discovery y lanzamiento incluso con TTY', async t => {

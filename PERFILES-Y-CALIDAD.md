@@ -9,8 +9,12 @@ No hay que ejecutar todos los módulos, contratar servicios ni construir funcion
 1. El usuario describe su idea con sus propias palabras; no necesita clasificarla técnicamente.
 2. La entrevista terminal (`node iniciar.mjs`) o Sol pregunta **una cosa cada vez** y reutiliza las respuestas. Solo activa preguntas de tienda, reservas u otros módulos cuando correspondan.
 3. Registra módulos, recorrido y pendientes en `proyecto.json` y `ESTADO.md`; muestra `META.md` con páginas/cantidades, funciones, entregables, exclusiones y flujos de comprobación. Completa la meta a partir de las respuestas antes de investigar, sin una aprobación adicional.
-4. **GPT-6.1 Sol / high** investiga y prepara contenido; **GPT-6 Astra / ultra** diseña y revisa tres mockups A/B/C. Comprueba selección y delegación reales, incluida la carga del rol `disenador` de `.codex/` cuando el cliente lo admita.
-5. La única pausa ordinaria tras la entrevista es elegir A/B/C o una combinación. Sol construye, aplica los criterios comunes y específicos, corrige y comprueba hasta la entrega contra `META.md`.
+4. **GPT-6.1 Sol / high** realiza una exploración acotada con fuentes gratuitas y el cupo previo autorizado; presenta el presupuesto principal identificado/versionado y espera aprobación explícita. El total incluye gasto y reservas previos, máximo adicional y margen; no existe un USD 1 universal para toda la investigación.
+5. Sol aplica la skill principal `seo` de AgriciDaniel y evalúa sus **26 subskills** en `SEO-COBERTURA.md`, según [SEO-COMPLETO.md](SEO-COMPLETO.md). Ejecuta los procedimientos completos pertinentes y prepara arquitectura/contenido; mencionar una disciplina no acredita trabajo.
+6. **GPT-6 Astra / ultra** diseña y revisa tres homepages mockup A/B/C en el rol `disenador`. El usuario elige A/B/C o combinación concreta; Astra desarrolla **toda la web** elegida en el rol `desarrollador`.
+7. Sol ejecuta auditoría SEO completa y pruebas; Astra corrige defectos de código/diseño y Sol verifica hasta la entrega contra `META.md`. Comprobar selección y delegación reales de los roles `.codex/`, sin atribuir ejecución por escribir un nombre.
+
+Las dos pausas ordinarias después de la entrevista son **presupuesto y elección visual**. Cerrada la exploración, congelar compras hasta aprobar la propuesta para conservar una base acumulada estable. Todas las compras nuevas posteriores consumen su máximo adicional, incluso si aclaran una pregunta de exploración.
 
 Una decisión esencial pendiente, acceso/modelo no disponible, coste fuera del alcance o publicación sin autorización puede impedir una acción dependiente. Registrar la condición, preparar el traspaso cuando corresponda y continuar las tareas independientes; no sustituir modelos ni integraciones silenciosamente. Las fases no requieren confirmación adicional y los permisos del entorno no se eluden.
 
@@ -33,7 +37,7 @@ No cambiar el negocio ni la modalidad de asociación del usuario para adaptarlos
 
 Las páginas indicadas son posibilidades, no un mínimo que deba rellenarse con contenido débil.
 Las cuentas se añaden únicamente cuando el recorrido lo exige; una web editorial no necesita cuentas por defecto.
-Las skills se leen y aplican cuando se usan; la tabla no inventa capacidades ni autoriza consultas de pago.
+La columna de skills da ejemplos pertinentes, no una selección reducida por defecto: evaluar las 26 conforme a `SEO-COMPLETO.md`. Leer y aplicar cada procedimiento cuando corresponda; la tabla no autoriza consultas de pago. Falta de acceso o evidencia externa se registra como pendiente/bloqueo, no como `no_aplica`.
 
 ## Decisiones esenciales por naturaleza del sitio
 
@@ -92,13 +96,13 @@ Registrar qué cubre el alcance sobre envíos, impuestos, devoluciones y notific
 **GPT-6 Astra / ultra** recibe público, recorrido, identidad, contenido real y evidencias; el texto no queda pendiente de encajar después.
 Para una dirección nueva, preparar **tres mockups A/B/C** distintos en composición, tipografía y estilo. La identidad existente es una restricción: no reemplazarla por inferencia. Si ya existe una elección, continuar con ella sin repetir la pausa.
 Construir un comparador navegable y entregar **URLs reales** de previews iniciadas. Tres descripciones, paletas o cambios de color sobre una misma plantilla no cumplen el criterio.
-Cada opción muestra inicio y una vista interior representativa cuando pertenezca al alcance, en móvil y escritorio, con contenido del proyecto. En una landing de una sola página, revisar sus secciones y recorrido sin inventar una página interior.
+Cada opción muestra una **homepage responsive** en escritorio y móvil, comprobada en navegador y con contenido del proyecto. Añadir una vista interior representativa cuando ayude a decidir el recorrido, sin exigir construir tres webs enteras. En una landing de una sola página, revisar sus secciones y recorrido sin inventar una página interior.
 La vista interior depende del módulo: artículo, producto, servicio, ficha o flujo de reserva.
 Revisar las propuestas internamente con capturas completas y recorridos; corregir defectos y descartar las que no cumplan el contenido, la identidad y la calidad visual antes de presentarlas. No pedir al usuario elegir entre propuestas sin revisar.
-El usuario elige A, B, C o una combinación concreta; registrar la elección antes de extenderla y continuar sin nuevas confirmaciones por fase.
+El usuario elige A, B, C o una combinación concreta; registrar `esperando_eleccion_visual` antes de la pausa, guardar elección/ajustes antes de extenderla y continuar sin nuevas confirmaciones por fase.
 Registrar tipografía, paleta, espaciado, tratamiento de imágenes, componentes y comportamiento responsive de la elegida.
 Reutilizar primitivas no obliga a repetir hero, composición, colores, fotografía ni recorrido entre negocios.
-Extender el diseño aprobado a todo el recorrido; una portada cuidada con páginas interiores genéricas no cumple el criterio.
+**Astra ultra desarrolla toda la web** con el diseño elegido, incluyendo páginas interiores y flujos; una portada cuidada con páginas interiores genéricas no cumple el criterio.
 Revisar textos largos, imágenes ausentes y estados lentos, vacíos o de error que existan realmente en ese proyecto.
 El nombre del modelo en un prompt no cambia la selección: comprobar modelo/esfuerzo reales y soporte de delegación, o preparar el traspaso a Astra ultra. Que este entorno lo admita no demuestra acceso en otro cliente. Un prompt o modelo no garantiza calidad ni posiciones SEO.
 
@@ -107,7 +111,7 @@ El nombre del modelo en un prompt no cambia la selección: comprobar modelo/esfu
 | Área | Evidencia necesaria |
 |---|---|
 | Contenido | Textos y datos reales, sin marcadores pendientes en el alcance entregado; afirmaciones respaldadas |
-| SEO | Intención y páginas alineadas; títulos, descripciones, canonical, indexabilidad, enlaces y sitemap coherentes donde apliquen |
+| SEO | Matriz de 26 subskills con procedimientos/evidencia; auditoría `seo-audit` completa, intención y páginas alineadas, configuración coherente y cobertura externa pendiente explícita |
 | Datos estructurados | Solo tipos y propiedades verdaderos, coherentes con contenido visible y validados |
 | Accesibilidad | Semántica, teclado, foco visible, etiquetas, contraste y alternativas de imágenes revisados |
 | Diseño | Inicio y vistas representativas en móvil/escritorio; sin desbordamientos ni contenido cortado |
@@ -116,6 +120,7 @@ El nombre del modelo en un prompt no cambia la selección: comprobar modelo/esfu
 | Mantenimiento | Fuente de datos y forma de editar identificables; configuración y pendientes documentados |
 
 Las verificaciones técnicas siguen el proyecto: validación de tipos/contenido disponible, compilación y comprobaciones pertinentes.
+Sol high ejecuta `seo-audit` completo: ocho especialistas siempre y siete condicionales según la skill; con slots limitados, completar las disciplinas secuencialmente. Seguir [SEO-COMPLETO.md](SEO-COMPLETO.md) y enlazar sus artefactos desde `ESTADO.md`.
 Ejecutar un recorrido breve de navegación y contacto; usar pruebas de extremo a extremo para transacciones críticas.
 Comprobar más allá del estado inicial: navegación interior, móvil y entradas que realmente recibe el sistema.
 Una compilación correcta no demuestra buen diseño, entrega de mensajes, cobros ni comportamiento público.
@@ -124,7 +129,7 @@ Tras publicar con autorización, verificar URLs y recorrido público; si faltan 
 
 ## Correcciones y cierre
 
-Corregir automáticamente defectos materiales dentro del alcance autorizado y verificar las partes afectadas.
+Sol high documenta defectos concretos de código/diseño; Astra ultra los corrige dentro del alcance autorizado y Sol verifica las partes afectadas.
 Realizar como máximo dos ciclos amplios de revisión; después, usar una lista concreta de defectos, causas y acciones.
 Ese límite evita auditorías repetidas: no autoriza cerrar como listo un proyecto con fallos críticos conocidos.
 Si algo requiere una decisión o acceso externo, continuar tareas independientes y dejar la condición de cierre explícita.
@@ -133,6 +138,7 @@ No perseguir una puntuación de 100 ni añadir páginas o funciones para mejorar
 Antes de entregar, comparar el resultado contra `META.md`: páginas y cantidades, funciones, entregables, exclusiones, cada flujo crítico y pendientes. Indicar evidencia del cumplimiento y límites de lo comprobado; la existencia de código no cierra un elemento. No pedir al usuario una ronda ordinaria de aprobación para sustituir estas comprobaciones.
 
 Registrar la evidencia en `ESTADO.md`, sin crear otro informe para repetirla:
+Enlazar la matriz `SEO-COBERTURA.md` y los entregables del protocolo `seo-audit`, sin duplicar sus hallazgos completos en el estado.
 
 ```text
 Módulos y recorrido principal:
@@ -150,5 +156,7 @@ Usar los estados de `proyecto.json`: `en_construccion`, `preview_verificada`, `l
 **Preview verificada** demuestra solo lo probado en ese entorno; **lista para publicar** exige dependencias esenciales y controles previos resueltos; **publicada verificada** exige disponibilidad pública comprobada.
 **Operativa verificada** requiere el recorrido real y las integraciones necesarias comprobados; no equivale a vista previa.
 **SEO con resultados** requiere evidencia posterior de indexación, visibilidad y acciones; no se deduce de estas verificaciones.
+Una preview local no verifica GSC, indexación pública, GBP, rendimiento de campo ni conversiones reales: conservar los pendientes externos y declarar los límites.
 El presupuesto DataForSEO de `AGENTS.md` es compartido entre módulos del sitio; añadir blog o tienda no lo reinicia.
 Si el alcance necesita más investigación que la autorizada, registrar la cobertura pendiente y estimar su ampliación.
+La recomendación de mantenimiento no activa consultas, seguimiento ni gasto recurrente.
