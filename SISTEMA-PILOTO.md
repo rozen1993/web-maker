@@ -1,6 +1,6 @@
 ﻿# Sistema repetible de webs con SEO y presupuesto por proyecto
 
-Versión 5 — 10 de octubre de 2026. Entrevista, exploración pequeña, presupuesto aprobado, SEO completo, tres homepages y entrega verificada.
+Versión 6 — 11 de octubre de 2026. Entrevista, exploración pequeña, presupuesto aprobado, estrategia orgánica fundamentada, SEO completo, tres homepages y entrega verificada.
 
 El usuario elige idea y modalidad de negocio o asociación. **GPT-6.1 Sol / high** coordina, investiga, prepara contenido y verifica; **GPT-6 Astra / ultra** diseña las propuestas y desarrolla toda la web en **Astro + Tailwind CSS**. Las skills de AgriciDaniel y DataForSEO aportan procedimientos y evidencia según el proyecto. El SEO comprobado no garantiza resultados orgánicos.
 
@@ -13,7 +13,7 @@ Para empezar: [EMPEZAR.md](EMPEZAR.md). Ejecutar `node iniciar.mjs` desde la ra�
 | Entrevista y meta | Sol high | Una pregunta cada vez; resolver alcance esencial y escribir/muestra `META.md` con páginas, cantidades, funciones, contenidos, criterios, entrega, límites y pendientes. Sin aprobación extra del plan. |
 | Exploración acotada | Sol high | Revisar idea, fuentes y demanda inicial con datos gratuitos y el cupo previo autorizado. Evaluar qué investigación necesita la meta; guardar fuentes originales. |
 | Presupuesto de investigación | Sol high; aprobación del usuario | Presentar `PRESUPUESTO-SEO.md` identificado/versionado. Esperar aprobación explícita de sus límites; registrar autorización exacta. |
-| Investigación y contenido completos | Sol high | Aplicar principal `seo`, evaluar las 26 subskills y ejecutar los procedimientos pertinentes; arquitectura y texto real antes del diseño. |
+| Investigación y contenido completos | Sol high | Aplicar principal `seo`, evaluar las 26 subskills y ejecutar los procedimientos pertinentes; oportunidad orgánica fundamentada en `SEO-STRATEGY.md`, arquitectura y texto real antes del diseño. |
 | Tres homepages | Astra ultra, rol `disenador` | Mockups A/B/C con contenido real, URL comprobada, navegador, escritorio y móvil; interior representativo cuando aporte. Revisar internamente antes de presentar. |
 | Elección visual | Usuario | Elegir A, B, C o combinación concreta; guardar elección/ajustes en ficha y `ESTADO.md`. |
 | Desarrollo completo | Astra ultra, rol `desarrollador` | Implementar toda la web elegida en Astro + Tailwind, con TypeScript, componentes y fuente de datos validada. |
@@ -29,7 +29,7 @@ Aplicar [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md): servicios, portfolio, bl
 
 La entrevista resuelve pagar dentro del sitio frente a pedir por contacto, editor, stock/disponibilidad, materiales, integraciones y destino de entrega. Reutilizar respuestas y explicitar supuestos reversibles. Una tienda con pago no se sustituye por catálogo; una reserva simulada no se declara confirmada. Proveedores o accesos pendientes se registran y no se contratan automáticamente.
 
-Antes de explorar, concretar `META.md`; la investigación puede precisar arquitectura sin ampliar o reducir silenciosamente la entrega. Mantener `proyecto.json`, `META.md`, `ESTADO.md`, `CONTENIDO.md`, `PRESUPUESTO-SEO.md`, `SEO-COBERTURA.md` y `.seo-cache/`. Crear `evidencias/` cuando existan capturas/artefactos, sin informes duplicados. Las versiones, lockfile y APIs de Astro/Tailwind se contrastan con documentación oficial vigente y el proyecto real; no actualizar una web existente indiscriminadamente ni copiar APIs obsoletas de ejemplos locales.
+Antes de explorar, concretar `META.md`; la investigación puede precisar arquitectura sin ampliar o reducir silenciosamente la entrega. Mantener `proyecto.json`, `META.md`, `ESTADO.md`, `CONTENIDO.md`, `PRESUPUESTO-SEO.md`, `SEO-STRATEGY.md`, `SEO-COBERTURA.md` y `.seo-cache/`. Crear `evidencias/` cuando existan capturas/artefactos, sin informes duplicados. Las versiones, lockfile y APIs de Astro/Tailwind se contrastan con documentación oficial vigente y el proyecto real; no actualizar una web existente indiscriminadamente ni copiar APIs obsoletas de ejemplos locales.
 
 ## 3. Preexploración: cupo pequeño y separado
 
@@ -96,6 +96,12 @@ Leer la skill principal `seo` y su routing, evaluar las 26 subskills en `SEO-COB
 
 El contenido fija por página visitante, intención, jerarquía, pruebas disponibles, dudas, metadatos y acción. Sol redacta el contenido incluido en el alcance y guarda fuentes originales; no inventa productos, precios, stock, casos, credenciales ni resultados. Contenido especializado conserva revisión competente pendiente cuando corresponda.
 
+La estrategia base busca captar tráfico mediante el contenido inicial y el SEO del propio sitio, **sin suponer una campaña nueva de enlaces ni otras acciones off-page**. Evaluar demanda, intención, competencia y autoridad existente antes del diseño. Usar esa evidencia para priorizar páginas del alcance; no añadir cantidades de páginas, publicación mensual de contenidos o trabajo externo del usuario como supuestos ocultos. Si la evidencia no respalda la oportunidad esperada, explicar la limitación sin decidir abandonar la idea ni cambiar su alcance por cuenta propia.
+
+Completar [la plantilla de `SEO-STRATEGY.md`](plantillas/SEO-STRATEGY.md) como documento principal de oportunidad, escenarios y recomendaciones. Enlazar fuentes e informes ya producidos por las skills en vez de duplicarlos. Presentar una lectura preliminar de la oportunidad junto al presupuesto y consolidarla con la investigación antes del diseño; no introducir una aprobación adicional.
+
+Solo con evidencia suficiente, estimar escenarios conservador, central y favorable de **clics orgánicos mensuales de Google en los meses 3, 6 y 12 desde la publicación**, no acumulados. Documentar fecha, mercado, datos, método y supuestos de cada rango; evitar duplicar consultas solapadas y confundir búsquedas con clics o conversiones. No inventar volúmenes, CTR, posiciones futuras ni tasas de éxito por el número de skills ejecutadas. Cuando falten datos, registrar `no_estimable` y explicar la carencia. Incluso con escenarios fundamentados, cero sigue siendo un resultado posible; la calidad de implementación no acredita tráfico observado.
+
 ## 7. Tres homepages y toda la web
 
 Astra ultra recibe META, contenido, identidad, referencias y responsabilidad explícita de archivos. Preparar A/B/C realmente distintas; construir un comparador navegable, iniciar las previews y comprobar URLs, capturas completas y recorridos en escritorio/móvil. La homepage es la prueba principal; añadir interior representativo cuando aporte a la decisión, sin exigir tres webs completas. En una landing, comparar sus secciones y recorrido.
@@ -111,3 +117,5 @@ Astra ultra corrige defectos de código/diseño y Sol verifica las partes afecta
 Registrar el estado real: `en_construccion`, `preview_verificada`, `lista_para_publicar`, `publicada_verificada` u `operativa_verificada`. Una preview no demuestra publicación, indexación, GSC/GBP, rendimiento de campo o conversiones reales; dejar esos elementos externos pendientes. `lista_para_publicar` exige dependencias esenciales resueltas y controles previos aprobados; publicación exige URL pública revisada, operación exige recepción/registro del flujo real. Pagos se prueban con eventos controlados en modo de prueba, sin cobros reales.
 
 Entregar URL real, código, comparación contra META, cobertura SEO, evidencias/pendientes y coste acumulado. Recomendar mantenimiento cuando corresponda, sin activarlo automáticamente. Si solo se autorizó preview, entregarla sin imponer publicación como paso final.
+
+Finalizar `SEO-STRATEGY.md` con recomendaciones off-page opcionales, personalizadas a la investigación: prioridad, evidencia y oportunidad concreta, acción que corresponde al usuario, esfuerzo/coste conocido y señal para evaluar utilidad. No ejecutar contactos, campañas, compras de enlaces, contrataciones ni nuevas consultas de pago por generar esa lista. No estimar un aumento numérico sin evidencia ni incluir el posible efecto de esas acciones en el escenario base. El usuario decide si las aplica; no son un requisito oculto de la entrega ni una prueba de que el sitio ya funciona como canal de adquisición. Separar claramente SEO listo y resultados orgánicos observados; cualquier revisión posterior requiere alcance y autorización propios.

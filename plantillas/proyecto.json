@@ -104,6 +104,32 @@
   },
   "seo": {
     "orquestador": "seo",
+    "captacion": {
+      "strategy_document": "SEO-STRATEGY.md",
+      "enfoque": "organico_on_site_sin_campana_offpage_nueva",
+      "oportunidad": {
+        "estado": "pendiente",
+        "conclusion": null,
+        "evidencias": []
+      },
+      "proyeccion": {
+        "estado": "pendiente",
+        "metrica": "clics_organicos_google_por_mes",
+        "horizontes_meses": [3, 6, 12],
+        "desde": "publicacion",
+        "escenarios": [],
+        "supuestos": [],
+        "fuentes": [],
+        "motivo_no_estimable": null,
+        "incluye_campana_offpage_nueva": false
+      },
+      "recomendaciones_offpage": {
+        "estado": "pendiente",
+        "aplicacion": "opcional_por_el_usuario",
+        "execution_authorization": null,
+        "acciones": []
+      }
+    },
     "catalogue_version_reference": "AgriciDaniel 1.9.6; verificar catalogo instalado al ejecutar",
     "coverage_mode": "catalogo_completo_con_ejecucion_integra_de_procedimientos_aplicables",
     "coverage_document": "SEO-COBERTURA.md",

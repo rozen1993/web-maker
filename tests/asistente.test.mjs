@@ -266,14 +266,17 @@ test('arranque TTY solicita Sol high con argumentos separados y sin shell; stub,
   assert.match(invocation.args.at(-1), /rol disenador/);
   assert.match(invocation.args.at(-1), /Astra ultra en el rol desarrollador para implementar TODA la web/);
   assert.match(invocation.args.at(-1), /catálogo completo de skills SEO AgriciDaniel/);
-  assert.match(invocation.args.at(-1), /SEO-COMPLETO\.md y plantillas\/PRESUPUESTO-SEO\.md/);
+  for (const path of ['SEO-COMPLETO.md', 'plantillas/PRESUPUESTO-SEO.md', 'plantillas/SEO-STRATEGY.md']) {
+    assert.ok(invocation.args.at(-1).includes(path));
+  }
   assert.match(invocation.args.at(-1), /ya gastado \+ reservas pendientes \+ máximo adicional = máximo total/);
   assert.match(invocation.args.at(-1), /espera aprobación explícita antes de la investigación completa/);
   assert.match(invocation.args.at(-1), /auditoría SEO total/);
   assert.doesNotMatch(invocation.args.at(-1), /vuelve a Sol|Sol 6\.1 high.*programación/);
   const handoff = await readFile(join(result.directory, 'INICIAR-CODEX.md'), 'utf8');
   assert.match(handoff, /Primera pausa planificada/);
-  assert.match(handoff, /El coordinador lee SEO-COMPLETO\.md y plantillas\/PRESUPUESTO-SEO\.md, además de AGENTS\.md/);
+  assert.match(handoff, /El coordinador lee SEO-COMPLETO\.md/);
+  assert.ok(handoff.includes('plantillas/SEO-STRATEGY.md'));
   assert.match(handoff, /Segunda pausa planificada/);
   assert.match(handoff, /Astra ultra, rol desarrollador, implementa toda la web/);
   assert.match(handoff, /endpoints, cantidades, precios vigentes, fecha y exclusiones/);

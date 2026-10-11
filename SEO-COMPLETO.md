@@ -70,6 +70,20 @@ Para DataForSEO, leer contrato/precio vigentes de cada endpoint y descubrir el h
 
 Cubrir una disciplina no obliga a pagar todas sus APIs: utilizar evidencia gratuita válida cuando satisfaga el procedimiento y señalar qué no permite concluir. Nunca sustituir un dato real pedido por una estimación sin identificarla.
 
+## Oportunidad orgánica, estimación y off-page opcional
+
+`seo-plan` prepara `SEO-STRATEGY.md` usando [la plantilla de estrategia](plantillas/SEO-STRATEGY.md). Reutilizar allí los hallazgos de intención, competencia, contenido y autoridad, enlazando los demás entregables de las skills. No crear otro informe equivalente. La exploración solo ofrece indicios en el presupuesto; la investigación principal completa la evaluación antes del diseño y el cierre la contrasta con las páginas realmente entregadas.
+
+El escenario base considera la web y el contenido inicial acordados, el dominio y sus señales existentes, **sin una nueva campaña de enlaces, PR, perfiles o reseñas**. Priorizar consultas con demanda pertinente, intención que podamos satisfacer y competencia analizada. Un volumen alto, una dificultad baja de una herramienta o una auditoría excelente no prueban que una web nueva vaya a posicionar. Justificar por qué esa página podría competir y qué incertidumbres quedan; no desechar la idea del usuario ni cambiar el alcance automáticamente si la evidencia es débil.
+
+Estimar clics mensuales de Google a 3/6/12 meses únicamente cuando haya base suficiente. Documentar consultas sin duplicación, volúmenes y granularidad real, estacionalidad, páginas incluidas, hipótesis de visibilidad/posición y CTR por escenario, con su justificación y fuentes. Identificar como supuestos los valores no observados y comprobar sensibilidad; si cambiar una hipótesis razonable elimina el tráfico, mostrarlo. No suponer top 3 para todas las páginas, crecimiento automático por mes, suma de variantes de un mismo volumen ni conversiones sin datos. Separar marca/no marca cuando pueda identificarse; no mezclar clics de resultados web con Maps, referencias de IA o sesiones de Analytics.
+
+El endpoint de DataForSEO `bulk_traffic_estimation` aproxima tráfico según posiciones y datos que ya observa; no predice el futuro de una web aún sin posicionamiento. Ninguna API ni porcentaje de auditoría reemplaza los supuestos de la proyección. `no_estimable` con explicación es válido; fabricar rangos para rellenar la tabla no lo es. No añadir llamadas fuera de la propuesta aprobada para completar cifras.
+
+Al cierre, entregar oportunidades off-page concretas y opcionales en el mismo informe: por qué encajan con ese negocio, fuente/URL y fecha, acción del propietario, esfuerzo, coste conocido o por confirmar, beneficio esperado sin garantía y medición. Investigar no autoriza contactar terceros, editar perfiles, publicar ni comprar enlaces. Revisar `seo-backlinks`, `seo-local`, `seo-maps` y `seo-plan` en la matriz según pertinencia; separar análisis de ejecución. Para un negocio local, una recomendación sobre GBP puede ser importante para Maps, pero no puede contarse como realizada ni como tráfico futuro del sitio.
+
+No exigir enlaces comprados, redes de enlaces, reseñas falsas o altas masivas para cumplir la entrega. Si el análisis señala que la competencia o las señales externas limitan seriamente el escenario on-site, comunicarlo con evidencia en la estrategia; no afirmar que off-page solo acelerará algo cuyo funcionamiento aún no está observado.
+
 ## Auditoría final completa — Sol high
 
 Leer y ejecutar el `SKILL.md` instalado de `seo-audit`. Protocolo: caché compartida → homepage → tipo de negocio → rastreo de enlaces internos respetando robots → especialistas → puntuación con método de la skill → informe y plan priorizado → resumen de caché. El límite de rastreo del protocolo es hasta 500 páginas; registrar páginas conocidas, revisadas, exclusiones y limitaciones. Si Firecrawl está disponible y aporta, usarlo para descubrir URLs antes del análisis.

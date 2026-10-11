@@ -47,6 +47,10 @@ Al presentar la propuesta se cierran las compras de preexploración para mantene
 
 Después, Sol aplica el sistema completo `seo` de AgriciDaniel y DataForSEO dentro de lo autorizado, prepara arquitectura y contenido reales y registra la evaluación de las 26 subskills en `SEO-COBERTURA.md`. Las disciplinas pertinentes siguen su procedimiento completo; las que no apliquen llevan una razón. Falta de acceso es pendiente o bloqueo, no una excusa para marcar «no aplica».
 
+Antes del diseño, recibirás `SEO-STRATEGY.md`, basado en [su plantilla](plantillas/SEO-STRATEGY.md): qué búsquedas pretende captar la web, con qué páginas, qué muestra la competencia y qué oportunidad existe **sin asumir una campaña nueva de enlaces ni otras acciones off-page**. Si los datos permiten estimarlo, incluirá escenarios conservador, central y favorable de clics orgánicos mensuales de Google en los meses 3, 6 y 12 desde la publicación, con fuentes y supuestos. Son rangos condicionados, no promesas; cero también es posible. Si faltan datos, indicará `no_estimable` y la incertidumbre concreta.
+
+Esta evaluación forma parte del trabajo y no añade otra aprobación. Si la investigación no respalda la oportunidad esperada, Sol lo explica antes del diseño, conserva tu idea y no cambia el alcance por su cuenta. No supone que harás off-page o publicarás contenido nuevo cada mes para sostener sus cifras.
+
 ## 4. Elige una homepage
 
 **GPT-6 Astra / ultra** prepara **A, B y C** con el contenido real, diferencias de composición, tipografía y lenguaje visual. Recibirás un comparador navegable con URLs realmente comprobadas y homepages responsive revisadas en navegador, en escritorio y móvil. Una vista interior se añade cuando ayude a valorar el recorrido; no hace falta construir tres webs enteras para elegir.
@@ -67,6 +71,8 @@ Astra desarrolla el sitio elegido en **Astro + Tailwind CSS** con TypeScript y d
 
 La entrega incluye URL real, código, comparación contra la meta, cobertura SEO, evidencia, pendientes y costes acumulados. Una preview local funciona mientras su servidor siga activo. Una publicación autorizada exige comprobar la URL pública. Pagos se prueban en modo de prueba, sin cobros reales; una pantalla simulada no acredita operación.
 
+En `SEO-STRATEGY.md` tendrás también recomendaciones off-page **opcionales y específicas de tu rubro**, basadas en lo investigado: prioridad, motivo, evidencia, acción que te correspondería y esfuerzo o coste conocido. Tú decides si las aplicas; recibirlas no autoriza contactos, compras de datos, gastos ni servicios externos. La estrategia base y sus cifras no dependen de ejecutarlas, y las recomendaciones no dan por demostrado que la web ya recibe tráfico.
+
 No hay aprobaciones ordinarias adicionales de contenido, arquitectura, construcción o pruebas. Accesos, permisos, cambios de alcance/coste y publicación sin autorización se resuelven solo cuando impiden una acción concreta. El SEO comprobado no garantiza posiciones ni resultados orgánicos. La recomendación de mantenimiento no activa consultas ni gastos recurrentes.
 
 ## Otra web u otro día
@@ -75,7 +81,7 @@ Para otra web, ejecuta `node iniciar.mjs` en esta misma copia y usa otro nombre.
 
 ```text
 Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md,
-CONTENIDO.md, PRESUPUESTO-SEO.md y SEO-COBERTURA.md si existen.
+CONTENIDO.md, PRESUPUESTO-SEO.md, SEO-STRATEGY.md y SEO-COBERTURA.md si existen.
 Conserva decisiones y autorizaciones; continúa la siguiente fase pendiente.
 No repitas la entrevista, aprobación del presupuesto ni elección visual resueltas.
 Reconcilia gasto y reservas con el registro privado compartido antes de comprar.

@@ -20,12 +20,14 @@ Pega allí el mensaje de `INICIAR-CODEX.md`. No necesitas editar JSON, elegir su
 
 1. **Entrevista y meta inicial:** Sol concreta público, páginas, cantidades, funciones, contenido y criterios de entrega en `META.md`.
 2. **Exploración pequeña y presupuesto:** con fuentes gratuitas y, solo si autorizaste, un cupo mínimo de DataForSEO, Sol identifica qué investigación necesita el proyecto. Presenta `PRESUPUESTO-SEO.md` con el coste adicional máximo y el total acumulado. **Tú apruebas expresamente esa propuesta antes de la investigación principal.**
-3. **SEO y contenido completos:** Sol aplica la skill `seo` de AgriciDaniel, evalúa sus **26 subskills** y ejecuta los procedimientos completos que correspondan. Registra trabajo, evidencia y pendientes en `SEO-COBERTURA.md`; no reduce la investigación a una selección básica por defecto.
+3. **SEO y contenido completos:** Sol aplica la skill `seo` de AgriciDaniel, evalúa sus **26 subskills** y ejecuta los procedimientos completos que correspondan. Registra trabajo, evidencia y pendientes en `SEO-COBERTURA.md`; no reduce la investigación a una selección básica por defecto. Antes del diseño, entrega `SEO-STRATEGY.md`: oportunidad orgánica fundamentada, páginas y contenido para captarla, y estimación condicionada a los datos disponibles.
 4. **Tres homepages A/B/C:** **GPT-6 Astra / ultra** prepara mockups reales, distintos en composición, tipografía y lenguaje visual, comprobados en navegador en escritorio y móvil. Añade una vista interior representativa cuando ayude a decidir. **Tú eliges A, B, C o una combinación concreta.**
 5. **Toda la web:** Astra ultra desarrolla la dirección elegida en **Astro + Tailwind CSS**, con TypeScript, componentes y datos centralizados.
-6. **Auditoría y entrega:** Sol high realiza la auditoría SEO completa y las pruebas del alcance. Astra ultra corrige defectos de código y diseño hasta cumplir `META.md`; Sol verifica las correcciones.
+6. **Auditoría y entrega:** Sol high realiza la auditoría SEO completa y las pruebas del alcance. Astra ultra corrige defectos de código y diseño hasta cumplir `META.md`; Sol verifica las correcciones. `SEO-STRATEGY.md` incorpora recomendaciones off-page personalizadas y opcionales para que tú decidas si las aplicas.
 
 Hay **dos pausas ordinarias después de la entrevista: presupuesto y elección visual**. El resto avanza dentro de lo autorizado. Un acceso indispensable, modelo no disponible o permiso del entorno se señala como bloqueo concreto y se continúa el trabajo independiente. Si se acordó preview, la entrega es una preview; publicar requiere autorización previa.
+
+La estrategia base busca captar tráfico con contenido útil y SEO del propio sitio, **sin asumir una campaña nueva de enlaces u otras acciones off-page**. La investigación debe explicar qué oportunidad respalda esa estrategia y sus límites; si la evidencia no basta, lo indica antes del diseño. Con datos suficientes, muestra escenarios de clics orgánicos mensuales de Google en los meses 3, 6 y 12; si faltan, registra `no_estimable`, sin inventar cifras. Publicar y completar las skills no acredita tráfico: también es posible obtener cero. El off-page queda como recomendación, sin ejecución ni gasto automático, y no se usa para justificar las cifras del escenario base.
 
 ## Qué necesitas
 
@@ -50,11 +52,12 @@ La configuración solicita los modelos, pero no garantiza acceso de tu cuenta ni
 | [SISTEMA-PILOTO.md](SISTEMA-PILOTO.md) | Flujo y presupuesto por proyecto |
 | [plantillas/proyecto.json](plantillas/proyecto.json) | Ficha del proyecto |
 | [plantillas/PRESUPUESTO-SEO.md](plantillas/PRESUPUESTO-SEO.md) | Propuesta de costes que prepara el coordinador antes de pedir aprobación |
+| [plantillas/SEO-STRATEGY.md](plantillas/SEO-STRATEGY.md) | Oportunidad orgánica, escenarios fundamentados y recomendaciones off-page opcionales |
 
 Conserva `.codex/` al clonar. La [guía PDF del 9/10/2026](output/pdf/guia-de-uso.pdf) es histórica y no contiene este flujo; sigue los archivos actuales.
 
 ## Un kit, varios proyectos privados
 
-Cada web conserva ficha, meta, contenido, presupuesto, cobertura SEO y código propios en `proyectos/<nombre>/`. Las webs pueden tener repositorios propios. `proyectos/`, `.control/`, `.seo-cache/`, credenciales y evidencias privadas quedan fuera de Git: respáldalos por separado.
+Cada web conserva ficha, meta, contenido, presupuesto, estrategia, cobertura SEO y código propios en `proyectos/<nombre>/`. Las webs pueden tener repositorios propios. `proyectos/`, `.control/`, `.seo-cache/`, credenciales y evidencias privadas quedan fuera de Git: respáldalos por separado.
 
 Para una cartera nueva, el registro es `.control/dataforseo.jsonl`, resuelto desde la raíz del kit. Al trasladar una cartera, vincula o restaura su registro privado completo y reconcílialo antes de pagar. **Un clon no reinicia autorizaciones, gasto ni reservas.** Sol es el único comprador; los demás agentes solicitan y reutilizan datasets. Estas reglas no son un bloqueo técnico del MCP ni un límite configurado en el proveedor.

@@ -44,6 +44,19 @@ por defecto la cobertura; acceso faltante es pendiente/bloqueo, no no_aplica.
 Solo Sol compra DataForSEO con precios, saldo, reservas y registro reconciliados;
 subagentes solicitan datasets. Guarda respuestas originales y caché compartida.
 
+Antes del diseño, completa SEO-STRATEGY.md desde su plantilla: fundamenta la
+oportunidad de captar tráfico con el contenido inicial y SEO del sitio, sin asumir
+campañas nuevas de enlaces ni otras acciones off-page. Relaciona demanda,
+intención, competencia y páginas del alcance; reconoce la autoridad existente.
+Si hay datos suficientes, estima escenarios conservador, central y favorable de
+clics orgánicos mensuales de Google en los meses 3, 6 y 12 desde la publicación,
+con fuentes, método y supuestos. No son cifras acumuladas ni visitas garantizadas.
+Datos insuficientes: no_estimable, sin inventar volúmenes, CTR, posiciones ni
+probabilidades de éxito. Cero también es posible. No supongas contenido mensual
+adicional ni acciones del usuario para sostener el escenario base.
+Explica una oportunidad débil o incierta antes de diseñar, sin decidir por mí,
+cambiar silenciosamente el alcance ni añadir otra aprobación ordinaria.
+
 Prepara arquitectura y contenido real antes del diseño; no inventes pruebas,
 precios, casos ni credenciales. Astra ultra prepara 3 homepages mockup A/B/C
 navegables, distintas en composición, tipografía y lenguaje visual, responsive,
@@ -64,7 +77,13 @@ Solo dos pausas ordinarias tras la entrevista: presupuesto y elección visual.
 No añadas aprobaciones de fases o llamadas ya autorizadas; continúa tareas
 independientes de accesos, permisos o dependencias externas pendientes.
 Entrega URL, código, comparación contra META, cobertura SEO, pruebas, pendientes
-y coste acumulado. La recomendación de mantenimiento no activa gastos recurrentes.
+y coste acumulado. Finaliza SEO-STRATEGY.md con recomendaciones off-page
+opcionales y personalizadas: prioridad, evidencia del rubro, acción del usuario,
+esfuerzo/coste conocido y señal que permitiría evaluarla. No ejecutes contactos,
+acciones externas ni compras adicionales por recomendarlas. No presupongas que
+las aplicaré ni incluyas su efecto en el escenario base. Completar las skills no
+demuestra tráfico: separa SEO listo de resultados observados tras publicar.
+La recomendación de mantenimiento no activa gastos recurrentes.
 ```
 
 ## Autorizar únicamente la preexploración
@@ -102,7 +121,7 @@ Un lote existente necesita su ID, proyectos y límites aprobados; no crearlo por
 
 ```text
 Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md,
-CONTENIDO.md, PRESUPUESTO-SEO.md, SEO-COBERTURA.md y caché disponibles.
+CONTENIDO.md, PRESUPUESTO-SEO.md, SEO-STRATEGY.md, SEO-COBERTURA.md y caché disponibles.
 Conserva alcance, modelos, decisiones, autorizaciones y costes acumulados.
 Reconcilia registro privado, gasto y reservas antes de cualquier compra.
 Continúa la siguiente tarea pendiente; no repitas entrevista, aprobación del

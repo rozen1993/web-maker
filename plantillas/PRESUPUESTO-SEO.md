@@ -8,9 +8,12 @@ Estado: **propuesta, sin aprobación**. Este documento vacío no autoriza consul
 - Mercado: [país, ciudad cuando aplique, idioma, dispositivo y cobertura de volúmenes].
 - Evidencia de exploración: [consultas, fecha, enlaces/caché y límites de la muestra].
 - Demanda, intención, competencia y oportunidades: [hallazgos, no certezas no observadas].
+- Oportunidad preliminar sin nueva campaña off-page: [indicios favorables, límites o evidencia insuficiente; explicar consultas/páginas que evaluaremos y señales existentes del dominio].
+- Estimación de tráfico: [qué datos permitirán preparar escenarios de clics mensuales a 3/6/12 meses en SEO-STRATEGY.md; si no alcanzan, declarar no_estimable, sin inventar cifras].
 - Entrega recomendada: [páginas/cantidades, módulos, contenido inicial y decisiones que investigaremos].
 - Cobertura: [enlace a SEO-COBERTURA.md; trabajo por especialidad, fuentes gratuitas y datos por comprar].
 - Condiciones e incertidumbres: [oferta, materiales, revisión experta, autoridad y medición necesarias].
+- Recomendaciones off-page de cierre: [evidencia que reutilizaremos para sugerir acciones opcionales y específicas del rubro; sin ejecución ni efecto supuesto en el escenario base].
 
 ## Plan facturable
 
