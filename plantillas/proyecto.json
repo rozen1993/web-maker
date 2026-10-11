@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "status": "plantilla",
   "project_id": null,
   "campaign_id": null,
@@ -17,7 +17,13 @@
   "alcance": {
     "web_existente": null,
     "objetivo": null,
+    "meta_documento": "META.md",
+    "meta_mostrada_al_usuario": false,
+    "entrega_prevista": "preview_verificada",
     "paginas": [],
+    "cantidades_contenido": {},
+    "exclusiones": [],
+    "supuestos": [],
     "materiales_verificados": [],
     "responsable_contenido": null,
     "direccion_visual": null,
@@ -44,6 +50,12 @@
     "datos_de_ejemplo_publicables_como_reales": false
   },
   "diseno": {
+    "numero_propuestas": 3,
+    "opciones": ["A", "B", "C"],
+    "formato": "mockups_navegables_con_contenido_real",
+    "url_comparador": null,
+    "eleccion_usuario": null,
+    "eleccion_registrada_at": null,
     "referencias": [],
     "identidad_existente": null,
     "direccion_seleccionada": null,
@@ -68,11 +80,16 @@
   "models": {
     "produccion": {
       "model": "GPT-6.1 Sol",
+      "model_id": "gpt-6.1-sol",
+      "reasoning": "high",
+      "aplica_a": ["coordinacion", "investigacion", "contenido", "programacion", "verificacion"],
       "selection_verified": false
     },
     "diseno": {
       "model": "GPT-6 Astra",
-      "reasoning": "high",
+      "model_id": "gpt-6-astra",
+      "reasoning": "ultra",
+      "agent_role": "disenador",
       "selection_verified": false
     }
   },
@@ -80,13 +97,20 @@
     "phase": "brief",
     "phases": [
       "brief",
+      "meta",
       "investigacion",
       "contenido",
       "diseno",
+      "seleccion_visual",
       "construccion",
       "verificacion_seguimiento"
     ],
     "advance_automatically_within_authorization": true,
+    "preguntas_una_por_vez": true,
+    "pausa_ordinaria_tras_entrevista": "seleccion_visual",
+    "selection_wait_status": "esperando_eleccion_visual",
+    "require_extra_phase_approvals": false,
+    "bloqueos_externos_se_declaran": true,
     "seo_listo": false,
     "seo_resultados_observados": null,
     "pendientes": [],

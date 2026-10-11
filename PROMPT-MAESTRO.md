@@ -1,99 +1,98 @@
-# Inicio y continuidad del sistema web + SEO
+# Mensajes para iniciar, retomar o revisar
 
-Abre Codex en la carpeta donde hayas clonado este repositorio. Todas las webs resultantes se hacen en **Astro + Tailwind CSS**. Para empezar con un mensaje de pocas líneas, usa [EMPEZAR.md](EMPEZAR.md). No necesitas rellenar JSON ni elegir skills: el coordinador adapta los módulos a tu idea.
+La entrada habitual es `node iniciar.mjs` desde la raíz del kit; la guía está en [EMPEZAR.md](EMPEZAR.md). `--solo-preparar` prepara el mensaje para el IDE. El sistema entrevista una pregunta cada vez y guarda `META.md`; no necesitas escribir un megaprompt para cada web.
 
-Elige GPT-6.1 Sol para el trabajo general y GPT-6 Astra/high al entrar en diseño. Si el entorno no permite cambiar de modelo automáticamente, el coordinador entrega un breve resumen para continuar con el modelo elegido; no debe fingir que cambió.
-
-Copia este mensaje y completa lo que sepas. Los campos vacíos se resuelven con preguntas puntuales. Las autorizaciones del bloque solo tienen efecto cuando tú lo envías como instrucción de ejecución; este archivo por sí mismo no inicia gastos.
+Si prefieres empezar directamente en el chat, pega este mensaje. **No autoriza consultas de pago ni publicación.**
 
 ```text
-Lee AGENTS.md y utiliza mi skill seo de agricidaniel y las subskills pertinentes.
-Resuelve las rutas desde la raíz de este kit. Si retomo una cartera existente,
-localiza y reconcilia su registro privado: clonar no reinicia su presupuesto.
-Construye la web en Astro + Tailwind CSS. Lee PERFILES-Y-CALIDAD.md y combina
-solo los módulos que necesite esta idea. Mantén identidad visual y arquitectura
-adecuadas a cada proyecto, aunque reutilices la base técnica.
+Lee AGENTS.md y PERFILES-Y-CALIDAD.md de la raíz del kit.
+Quiero crear una web sobre [idea], para [público y mercado].
+Su acción principal es [acción]. Los materiales disponibles son [materiales].
+Crea proyectos/[nombre] en esta copia del kit; no clones el kit por web.
 
-Quiero iniciar este proyecto:
-- Nombre:
-- Idea y público:
-- País, ciudad si aplica, idioma:
-- Acción principal que debe facilitar la web:
-- Web existente o referencias:
-- Materiales disponibles:
-- Funciones que ya sé que necesito (puedo dejarlo vacío):
-- Alcance inicial: proponlo según la idea; registra lo que acordemos.
+Haz las preguntas que falten UNA POR UNA y reutiliza mis respuestas.
+Conserva mi idea y modalidad de negocio. Distingue datos confirmados y pendientes.
+Pregunta decisiones funcionales esenciales en lenguaje sencillo, sin pedirme
+arquitectura ni escoger subskills. Presupuesto de datos USD 0 por ahora.
 
-Usa el perfil base:
-- Hasta USD 1 acumulado de DataForSEO para esta web y entrega inicial.
-- Hasta USD 0.10 por llamada.
-- Hasta 2 consultas de sugerencias, 100 resultados por consulta.
-- Hasta 1 lote de volúmenes, 200 palabras, solo si añade información.
-- Hasta 20 llamadas SERP, profundidad 10 y una página, incluyendo reintentos.
-- Máximo un reintento por consulta y dos totales, dentro de esos cupos.
-- Una única persona/agente coordinador ejecuta las compras de datos.
+Al terminar la entrevista, escribe y muestra una meta concreta en META.md:
+páginas y cantidades, funciones, entregables, exclusiones, flujos a verificar y
+pendientes. Define el alcance a partir de mis respuestas; no pidas una aprobación
+adicional de la meta. Avanza contenido, investigación y construcción autorizados.
 
-Autorizo esas consultas dentro del presupuesto y perfil, sin confirmación
-por cada llamada. Si este proyecto ya está incluido en una tanda autorizada,
-respeta también su saldo restante. Si no está incluido, esta autorización
-es individual y tiene el mismo máximo de USD 1, sin crear otra tanda.
-No uses el resto del saldo de la cuenta como presupuesto.
-No configures por este mensaje límites globales de mi cuenta.
+Usa GPT-6.1 Sol / high para contenido, SEO, programación y comprobaciones;
+GPT-6 Astra / ultra para diseño y revisión visual. Comprueba selección real y
+delegación disponibles antes de atribuir el trabajo al modelo. El kit configura
+el coordinador y el rol disenador en .codex/; verifica que el cliente los cargue.
+Si falta acceso o soporte, prepara el traspaso y sigue el trabajo independiente,
+sin sustituciones silenciosas. Lee las skills astro y frontend-design y solo
+las skills SEO necesarias.
 
-No decidas por mí qué negocio desarrollar ni cómo monetizarlo. Ayúdame a
-materializar esta idea. Pregunta como máximo tres cosas por turno y reutiliza
-las respuestas. Separa información confirmada, supuestos y pendientes.
-Detecta si es servicios, portfolio, blog, catálogo, tienda, directorio,
-reservas o una combinación. No me pidas elegir arquitectura técnica.
-Si una función necesita aclaración, pregúntame en lenguaje sencillo:
-por ejemplo, cobrar en la web o recibir pedidos; o quién editará el contenido.
+Construye en Astro + Tailwind CSS con datos centralizados y validados.
+Prepara contenido real antes del diseño, sin inventar pruebas, precios ni casos.
+Entrega un comparador navegable de tres mockups A/B/C distintos en composición,
+tipografía y estilo, con URLs reales y vistas de escritorio, móvil e interior
+representativo si corresponde. Revisa e itera las propuestas antes de mostrarlas;
+descarta las que no cumplan el contenido y los criterios visuales.
 
-Trabaja por fases: encargo, investigación, contenido, diseño, implementación
-y verificación. Usa GPT-6.1 Sol para el trabajo general y prepara la etapa
-creativa para GPT-6 Astra high.
+La única pausa ordinaria tras la entrevista es mi elección A/B/C o combinación.
+Después implementa, prueba y corrige hasta entregar lo acordado en META.md,
+sin confirmaciones por fase ni por tareas ya autorizadas. Si falta una dependencia
+esencial, acceso o autorización para un coste o publicación, pausa solo la acción
+dependiente y continúa las tareas independientes. No eludas permisos del entorno.
 
-Aplica las subskills necesarias. Todos los especialistas reutilizan la misma
-investigación y el mismo presupuesto. No ejecutes el catálogo completo por
-defecto ni pagues de nuevo datos ya disponibles y pertinentes.
-
-Guarda estado, decisiones, contenido, evidencias y costes en la carpeta del
-proyecto. Avanza las tareas autorizadas sin pedirme permiso para cada paso.
-Consulta mi elección visual si hace falta una dirección nueva.
-Prepara una versión comprobable; publicar requiere que exista autorización.
-Antes de entregar, corrige defectos materiales de diseño y funcionamiento.
-Comprueba las páginas interiores y flujos propios de los módulos activos,
-además del inicio. No declares operativa una integración simulada o pendiente.
-
-Empieza por lo que falte para definir la web. Si ya hay datos suficientes,
-continúa la fase correspondiente.
+Comprueba tipos, build, rutas, enlaces, diseño y recorrido en móvil/escritorio,
+SEO técnico y flujos críticos del alcance. Registra evidencia y pendientes en
+ESTADO.md; no declares operativas integraciones simuladas. Corrige defectos
+materiales y repite las comprobaciones afectadas. Entrega URL real, ubicación,
+comparación final contra META.md, verificaciones, pendientes y gasto de datos.
 ```
 
-Para una tanda de varias webs, sustituye el párrafo de autorización por un límite total explícito y una lista de proyectos:
+## Autorizar datos de un proyecto
+
+Añade esta instrucción solo si quieres autorizar consultas. El importe debe estar dentro del perfil base; copiar o leer este documento no autoriza gasto.
 
 ```text
-Autorizo hasta USD 10 acumulados de DataForSEO para la tanda [ID].
-Proyectos incluidos: [lista que yo elija].
-Máximo USD 1 por proyecto, salvo que indique un límite diferente.
-Estos topes no se reinician al cambiar de chat o cuenta.
-Un único coordinador compra datos y mantiene el registro compartido.
-Nuevos proyectos no se incorporan automáticamente a esta autorización.
+Autorizo hasta USD [importe, máximo 1] acumulado de DataForSEO para la
+investigación inicial de proyectos/[nombre], dentro del perfil base de AGENTS.md:
+máximo USD 0.10 por intento y los cupos de endpoints/reintentos allí definidos.
+No pidas aprobación por llamadas cubiertas. No uses el resto del saldo de la cuenta
+ni actives otros servicios. No reinicies presupuesto, gasto ni reservas al retomar.
+Localiza y reconcilia el registro privado compartido de la cartera antes de pagar;
+clonar no crea una cartera nueva ni sustituye su historial.
 ```
 
-Para retomar sin repetir la investigación:
+Un importe autorizado no sustituye la comprobación de endpoint, tarifa máxima, saldo, reservas y cupos. Si falta evidencia para comprar, continuar sin nuevas consultas de pago y registrar cobertura pendiente.
+
+## Un lote identificado
+
+Solo si quieres trabajar por lote, añade una autorización con ID y proyectos explícitos. No se crean lotes ni se incorporan webs por inferencia.
 
 ```text
-Retoma proyectos/[nombre]. Lee proyecto.json, ESTADO.md, CONTENIDO.md y la caché.
-Reconcilia costes y reservas con el registro común antes de cualquier compra.
-Continúa la siguiente fase con las decisiones y límites ya autorizados.
-No reinvestigues ni rediseñes lo resuelto sin una razón concreta.
-Conserva Astro + Tailwind y aplica los módulos y criterios de calidad acordados.
+Autorizo hasta USD 10 acumulados de DataForSEO para el lote [ID].
+Proyectos incluidos: [lista]. Máximo USD 1 por proyecto y límites de AGENTS.md.
+Respeta simultáneamente los saldos del sitio y del lote. Un único coordinador
+compra datos y escribe el registro compartido. No traslades saldo ni incorpores
+proyectos nuevos sin autorización. Estos límites no se reinician entre chats o clones.
 ```
 
-Para una revisión posterior:
+## Retomar
 
 ```text
-Revisa [proyecto] en el periodo [fechas] para responder [pregunta].
-Autorizo hasta USD 0.25 de DataForSEO para esta revisión concreta,
-dentro del saldo de la tanda si lo hay. Reutiliza Search Console y los datos
-disponibles cuando respondan la pregunta. No programes revisiones recurrentes.
+Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md, CONTENIDO.md
+y caché disponibles. Conserva decisiones, modelos, alcance y autorizaciones.
+Reconcilia costes y reservas con el registro compartido antes de cualquier compra.
+Continúa la siguiente tarea; no repitas entrevista, diseño o investigación resueltos
+sin motivo. Contrasta la entrega contra META.md y registra lo que sigue pendiente.
 ```
+
+## Revisión posterior
+
+```text
+Revisa proyectos/[nombre] en [periodo] para responder [pregunta concreta].
+Autorizo hasta USD 0.25 de DataForSEO solo para esta revisión, dentro del saldo
+del lote si corresponde. Reutiliza Search Console y datos pertinentes disponibles.
+No programes revisiones recurrentes ni repitas auditorías superadas sin motivo.
+```
+
+La configuración local `.codex/config.toml` y `.codex/agents/disenador.toml` solicita modelos y esfuerzos explícitos. El cliente debe cargarla y la cuenta debe tener acceso; en otros clientes puede hacer falta un traspaso. Referencias para comprobar capacidades y sintaxis: [comandos del CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli) y [subagentes](https://learn.chatgpt.com/docs/agent-configuration/subagents). Escribir un nombre en el mensaje no cambia el modelo seleccionado.

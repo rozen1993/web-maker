@@ -1,136 +1,89 @@
-# Cómo usarlo, paso a paso
+# Empieza una web desde la terminal
 
-## Qué es y dónde está
+Clona o descarga este kit **una vez** y abre su carpeta. La raíz es donde están `AGENTS.md` e `iniciar.mjs`; puede tener cualquier nombre y estar en otro equipo. Descargarlo no inicia ninguna web. Conserva también la carpeta oculta `.codex/` incluida en el clon.
 
-El sistema que hemos preparado es un **procedimiento para Codex guardado en archivos**.
-Codex lee esas instrucciones y hace el trabajo cuando le das una idea en el chat.
-Actualmente no hay una aplicación con panel ni una web generada.
+Necesitas Node 20 o superior. Para que el iniciador abra Codex, necesitas también Codex CLI instalado y una sesión disponible; puedes usar el chat del IDE en su lugar. Las skills, modelos y servicios se comprueban después: no se instalan ni conectan al descargar el kit.
 
-La copia original está en este ordenador, aquí:
+## 1. Ejecuta el iniciador
 
-`C:\Users\MARCO\Desktop\PLAN`
+Abre una terminal **en la raíz del kit** y ejecuta:
 
-Si lo descargaste de GitHub, el sistema está en la carpeta donde lo clonaste; no necesita llamarse PLAN. **Abre esa carpeta en tu IDE y usa allí el chat de Codex.**
-Abrir AGENTS.md te muestra las reglas; abrirlo no inicia una web.
-Los mensajes de los ejemplos se pegan en el **chat de Codex**, no en la terminal ni dentro de un archivo.
-
-## Lo único que necesitas abrir
-
-Esta guía: **EMPEZAR.md**.
-
-Los otros archivos los utiliza Codex:
-- AGENTS.md contiene las reglas de trabajo y gasto.
-- PERFILES-Y-CALIDAD.md explica cómo adaptar y comprobar cada tipo de web.
-- plantillas/proyecto.json es la ficha que Codex rellena por ti.
-- PROMPT-MAESTRO.md y SISTEMA-PILOTO.md contienen las instrucciones ampliadas.
-
-No tienes que leerlos todos, ejecutarlos ni rellenar el JSON.
-
-## Ejemplo completo: una tienda de café con blog
-
-Este es un ejemplo ilustrativo. **No se ha iniciado ese proyecto ni autorizado gasto por escribir esta guía.**
-Puedes sustituir la idea por la tuya.
-
-### Paso 1. Envía este mensaje en el chat
-
-```text
-Quiero iniciar el proyecto cafe-ejemplo usando AGENTS.md y
-PERFILES-Y-CALIDAD.md de la raíz de este repositorio.
-
-Mi idea es una tienda online de café para compradores de Perú, en español.
-Quiero vender productos con pago en línea y tener un blog con guías de café.
-Todavía no tengo elegido el proveedor de pagos.
-
-Construye en Astro + Tailwind. Usa mis skills SEO de agricidaniel.
-Producción con GPT-6.1 Sol; diseño con GPT-6 Astra high.
-
-Autorizo hasta US$1 total de DataForSEO para la investigación inicial de este
-proyecto, con los límites del perfil base. No reinicies ese presupuesto
-al retomar el proyecto. No actives otros gastos.
-
-Crea la carpeta proyectos/cafe-ejemplo y rellena tú la ficha.
-Pregúntame como máximo tres cosas por turno y avanza por fases.
-Cuando haya una vista previa funcionando, dame su enlace para verla.
-Antes de publicar, comprueba si ya tienes mi autorización.
-
-Empieza por las preguntas que falten.
+```sh
+node iniciar.mjs
 ```
 
-La frase de US$1 es una autorización para consultas cuando envíes el mensaje.
-Puedes cambiar el importe. Es un máximo para esa investigación, no una cuota mensual ni una meta de consumo.
-Al preparar la copia original el 9/10/2026, el límite técnico diario de DataForSEO no se configuró ni comprobó. Verifica el estado de tu cuenta antes de depender de esa protección. Si retomas un proyecto desde otro clon, conserva y reconcilia su registro privado; el presupuesto no vuelve a cero.
+Responde con tus palabras. Verás **una pregunta cada vez**, sobre idea, público, mercado, acción principal, alcance y materiales. Según lo que necesites, aparecerán preguntas de tienda o reservas: comprar en línea frente a pedir por contacto, disponibilidad, proveedor, gestión y edición. Si te falta algo, indícalo; no tienes que conocer arquitectura ni rellenar JSON.
 
-### Paso 2. Responde las preguntas
+Ejemplo: una tienda de café con blog para compradores de Perú, en español, con pago en línea. El sistema conserva esa intención; si todavía no elegiste proveedor de pagos, lo registra como dependencia pendiente.
 
-Lo primero que recibirás será una tanda de preguntas concretas, por ejemplo:
-1. ¿Qué productos, precios y variantes tendrá la primera versión?
-2. ¿Qué zonas atiendes y cómo se entregan los pedidos?
-3. ¿Tienes nombre, fotos o referencias visuales que quieras utilizar?
+También defines si quieres solo preview o publicación, con destino y autorización explícitos. La opción inicial es preview; no se contrata hosting ni se publica por crear una ficha.
 
-Responde con lo que sabes. Si algo falta, di «todavía no lo tengo».
-Codex guarda las respuestas, pregunta lo decisivo y distingue datos confirmados de pendientes.
-Más adelante resolverá contigo el proveedor de pagos y la forma de editar contenido, si hace falta.
+El presupuesto de datos parte de **USD 0**. La entrevista no usa IA ni llama a DataForSEO. Si eliges un presupuesto positivo, debes autorizarlo explícitamente dentro del perfil permitido, con techo inicial de USD 1 por web. Es un máximo acumulado, no un gasto obligatorio ni una cuota mensual. Los demás servicios y la publicación conservan sus autorizaciones propias.
 
-### Paso 3. Revisa el contenido y elige el diseño
+## 2. Lee la meta y deja trabajar a Codex
 
-Codex investiga dentro del presupuesto, propone páginas y prepara el contenido.
-Para este ejemplo, los módulos serían **tienda + blog**.
+Al terminar, el iniciador guarda en `proyectos/<nombre>/`:
 
-Cuando llegue la etapa de diseño, se utiliza **Astra high**.
-Si no puede delegarlo con ese modelo, Codex te indicará que lo selecciones y te dará el contexto para continuar.
-Escribir «usa Astra» no cambia por sí solo el modelo seleccionado.
+- `proyecto.json`: respuestas y alcance.
+- `META.md`: meta visible que guiará la entrega.
+- `ESTADO.md`: situación inicial y pendientes.
+- `INICIAR-CODEX.md`: mensaje de arranque para Codex.
 
-Recibirás dos direcciones visuales cuando no exista una ya elegida.
-Puedes responder: «Elijo la opción B; conserva esa tipografía y usa las fotos de la opción A».
-La comparación incluye móvil, escritorio y una página representativa, como un producto.
+`META.md` define páginas y cantidades, funciones, entregables, lo que queda fuera, flujos a comprobar y dependencias pendientes. Codex la completa con decisiones derivadas de tus respuestas antes de investigar; no te pide una aprobación adicional para avanzar. Si una decisión esencial sigue sin respuesta, la identifica y continúa lo que pueda resolver de forma independiente.
 
-### Paso 4. Mira la web y pide ajustes
+En el ejemplo, la meta podría incluir inicio, catálogo, fichas de los productos que aportaste, carrito, checkout, confirmación e índice de blog con los artículos acordados. No se inventan productos, precios ni pruebas comerciales. Sol redacta los artículos del alcance y fija cantidades explícitas en la meta. Sin proveedor de pagos, la integración y su comprobación siguen pendientes; una pantalla de checkout no acredita una tienda operativa.
 
-Sol implementa la dirección elegida y los módulos.
-Codex debe iniciar la vista previa disponible, comprobarla y entregarte su **URL real**.
-Entra en ese enlace para revisar la web: no necesitas abrir archivos .astro para verla.
-La dirección y el puerto dependen de lo que se haya iniciado; no hay una URL todavía.
+El iniciador intenta abrir **Codex CLI interactivo con GPT-6.1 Sol / high**. Si no está instalado o no se puede abrir, usa el mensaje de `INICIAR-CODEX.md` en el chat de Codex con esta carpeta abierta. El inicio de sesión, permisos o acceso a modelos pueden requerir pasos del entorno; no se eluden para prometer una sola pausa.
 
-Puedes decir: «En móvil, el texto de producto se ve pequeño; aumenta la legibilidad sin cambiar la dirección visual».
-Los ajustes y decisiones quedan guardados.
+Si quieres elegir desde el principio el chat del IDE, ejecuta:
 
-Los pagos se prueban con el modo de prueba del proveedor elegido.
-Si falta esa integración, la vista previa se identifica como tal y la tienda no se declara operativa.
-
-### Paso 5. Recibe la entrega
-
-Codex comprueba diseño, navegación, contenido, SEO y los flujos propios de tienda y blog, y corrige los fallos encontrados.
-La entrega debe incluir:
-- Enlace para ver la web y ubicación del código.
-- Qué funciona y qué falta, con las comprobaciones realizadas.
-- Cuánto se gastó en DataForSEO.
-- Cómo editar productos y artículos según la solución acordada.
-- Qué hace falta para publicar, si aún no está autorizado o configurado.
-
-Para este ejemplo, el código se crearía en `proyectos/cafe-ejemplo/sitio`, dentro de tu copia del kit. En la ubicación original, eso sería:
-`C:\Users\MARCO\Desktop\PLAN\proyectos\cafe-ejemplo\sitio`.
-
-**Esa carpeta todavía no existe: la creará Codex cuando inicies el proyecto.**
-Una vista previa local depende de que su servidor siga ejecutándose; una publicación tiene su propia URL.
-
-## Cómo continuar otro día
-
-Abre tu copia del kit en el IDE y el chat de Codex, y escribe:
-
-```text
-Retoma proyectos/cafe-ejemplo. Lee su estado y continúa la siguiente tarea.
-Mantén las decisiones tomadas y el presupuesto acumulado.
+```sh
+node iniciar.mjs --solo-preparar
 ```
 
-## Cómo iniciar una web diferente
+Hace la entrevista y prepara los mismos archivos; luego pega el mensaje generado en el chat. **El comando va en la terminal; el contenido de `INICIAR-CODEX.md` va en el chat.**
 
-Envía una idea nueva y un nombre de proyecto distinto:
+## 3. Elige entre tres diseños reales
+
+Codex investiga con lo autorizado y prepara el contenido antes del diseño. Contenido, SEO, programación y verificaciones usan **GPT-6.1 Sol / high**. Diseño y revisión visual usan **GPT-6 Astra / ultra**.
+
+El kit incluye configuración local: `.codex/config.toml` para el coordinador Sol high y `.codex/agents/disenador.toml` para el rol de diseño Astra ultra. El cliente debe cargar la configuración, confiar en el repositorio cuando corresponda y tener acceso a ambos modelos. Sol delega al rol `disenador` en la fase adecuada. El chat del IDE puede requerir otra forma de selección o traspaso.
+
+El agente comprueba la selección real y la capacidad de delegar. Si no puede hacerlo, registra el problema y prepara el traspaso; no afirma que cambió de modelo por escribir su nombre ni sustituye silenciosamente el modelo solicitado. Los identificadores y esfuerzos admitidos dependen del cliente y de la cuenta.
+
+Recibirás un comparador con **A, B y C**, tres mockups navegables con contenido real y diferencias en **composición, tipografía y estilo**. Incluye escritorio, móvil y una página interior representativa: producto en tienda, artículo en blog, servicio o ficha según el alcance. En una landing de una sola página, se compara el recorrido de sus secciones. Son URLs de vistas previas realmente iniciadas, no tres descripciones o paletas.
+
+El agente revisa y mejora las propuestas internamente antes de mostrarlas; descarta las que no cumplen el contenido y los criterios visuales. El nombre del modelo o un prompt no garantiza un resultado excelente.
+
+Esta es la **única pausa ordinaria después de la entrevista**. Responde, por ejemplo:
 
 ```text
-Inicia proyectos/blog-jardineria siguiendo AGENTS.md y PERFILES-Y-CALIDAD.md.
-Quiero un blog en español para aprender jardinería en espacios pequeños.
-Usa Astro + Tailwind. Empieza por aclarar público, contenido y estilo.
-Por ahora trabaja sin consultas de pago.
+Elijo B. Conserva su composición y tipografía; usa el tratamiento de fotos de A.
 ```
 
-No hay que copiar todas las reglas para cada web. Cada proyecto guarda su propio contenido, código, decisiones y presupuesto.
+La elección queda guardada. Después Codex extiende esa dirección sin pedir permiso por fase.
+
+## 4. Recibe una entrega comprobada contra la meta
+
+Codex implementa en **Astro + Tailwind CSS**, comprueba tipos y build, recorre móvil y escritorio, revisa enlaces, contenido y SEO, y prueba los flujos críticos. Corrige los defectos materiales y repite las comprobaciones afectadas hasta cumplir la meta o dejar claro un bloqueo externo.
+
+La entrega incluye URL real de preview o publicación autorizada, ubicación del código, comparación con `META.md`, qué está comprobado, qué falta, gasto de datos y forma de mantenimiento. Los pagos se prueban en modo de prueba, sin cobros reales. El registro en `ESTADO.md` distingue preview, publicación y operación real.
+
+Una dependencia esencial, credenciales faltantes, un modelo no disponible o una ampliación de coste/alcance puede necesitar tu decisión. Codex continúa el trabajo independiente y no declara resuelto lo que no probó. Publicar requiere autorización existente; ninguna plantilla publica por sí sola. El SEO comprobado no garantiza posiciones ni resultados orgánicos.
+
+La preview local funciona mientras su servidor siga ejecutándose. Una URL pública tiene su propio hosting y debe comprobarse después de publicar.
+
+## Otra web u otro día
+
+Para una web nueva, vuelve a ejecutar `node iniciar.mjs` **en la misma copia del kit** y usa otro nombre. Cada proyecto guarda sus archivos en `proyectos/<nombre>/`; no clones por web.
+
+Para retomar, abre el kit en Codex y pega:
+
+```text
+Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md y CONTENIDO.md
+si existe. Continúa con las decisiones y autorizaciones guardadas, sin repetir
+la entrevista ni la elección visual resueltas. Conserva el presupuesto acumulado
+y reconcilia el registro de la cartera antes de cualquier compra.
+```
+
+Respalda los proyectos y el registro privado por separado: están excluidos de Git. Si cambias de equipo, restaura o vincula el registro original; clonar no vuelve a poner a cero los presupuestos.

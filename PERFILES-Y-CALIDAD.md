@@ -7,10 +7,12 @@ No hay que ejecutar todos los módulos, contratar servicios ni construir funcion
 ## Uso sencillo
 
 1. El usuario describe su idea con sus propias palabras; no necesita clasificarla técnicamente.
-2. Sol identifica los módulos y hace hasta tres preguntas por turno sobre decisiones que falten.
-3. Registra la combinación, el recorrido principal y los pendientes en `proyecto.json` y `ESTADO.md`.
-4. Investiga, prepara contenido, entrega a Astra high la dirección visual y construye con Sol.
-5. Aplica los criterios comunes y los específicos de los módulos seleccionados.
+2. La entrevista terminal (`node iniciar.mjs`) o Sol pregunta **una cosa cada vez** y reutiliza las respuestas. Solo activa preguntas de tienda, reservas u otros módulos cuando correspondan.
+3. Registra módulos, recorrido y pendientes en `proyecto.json` y `ESTADO.md`; muestra `META.md` con páginas/cantidades, funciones, entregables, exclusiones y flujos de comprobación. Completa la meta a partir de las respuestas antes de investigar, sin una aprobación adicional.
+4. **GPT-6.1 Sol / high** investiga y prepara contenido; **GPT-6 Astra / ultra** diseña y revisa tres mockups A/B/C. Comprueba selección y delegación reales, incluida la carga del rol `disenador` de `.codex/` cuando el cliente lo admita.
+5. La única pausa ordinaria tras la entrevista es elegir A/B/C o una combinación. Sol construye, aplica los criterios comunes y específicos, corrige y comprueba hasta la entrega contra `META.md`.
+
+Una decisión esencial pendiente, acceso/modelo no disponible, coste fuera del alcance o publicación sin autorización puede impedir una acción dependiente. Registrar la condición, preparar el traspaso cuando corresponda y continuar las tareas independientes; no sustituir modelos ni integraciones silenciosamente. Las fases no requieren confirmación adicional y los permisos del entorno no se eluden.
 
 Ejemplos: servicios + portfolio; blog + directorio; catálogo + contenido editorial; tienda + reservas.
 La selección puede evolucionar si aparece una necesidad real, registrando su efecto en alcance, datos y costes.
@@ -85,18 +87,20 @@ Ante fallo, conservar el carrito y explicar cómo continuar sin afirmar que exis
 Verificar que el responsable puede consultar y gestionar el pedido; una pantalla de agradecimiento no demuestra esa capacidad.
 Registrar qué cubre el alcance sobre envíos, impuestos, devoluciones y notificaciones; no completar reglas comerciales inventadas.
 
-## Diseño excelente con contenido real
+## Tres diseños con contenido real
 
-Astra high recibe público, recorrido, identidad, contenido real y evidencias; el texto no queda pendiente de encajar después.
-Si no existe dirección aprobada, preparar **dos direcciones** suficientemente distintas para elegir con criterio.
-Cada una muestra inicio y una vista interior representativa cuando pertenezca al alcance, en móvil y escritorio, con contenido del proyecto. En una landing de una sola página, revisar sus secciones y recorrido sin inventar una página interior.
+**GPT-6 Astra / ultra** recibe público, recorrido, identidad, contenido real y evidencias; el texto no queda pendiente de encajar después.
+Para una dirección nueva, preparar **tres mockups A/B/C** distintos en composición, tipografía y estilo. La identidad existente es una restricción: no reemplazarla por inferencia. Si ya existe una elección, continuar con ella sin repetir la pausa.
+Construir un comparador navegable y entregar **URLs reales** de previews iniciadas. Tres descripciones, paletas o cambios de color sobre una misma plantilla no cumplen el criterio.
+Cada opción muestra inicio y una vista interior representativa cuando pertenezca al alcance, en móvil y escritorio, con contenido del proyecto. En una landing de una sola página, revisar sus secciones y recorrido sin inventar una página interior.
 La vista interior depende del módulo: artículo, producto, servicio, ficha o flujo de reserva.
-El usuario elige la dirección o una combinación concreta; si ya eligió, continuar sin repetir esa decisión.
+Revisar las propuestas internamente con capturas completas y recorridos; corregir defectos y descartar las que no cumplan el contenido, la identidad y la calidad visual antes de presentarlas. No pedir al usuario elegir entre propuestas sin revisar.
+El usuario elige A, B, C o una combinación concreta; registrar la elección antes de extenderla y continuar sin nuevas confirmaciones por fase.
 Registrar tipografía, paleta, espaciado, tratamiento de imágenes, componentes y comportamiento responsive de la elegida.
 Reutilizar primitivas no obliga a repetir hero, composición, colores, fotografía ni recorrido entre negocios.
 Extender el diseño aprobado a todo el recorrido; una portada cuidada con páginas interiores genéricas no cumple el criterio.
 Revisar textos largos, imágenes ausentes y estados lentos, vacíos o de error que existan realmente en ese proyecto.
-El nombre del modelo en un prompt no cambia la selección: comprobarla o preparar el traspaso a Astra high.
+El nombre del modelo en un prompt no cambia la selección: comprobar modelo/esfuerzo reales y soporte de delegación, o preparar el traspaso a Astra ultra. Que este entorno lo admita no demuestra acceso en otro cliente. Un prompt o modelo no garantiza calidad ni posiciones SEO.
 
 ## Criterios comunes de entrega
 
@@ -126,10 +130,13 @@ Ese límite evita auditorías repetidas: no autoriza cerrar como listo un proyec
 Si algo requiere una decisión o acceso externo, continuar tareas independientes y dejar la condición de cierre explícita.
 No perseguir una puntuación de 100 ni añadir páginas o funciones para mejorar una cifra sin utilidad para el proyecto.
 
+Antes de entregar, comparar el resultado contra `META.md`: páginas y cantidades, funciones, entregables, exclusiones, cada flujo crítico y pendientes. Indicar evidencia del cumplimiento y límites de lo comprobado; la existencia de código no cierra un elemento. No pedir al usuario una ronda ordinaria de aprobación para sustituir estas comprobaciones.
+
 Registrar la evidencia en `ESTADO.md`, sin crear otro informe para repetirla:
 
 ```text
 Módulos y recorrido principal:
+Cumplimiento de META.md: elemento, resultado, evidencia y pendientes:
 Dirección visual elegida y quién la eligió:
 Entorno y URL: local / vista previa / público
 Comprobación | Resultado: aprobado / fallo / pendiente / no_aplica | Evidencia y fecha

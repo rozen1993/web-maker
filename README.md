@@ -1,52 +1,60 @@
 # Kit de webs con Astro, Tailwind y SEO
 
-Instrucciones y plantillas para que Codex convierta una idea en una web, con contenido, diseño, SEO y verificaciones. Admite servicios, portfolios, blogs, catálogos, tiendas, directorios, reservas y combinaciones.
+Convierte una idea en una web con contenido, diseño, SEO y verificaciones. Admite servicios, portfolios, blogs, catálogos, tiendas, directorios y reservas combinados según tu proyecto.
 
-**Empieza por [la guía paso a paso](EMPEZAR.md) o abre [la guía en PDF](output/pdf/guia-de-uso.pdf).** No necesitas rellenar JSON ni elegir subskills.
+**Empieza en [EMPEZAR.md](EMPEZAR.md).** Clona o descarga el kit **una vez**. Para cada web, reutiliza esa carpeta y ejecuta en su terminal:
 
-## Cómo usarlo desde GitHub
-
-1. Clona o descarga este repositorio y abre su carpeta en tu IDE con Codex.
-2. Escribe en el chat de Codex el mensaje siguiente y describe tu idea.
-3. Responde sus preguntas, elige la dirección visual y revisa la vista previa que entregue.
-
-```text
-Lee AGENTS.md y EMPEZAR.md de este repositorio.
-Quiero crear una web sobre [idea], para [público y mercado].
-La acción principal será [contactar, comprar, leer, reservar u otra].
-Usa Astro + Tailwind y mis skills SEO instaladas.
-Empieza con las preguntas que falten. Por ahora, sin consultas de pago.
+```sh
+node iniciar.mjs
 ```
 
-Cuando quieras usar datos de pago, el ejemplo de [EMPEZAR.md](EMPEZAR.md) incluye una autorización acotada de DataForSEO. Leer este repositorio no autoriza consumo. Puedes cambiar el presupuesto antes de enviar el mensaje.
+Necesitas **Node 20 o superior**. El iniciador te entrevista **una pregunta cada vez**, guarda el proyecto en `proyectos/<nombre>/` y muestra una meta concreta. La entrevista no usa IA ni consume DataForSEO. Después intenta abrir Codex CLI interactivo con **GPT-6.1 Sol / high**; si no está instalado, deja el mensaje preparado para el chat. Descargar o abrir archivos no ejecuta el sistema.
 
-Codex necesita leer los archivos: pegar solamente la URL de GitHub no instala el kit ni inicia una web. La ruta puede ser cualquiera; la raíz del kit es la carpeta que contiene `AGENTS.md`.
+Si prefieres trabajar en el IDE:
 
-## Qué necesitas en el entorno
+```sh
+node iniciar.mjs --solo-preparar
+```
 
-- Codex con acceso a la carpeta y herramientas para construir y comprobar el proyecto.
-- Tus skills SEO de agricidaniel, sus subskills pertinentes, `astro` y `frontend-design`, instaladas y disponibles en el catálogo. Este repositorio no las incluye ni las instala.
-- Acceso a los modelos que quieras usar. El flujo propuesto usa Sol para producción y Astra high para diseño; el agente verifica su disponibilidad o prepara un traspaso. Escribir sus nombres no cambia automáticamente el modelo.
-- Para consultar datos: MCP de DataForSEO configurado y credenciales en el entorno, fuera de Git. El agente comprueba acceso, precios, saldo y autorización antes de comprar datos.
-- Al construir una web: Node y el gestor de paquetes compatibles con las versiones elegidas; el agente comprueba el entorno antes de instalar dependencias.
+Esta opción realiza la misma entrevista y prepara `INICIAR-CODEX.md` para pegarlo en el chat, sin abrir Codex CLI. No necesitas editar JSON, elegir subskills ni redactar un megaprompt.
 
-Una tienda, reservas o edición con panel pueden requerir servicios adicionales según el alcance. El kit identifica esas dependencias y deja explícito lo que falta.
+## Qué sucede después
 
-## Qué contiene
+Codex lee la ficha y `META.md`, investiga dentro de lo autorizado y prepara contenido. **GPT-6 Astra / ultra** construye y revisa tres mockups A/B/C con contenido real, distintos en composición, tipografía y estilo. Los presenta en navegador mediante URLs reales, con escritorio, móvil e interior representativo cuando corresponda. **GPT-6.1 Sol / high** realiza contenido, SEO, programación y comprobaciones.
+
+Codex comprueba selección real y capacidad de delegación: escribir un modelo en el prompt no lo selecciona ni garantiza acceso. Si falta el modelo requerido, prepara el traspaso y registra el impedimento; no lo sustituye silenciosamente.
+
+La única pausa ordinaria tras la entrevista es para **elegir A, B, C o una combinación concreta**. Luego implementa, prueba y corrige hasta entregar lo acordado en `META.md`. Una dependencia esencial, acceso faltante, coste fuera de alcance o publicación sin autorización puede requerir tu intervención; continúa las tareas independientes. El CLI también puede pedir inicio de sesión o permisos del entorno: el kit no los evita.
+
+## Qué necesitas
+
+- Node 20+ para el iniciador; herramientas de construcción y navegador para comprobar las webs.
+- Codex CLI instalado y con sesión disponible, o Codex en tu IDE con acceso a la carpeta.
+- Acceso a los modelos indicados y orquestación compatible en ese entorno.
+- Skills `astro`, `frontend-design` y las skills SEO pertinentes de agricidaniel instaladas. El clon no las instala.
+- Para datos de pago: MCP DataForSEO y credenciales fuera de Git. El presupuesto inicial es **USD 0**; un importe positivo necesita autorización explícita dentro del perfil permitido. Se verifican precios, saldo y registro antes de comprar.
+
+Una tienda, reservas o edición con panel pueden requerir proveedores y accesos adicionales. La plantilla no autoriza suscripciones, cobros reales ni publicación. Los proyectos registran versiones y lockfile al construirse; el kit no garantiza que una versión o modelo esté disponible en otro equipo.
+
+## Archivos del kit
 
 | Archivo | Para qué sirve |
 |---|---|
-| [EMPEZAR.md](EMPEZAR.md) | Guía para ti, con un ejemplo de tienda de café y blog |
-| [AGENTS.md](AGENTS.md) | Instrucciones del coordinador |
-| [PROMPT-MAESTRO.md](PROMPT-MAESTRO.md) | Mensajes para empezar, retomar o revisar |
+| [EMPEZAR.md](EMPEZAR.md) | Uso paso a paso y ejemplo |
+| [iniciar.mjs](iniciar.mjs) | Entrevista terminal y preparación del proyecto |
+| [.codex/config.toml](.codex/config.toml) y [.codex/agents/disenador.toml](.codex/agents/disenador.toml) | Configuración local del coordinador Sol high y del rol de diseño Astra ultra |
+| [AGENTS.md](AGENTS.md) | Reglas del coordinador, modelos y costes |
+| [PROMPT-MAESTRO.md](PROMPT-MAESTRO.md) | Mensajes para chat, continuidad y revisiones |
 | [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md) | Módulos y comprobaciones por tipo de web |
-| [SISTEMA-PILOTO.md](SISTEMA-PILOTO.md) | Procedimiento ampliado y política de costes |
-| [plantillas/proyecto.json](plantillas/proyecto.json) | Ficha que completa Codex |
+| [SISTEMA-PILOTO.md](SISTEMA-PILOTO.md) | Procedimiento y política de costes |
+| [plantillas/proyecto.json](plantillas/proyecto.json) | Ficha que completa el sistema |
 
-## Kit compartido y proyectos privados
+Conserva la carpeta oculta `.codex/` al clonar o descargar. El cliente debe cargar esta configuración y la cuenta debe tener acceso a los modelos; Sol delega al rol `disenador` durante la etapa visual. La configuración no evita login, confianza del repositorio ni permisos del entorno, y otros clientes pueden requerir un traspaso.
 
-Este repositorio conserva el kit. Las webs se crean por defecto en `proyectos/` y pueden tener repositorios propios. Esa carpeta, las credenciales, `.control/`, `.seo-cache/` y las evidencias privadas están excluidas de Git. Mantén copias de seguridad y repositorios separados para los proyectos que quieras conservar o publicar.
+La [guía PDF del 9/10/2026](output/pdf/guia-de-uso.pdf) se conserva como historial: **no incluye el iniciador CLI ni el flujo actualizado**. Para usar el kit, sigue `EMPEZAR.md` y los archivos actuales.
 
-El registro DataForSEO de una cartera nueva se guarda en `.control/dataforseo.jsonl`. Si cambias de equipo o clonas otra vez para retomar la misma cartera, el coordinador debe vincular su registro privado existente o restaurar una copia completa y reconciliarla antes de pagar. **Clonar no reinicia el presupuesto, el gasto ni las reservas.** Una cartera nueva empieza sin autorización; las plantillas no heredan permisos de otros proyectos. Un único coordinador realiza las compras.
+## Un kit, varios proyectos privados
 
-El límite por web escrito aquí es una instrucción, no un bloqueo técnico del MCP. El límite diario del proveedor requiere configuración y comprobación en DataForSEO. Publicar el kit en GitHub tampoco publica las webs ni configura servicios externos.
+Cada web vive en `proyectos/<nombre>/`, con ficha, meta, decisiones, contenido y código propios. No clones el kit de nuevo para cada web. Las webs pueden tener repositorios propios; `proyectos/`, `.control/`, `.seo-cache/`, credenciales y evidencias privadas quedan fuera de Git y requieren respaldo separado.
+
+El registro DataForSEO de una cartera nueva es `.control/dataforseo.jsonl`. Al trasladar o volver a clonar una cartera existente, vincula su registro privado original o restaura su copia completa y reconcíliala antes de pagar. **Un clon no reinicia presupuestos, gasto ni reservas.** Un único coordinador compra datos. Estos archivos son instrucciones, no un bloqueo técnico del MCP ni un límite configurado en el proveedor.

@@ -1,10 +1,10 @@
 # Sistema repetible de webs con SEO y presupuesto controlado
 
-Versión 3 — 9 de octubre de 2026. Astro + Tailwind, módulos combinables y criterios de entrega.
+Versión 4 — 10 de octubre de 2026. Entrevista terminal, meta visible, tres diseños y entrega comprobada.
 
-Este sistema recibe una idea o negocio que TÚ elijas, utiliza tus skills instaladas de agricidaniel, prepara contenido, diseña con Astra high e implementa con GPT-6.1 Sol en **Astro + Tailwind CSS**. Adapta estructura, contenido y funciones al proyecto: servicios, tiendas, blogs, catálogos, portfolios, directorios o combinaciones. Puedes usarlo para proyectos propios, asociaciones o clientes.
+Este sistema recibe una idea o negocio que TÚ elijas, utiliza tus skills instaladas de agricidaniel, prepara contenido, diseña con Astra ultra e implementa con GPT-6.1 Sol / high en **Astro + Tailwind CSS**. Adapta estructura, contenido y funciones al proyecto: servicios, tiendas, blogs, catálogos, portfolios, directorios o combinaciones. Puedes usarlo para proyectos propios, asociaciones o clientes.
 
-**Para usarlo, empieza en [EMPEZAR.md](EMPEZAR.md).** Describe la idea en pocas líneas; Codex completa la ficha y pregunta lo imprescindible. Los archivos y reglas que siguen los mantiene el coordinador, no necesitas editarlos manualmente.
+**Para usarlo, empieza en [EMPEZAR.md](EMPEZAR.md).** Clona una vez y ejecuta `node iniciar.mjs` en la raíz para cada proyecto, con Node 20+. La entrevista hace una pregunta cada vez, sin IA ni consultas externas, y guarda ficha, meta, estado y mensaje para Codex. Intenta abrir el CLI interactivo Sol high; `--solo-preparar` permite usar el mensaje en el chat del IDE. Descargar no ejecuta; no necesitas editar los archivos manualmente.
 
 ## 1. Qué aporta cada pieza
 
@@ -38,7 +38,7 @@ El detalle de módulos y comprobaciones está en [PERFILES-Y-CALIDAD.md](PERFILE
 
 ### Instrucciones técnicas actualizadas
 
-Para proyectos nuevos, utilizar la integración vigente de Tailwind 4 mediante `@tailwindcss/vite`; `@astrojs/tailwind` corresponde al soporte legado de Tailwind 3. Registrar versiones y lockfile de cada proyecto. [Documentación oficial de estilos](https://docs.astro.build/en/guides/styling/).
+La revisión del 9/10/2026 recomendó para proyectos nuevos Tailwind 4 mediante `@tailwindcss/vite`; `@astrojs/tailwind` corresponde al soporte legado de Tailwind 3. Contrastar documentación vigente y versiones instaladas antes de construir, sin actualizar proyectos existentes indiscriminadamente. Registrar versiones y lockfile de cada proyecto. [Documentación oficial de estilos](https://docs.astro.build/en/guides/styling/).
 
 Para contenido repetido, usar colecciones y esquemas de Astro compatibles con la versión instalada. No copiar `Astro.glob()` de ejemplos antiguos: se eliminó en Astro 6. [Guía oficial de actualización](https://docs.astro.build/en/guides/upgrade-to/v6/#removed-astroglob).
 
@@ -46,7 +46,7 @@ Astro admite integraciones comerciales y un frontend propio. En tiendas, los dat
 
 ## 2. Perfil inicial de DataForSEO
 
-Estos son límites operativos propuestos, editables. Crear estos archivos no los activa como gasto autorizado ni modifica tu cuenta.
+Estos son límites operativos propuestos. El iniciador parte de **USD 0 autorizado**. Un importe positivo necesita autorización explícita dentro del perfil. Crear estos archivos no activa gasto, publicación ni cambios de cuenta.
 
 | Control | Valor del perfil base | Alcance |
 |---|---:|---|
@@ -79,9 +79,9 @@ Tarifas públicas consultadas el 9 de octubre de 2026, sin extras:
 
 Fuentes: [Labs Google](https://dataforseo.com/pricing/dataforseo-labs/dataforseo-google-api), [Google SERP](https://dataforseo.com/pricing/google-serp/google-organic-serp-api), [Google Ads](https://dataforseo.com/pricing/keywords-data/google-ads).
 
-Suggestions ya incluye volúmenes: no volver a comprarlos sin motivo. Google Ads puede aportar una ubicación distinta admitida por el endpoint, palabras adicionales o datos faltantes. El MCP de Suggestions instalado admite país, mientras la herramienta de SERP permite ubicaciones más específicas. Declara siempre la granularidad real.
+Suggestions ya incluye volúmenes: no volver a comprarlos sin motivo. Google Ads puede aportar una ubicación distinta admitida por el endpoint, palabras adicionales o datos faltantes. Comprobar las ubicaciones admitidas por cada herramienta instalada: la revisión original observó país en Suggestions y ubicaciones más específicas en SERP. Declara siempre la granularidad real.
 
-Este cálculo no incluye ranking garantizado, todas las APIs del catálogo, créditos de IA, alojamiento ni revisiones futuras. Tus USD 54 declarados son saldo disponible, no autorización para consumirlo completo. No se verificó el saldo ni se gastó DataForSEO al preparar este sistema.
+Este cálculo no incluye ranking garantizado, todas las APIs del catálogo, créditos de IA, alojamiento ni revisiones futuras. Este cálculo es histórico y debe actualizarse antes de comprar; el saldo de la cuenta no constituye autorización. No se verificó el saldo ni se gastó DataForSEO al preparar este sistema.
 
 ## 3. El control real: tres niveles
 
@@ -124,11 +124,11 @@ DataForSEO permite límites globales y por API/endpoint. Su día se reinicia a l
 
 Si usas tus dos cuentas en paralelo, dedica una al coordinador que compra datos. La otra puede trabajar contenido, diseño o código con los datasets compartidos. Dos chats con acceso a un mismo archivo no constituyen por sí solos un bloqueo técnico.
 
-La versión preparada es un **protocolo operativo con archivos**, no una pasarela que impida físicamente llamadas directas. Para permitir varios compradores simultáneos con un bloqueo duro por sitio haría falta que todas las llamadas pasaran por un ejecutor con reservas atómicas y acceso exclusivo a las credenciales. Esa automatización no está implementada ni es necesaria para usar ahora el flujo con un único comprador.
+El iniciador automatiza la entrevista y prepara archivos; **no es una pasarela que impida llamadas directas de pago**. Para permitir varios compradores simultáneos con un bloqueo duro por sitio haría falta que todas las llamadas pasaran por un ejecutor con reservas atómicas y acceso exclusivo a las credenciales. Ese control de pagos no está implementado: se mantiene un único comprador.
 
 ## 5. Una ficha de entrada y seis fases
 
-La IA pregunta solo lo que falta, como máximo tres preguntas por turno:
+La entrevista pregunta solo lo que falta, **una pregunta cada vez**, y adapta las preguntas funcionales a los módulos de la idea:
 
 - Idea y público: ¿para quién es y qué necesidad atiende?
 - Acción principal: ¿contacto, compra, registro, participación, lectura u otra?
@@ -139,30 +139,34 @@ La IA pregunta solo lo que falta, como máximo tres preguntas por turno:
 
 No es necesario saber SEO ni elegir subskills manualmente para cada fase.
 
+Al terminar la entrevista se muestra `META.md`. Sol concreta páginas y cantidades, funciones, entregables, exclusiones, flujos a probar y pendientes a partir de las respuestas **antes de investigar**, sin una aprobación adicional. Puede redactar contenido nuevo del alcance; no inventa productos, precios, testimonios ni pruebas comerciales. La entrevista registra si la entrega será solo preview o incluirá publicación autorizada, con destino y límites explícitos.
+
+La configuración local `.codex/config.toml` solicita `gpt-6.1-sol` con razonamiento `high`; `.codex/agents/disenador.toml` define el rol `disenador` con `gpt-6-astra` y `ultra`. Sol coordina y delega al rol visual al llegar al diseño. Comprobar que el cliente carga la configuración, admite la delegación y que la cuenta tiene acceso: el nombre en un prompt no selecciona el modelo. Si falta soporte, preparar el traspaso sin sustituciones silenciosas y continuar el trabajo independiente. Inicio de sesión, confianza y permisos del CLI pueden exigir pasos externos y no se eluden. [Comandos del CLI](https://learn.chatgpt.com/docs/developer-commands?surface=cli), [configuración de subagentes](https://learn.chatgpt.com/docs/agent-configuration/subagents).
+
 | Fase | Modelo y skills | Resultado que permite avanzar |
 |---|---|---|
-| 1. Encargo | Sol + seo-plan; seo-page si se trabaja una URL existente | Brief, módulos y objetivo, sin cambiar tu proyecto o forma de asociación |
-| 2. Investigación | Sol + seo-dataforseo; seo-sxo para intención; seo-cluster si la arquitectura lo necesita | Datos guardados, búsquedas agrupadas por intención, competidores pertinentes y mapa de URLs |
-| 3. Contenido | Sol + seo-content; seo-local cuando corresponda | Texto real, jerarquía, metadatos y materiales por página |
-| 4. Diseño | Astra high + frontend-design cuando aporte | Dirección visual y componentes con el contenido aprobado, móvil y escritorio |
-| 5. Implementación | Sol + astro; seo-technical, seo-schema, seo-images, seo-sitemap según necesidad | Web Astro + Tailwind y flujos correspondientes a sus módulos |
-| 6. Verificación | seo-page o seo-audit según alcance; seo-google con acceso; seo-drift para comparar cambios | Entrega verificable, línea base y pendientes explícitos |
+| 1. Encargo | Sol high + seo-plan; seo-page si se trabaja una URL existente | Entrevista, ficha y META.md, sin cambiar tu proyecto o forma de asociación |
+| 2. Investigación | Sol high + seo-dataforseo si se autoriza; seo-sxo para intención; seo-cluster si la arquitectura lo necesita | Datos guardados, búsquedas agrupadas por intención, competidores pertinentes y mapa de URLs |
+| 3. Contenido | Sol high + seo-content; seo-local cuando corresponda | Texto real, jerarquía, metadatos y materiales por página |
+| 4. Diseño | Astra ultra + frontend-design | Tres mockups A/B/C revisados, URLs reales, móvil/escritorio/interior pertinente y elección guardada |
+| 5. Implementación | Sol high + astro; seo-technical, seo-schema, seo-images, seo-sitemap según necesidad | Web Astro + Tailwind y flujos correspondientes a sus módulos |
+| 6. Verificación | Sol high; Astra ultra para revisión visual; skills pertinentes según alcance/accesos | Entrega comparada con META.md, pruebas, correcciones, línea base y pendientes explícitos |
 
 Se activa seo-hreflang para sitios multilingües; seo-ecommerce para tiendas; seo-programmatic para generación a escala cuando corresponda. Esas capacidades no autorizan automáticamente compras adicionales. Un seo-audit solicitado sigue su procedimiento completo, pero sus especialistas comparten datos y no reciben presupuestos separados.
 
-Las fases avanzan cuando su resultado cumple el encargo. Se consulta al usuario únicamente por decisiones que le corresponden: una incógnita decisiva, selección visual, ampliación de presupuesto/alcance o publicación todavía no autorizada. Una autorización existente no se vuelve a pedir.
+Las fases avanzan sin aprobación por fase. Tras la entrevista, la **única pausa ordinaria** es la elección A/B/C o combinación; luego implementar, probar y corregir hasta la entrega contra la meta. Una incógnita decisiva, dependencia esencial, modelo/acceso no disponible, coste fuera de autorización o publicación no autorizada puede requerir intervención: detener solo la acción dependiente y continuar el trabajo independiente. Una autorización existente no se vuelve a pedir.
 
 ### El contenido guía al diseño
 
-Por página, definir antes del diseño: visitante, intención, información principal, pruebas disponibles, dudas y acción. Usar textos reales. Astra puede proponer dos direcciones comparables si no existe una elegida; no extender una elección estética sin tu decisión.
+Por página, definir antes del diseño: visitante, intención, información principal, pruebas disponibles, dudas y acción. Usar textos reales. Para una dirección nueva, Astra ultra prepara **tres mockups A/B/C** distintos en composición, tipografía y estilo, con escritorio, móvil e interior representativo cuando corresponda. Mantener las restricciones de una identidad existente; si ya existe elección, no repetirla. Construir un comparador navegable con URLs de previews realmente iniciadas: no bastan tres descripciones o paletas. Revisar capturas completas y recorridos antes de presentar, iterar internamente, corregir y descartar propuestas que no cumplan el contenido y la calidad visual. El usuario elige A, B, C o una combinación concreta antes de extenderla.
 
-Luego Sol implementa esa dirección en Astro + Tailwind. Astra revisa el resultado contra el diseño elegido y se corrigen defectos materiales. En una tienda se revisan ficha de producto y compra; en un blog, artículo y navegación; en servicios, página interior y contacto. Ajustar la longitud y disposición del contenido es válido, conservando la información útil. No inventar datos para completar una sección visual.
+Luego Sol high implementa esa dirección en Astro + Tailwind. Astra ultra revisa el resultado contra el diseño elegido y se corrigen defectos materiales. En una tienda se revisan ficha de producto y compra; en un blog, artículo y navegación; en servicios, página interior y contacto. Ajustar la longitud y disposición del contenido es válido, conservando la información útil. No inventar datos para completar una sección visual.
 
 En el ejemplo de autismo, el sistema pregunta si se trata de información, comunidad o servicio profesional, y quién valida las afirmaciones especializadas. Ese dato cambia la arquitectura y la revisión editorial; no implica elegir el negocio por ti.
 
 ## 6. Cuándo está terminado
 
-Una entrega se verifica por resultados observables:
+Antes de entregar, comparar cada elemento de `META.md` con la evidencia: páginas y cantidades, funciones, entregables, exclusiones, flujos críticos y pendientes. La meta se muestra al terminar la entrevista y Sol la concreta a partir de las respuestas antes de investigar, sin una aprobación adicional. No se cierra un elemento por existir código. Una entrega se verifica por resultados observables:
 
 - El contenido responde al propósito y sus afirmaciones tienen respaldo.
 - Las páginas y sus enlaces funcionan en móvil y escritorio.
@@ -175,7 +179,7 @@ Una entrega se verifica por resultados observables:
 
 Cada comprobación se registra como aprobado, fallo, pendiente o no aplica, con evidencia. Antes de cerrar se corrigen fallos materiales de diseño, contenido y funcionamiento; se repiten las pruebas afectadas. Las pruebas específicas de cada módulo se suman a esta lista, no se sustituyen por una revisión de la portada.
 
-El estado de entrega separa `preview_verificada`, `lista_para_publicar`, `publicada_verificada` y `operativa_verificada`. Un build correcto no acredita revisión visual; un carrito diseñado no acredita cobros; un botón que abre WhatsApp no demuestra recepción de pedido. No se declara listo el alcance si falta una dependencia esencial. Un resultado impecable se persigue con estas comprobaciones y correcciones, no con una etiqueta o puntuación automática.
+El estado de entrega separa `preview_verificada`, `lista_para_publicar`, `publicada_verificada` y `operativa_verificada`. Un build correcto no acredita revisión visual; un carrito diseñado no acredita cobros; un botón que abre WhatsApp no demuestra recepción de pedido. No se declara listo el alcance si falta una dependencia esencial. La calidad se demuestra con estas comprobaciones y correcciones; un prompt, modelo o puntuación no la garantiza.
 
 Un score de la skill no es una probabilidad de posicionar. SEO implementado y probado es una entrega; visibilidad y resultados orgánicos se observan después. El presupuesto controla el trabajo de investigación, no compra una posición en Google.
 
@@ -185,14 +189,18 @@ Conserva esta estructura dentro de la raíz del kit, donde está `AGENTS.md`:
 
 ```text
 AGENTS.md                         reglas comunes para Codex
-EMPEZAR.md                        entrada sencilla: idea, público y mercado
+EMPEZAR.md                        guía de entrevista terminal e inicio
 PROMPT-MAESTRO.md                  mensaje corto para iniciar o retomar
 PERFILES-Y-CALIDAD.md              módulos y comprobaciones específicas
+iniciar.mjs                       entrevista y apertura del CLI o mensaje IDE
+.codex/                           configuración local del coordinador y diseñador
 plantillas/proyecto.json           ficha y límites copiables
 .control/dataforseo.jsonl          registro compartido; se crea al operar
 proyectos/
   nombre-elegido/
     proyecto.json                 ficha, autorización y tanda
+    META.md                       alcance concreto y criterios de entrega
+    INICIAR-CODEX.md               mensaje preparado para iniciar el trabajo
     ESTADO.md                     fase, decisiones, pendientes, siguiente paso
     CONTENIDO.md                  textos y mapa de páginas
     .seo-cache/                   datos y resultados de las subskills
@@ -209,7 +217,7 @@ La caché de la skill se mantiene en .seo-cache/, con sus esquemas. Añade pará
 
 Se pueden compartir datos públicos entre proyectos cuando coincidan consulta, parámetros, fecha y mercado. No mezclar contenido privado, medición, credenciales ni identidad comercial de distintas webs. Live en Labs describe el modo de respuesta; no significa que su volumen se mida en ese instante.
 
-Para escalar, duplica la ficha y reutiliza componentes y comprobaciones. Distribuye trabajo de contenido/código entre agentes; concentra investigación de pago en el coordinador. No reinicies gasto ni reservas al abrir otro chat.
+Para otra web, ejecuta de nuevo `node iniciar.mjs` en la misma copia del kit; no clones por web. Reutiliza componentes y comprobaciones. Distribuye trabajo de contenido/código entre agentes; concentra investigación de pago en el coordinador. No reinicies gasto ni reservas al abrir otro chat.
 
 ## 8. Uso inmediato
 
@@ -217,4 +225,4 @@ Abre esta carpeta en Codex y utiliza [EMPEZAR.md](EMPEZAR.md). El coordinador ap
 
 Si trabajas fuera de la copia del kit, indica su ruta o copia las reglas comunes al proyecto correspondiente. No supongas que una carpeta ajena hereda estas instrucciones. Compartir la URL de GitHub no instala las skills ni inicia el procedimiento por sí solo: Codex debe poder leer los archivos del repositorio.
 
-El siguiente mensaje puede ser una idea de pocas líneas. El sistema completa la ficha mediante preguntas puntuales y ejecuta las fases; tú no necesitas redactar un megaprompt nuevo para cada web.
+Ejecuta `node iniciar.mjs` o `node iniciar.mjs --solo-preparar` desde la raíz. Si usas directamente el chat, describe la idea en pocas líneas; Sol entrevista una pregunta cada vez. No necesitas redactar un megaprompt nuevo para cada web.
