@@ -37,7 +37,7 @@ Pega `INICIAR-CODEX.md` en el chat con esta carpeta abierta. **El comando va en 
 
 ## 3. Aprueba el presupuesto de investigación
 
-Sol hace una exploración acotada con fuentes gratuitas y el cupo de DataForSEO que hayas autorizado. Define temas, mercados, incertidumbres y evidencia necesaria; no ejecuta todavía la investigación principal.
+Sol hace una exploración acotada con fuentes gratuitas y el cupo de DataForSEO que hayas autorizado. Contrasta preliminarmente tu idea original con necesidades expresadas en búsquedas, resultados y oportunidades del sector; define temas, mercados, incertidumbres y evidencia necesaria. Todavía no ejecuta la investigación principal.
 
 Recibirás `PRESUPUESTO-SEO.md`: propuesta identificada y versionada, consultas previstas, cantidades, ubicación/idioma/dispositivo, tarifas verificadas y sus fuentes, resultados esperados y cobertura pendiente. Muestra por separado **gasto y reservas previos, máximo adicional y total acumulado del proyecto**, con margen incluido y exclusiones. Puedes elegir una opción o ajustar alcance antes de aprobar. No basta el saldo de la cuenta ni un presupuesto escrito por el agente.
 
@@ -45,11 +45,11 @@ Esta es la primera pausa ordinaria después de la entrevista. Tu aprobación deb
 
 Al presentar la propuesta se cierran las compras de preexploración para mantener estable el acumulado. Tras aprobar, todas las nuevas consultas consumen el máximo adicional aprobado, incluso las que aclaren una pregunta inicial.
 
-Después, Sol aplica el sistema completo `seo` de AgriciDaniel y DataForSEO dentro de lo autorizado, prepara arquitectura y contenido reales y registra la evaluación de las 26 subskills en `SEO-COBERTURA.md`. Las disciplinas pertinentes siguen su procedimiento completo; las que no apliquen llevan una razón. Falta de acceso es pendiente o bloqueo, no una excusa para marcar «no aplica».
+Después, Sol aplica el sistema completo `seo` de AgriciDaniel y DataForSEO dentro de lo autorizado, prepara arquitectura y contenido reales y registra la evaluación de las 26 subskills en `SEO-COBERTURA.md`. Las disciplinas pertinentes siguen su procedimiento completo; las que no apliquen llevan una razón. Falta de acceso es pendiente o bloqueo, no una excusa para marcar «no aplica». Antes de escribir, compara la idea original con intención de búsqueda, competencia y capacidad real de cumplir la promesa.
 
 Antes del diseño, recibirás `SEO-STRATEGY.md`, basado en [su plantilla](plantillas/SEO-STRATEGY.md): qué búsquedas pretende captar la web, con qué páginas, qué muestra la competencia y qué oportunidad existe **sin asumir una campaña nueva de enlaces ni otras acciones off-page**. Si los datos permiten estimarlo, incluirá escenarios conservador, central y favorable de clics orgánicos mensuales de Google en los meses 3, 6 y 12 desde la publicación, con fuentes y supuestos. Son rangos condicionados, no promesas; cero también es posible. Si faltan datos, indicará `no_estimable` y la incertidumbre concreta.
 
-Esta evaluación forma parte del trabajo y no añade otra aprobación. Si la investigación no respalda la oportunidad esperada, Sol lo explica antes del diseño, conserva tu idea y no cambia el alcance por su cuenta. No supone que harás off-page o publicarás contenido nuevo cada mes para sostener sus cifras.
+La estrategia recomienda mantener la idea, ajustar el enfoque del contenido o proponer una modificación concreta. Conserva tu idea original para que puedas comparar. Los cambios editoriales dentro del alcance se documentan y aplican; si propone cambiar público, oferta, acción principal, forma de ganar dinero, páginas o integraciones, necesita tu decisión expresa. Aprobar el presupuesto solo autoriza la investigación. Si mantienes la idea original, Sol la respeta y explica sus límites; no supone que harás off-page o publicarás contenido nuevo cada mes para sostener sus cifras. Esta evaluación no añade una aprobación habitual para cada texto o página.
 
 ## 4. Elige una homepage
 

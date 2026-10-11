@@ -7,6 +7,10 @@ Estado: **propuesta, sin aprobación**. Este documento vacío no autoriza consul
 - Rubro, público y oferta: [datos confirmados].
 - Mercado: [país, ciudad cuando aplique, idioma, dispositivo y cobertura de volúmenes].
 - Evidencia de exploración: [consultas, fecha, enlaces/caché y límites de la muestra].
+- Idea original conservada: [texto de proyecto.json; no reescribirla como si ya se hubiera aceptado una variante].
+- Diagnóstico preliminar de la idea: [qué necesidad parece buscar la gente, cómo se manifiesta en resultados, qué alternativas u oportunidades dentro del sector aparecen y qué evidencia falta].
+- Posible ajuste de enfoque: [mantener / ajuste editorial dentro del alcance / cambio material propuesto; efectos tentativos en público, oferta, acción, páginas o ingresos; no aplicarlo sin decisión cuando sea material].
+- Pregunta estratégica que resolverá la investigación aprobada: [hipótesis contrastable, fuentes y límite de la muestra exploratoria].
 - Demanda, intención, competencia y oportunidades: [hallazgos, no certezas no observadas].
 - Oportunidad preliminar sin nueva campaña off-page: [indicios favorables, límites o evidencia insuficiente; explicar consultas/páginas que evaluaremos y señales existentes del dominio].
 - Estimación de tráfico: [qué datos permitirán preparar escenarios de clics mensuales a 3/6/12 meses en SEO-STRATEGY.md; si no alcanzan, declarar no_estimable, sin inventar cifras].
@@ -56,3 +60,5 @@ Opciones: aprobar este presupuesto, solicitar ajuste, o no continuar con la inve
 - Registro en `dataforseo.investigacion.authorization`: [pendiente].
 
 El presupuesto compra evidencia para tomar decisiones. No garantiza posiciones, tráfico ni ventas y no autoriza suscripciones o seguimiento recurrente.
+
+Aprobar este presupuesto autoriza únicamente la investigación descrita: no significa aceptar un cambio de público, oferta, acción, páginas, ingresos o integraciones. Registrar esa decisión por separado si se propone un cambio material.

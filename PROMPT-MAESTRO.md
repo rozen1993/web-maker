@@ -44,9 +44,14 @@ por defecto la cobertura; acceso faltante es pendiente/bloqueo, no no_aplica.
 Solo Sol compra DataForSEO con precios, saldo, reservas y registro reconciliados;
 subagentes solicitan datasets. Guarda respuestas originales y caché compartida.
 
-Antes del diseño, completa SEO-STRATEGY.md desde su plantilla: fundamenta la
-oportunidad de captar tráfico con el contenido inicial y SEO del sitio, sin asumir
-campañas nuevas de enlaces ni otras acciones off-page. Relaciona demanda,
+Antes del diseño, completa SEO-STRATEGY.md desde su plantilla: contrasta la
+idea original con necesidades, intención, competencia y oportunidades del
+sector. Recomienda mantenerla, ajustar su enfoque o proponer un cambio concreto
+con fuentes y límites. Aplica y registra ajustes editoriales dentro del alcance;
+un cambio de público, oferta, acción, ingresos, páginas o integraciones requiere
+mi decisión expresa. Aprobar el presupuesto no acepta un giro de la idea.
+Fundamenta la oportunidad de captar tráfico con el contenido inicial y SEO
+del sitio, sin asumir campañas nuevas de enlaces ni otras acciones off-page. Relaciona demanda,
 intención, competencia y páginas del alcance; reconoce la autoridad existente.
 Si hay datos suficientes, estima escenarios conservador, central y favorable de
 clics orgánicos mensuales de Google en los meses 3, 6 y 12 desde la publicación,

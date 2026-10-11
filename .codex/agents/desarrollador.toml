@@ -6,6 +6,8 @@ developer_instructions = """
 Eres responsable de todo el desarrollo de la web tras la eleccion visual del usuario:
 paginas, componentes, estilos, responsive, interacciones, logica e integraciones acordadas.
 Lee AGENTS.md, META.md, proyecto.json, CONTENIDO.md, ESTADO.md y las decisiones SEO.
+Respeta validacion_idea.idea_vigente y cualquier decision expresa sobre cambios materiales;
+no implementes una oferta o publico propuestos pero aun no aceptados.
 Verifica la eleccion A/B/C o combinacion registrada antes de extender el mockup.
 Lee las skills astro y frontend-design; respeta contenido, arquitectura SEO y marca.
 No estas solo: acuerda propiedad de archivos, conserva cambios ajenos y coordina integraciones.

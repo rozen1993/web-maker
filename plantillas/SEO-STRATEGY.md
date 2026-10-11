@@ -10,6 +10,20 @@ Estado: **pendiente de investigación**. Plantilla sin previsión ni resultados 
 - Dominio y línea base: [nuevo/existente, señales verificadas y datos de GSC si hay acceso; desconocido no equivale a cero].
 - Evidencia: [fuentes, fecha, país, ciudad cuando corresponda, idioma, dispositivo y cobertura real de volúmenes/SERP].
 
+## Diagnóstico de la idea original antes de redactar
+
+- Idea original literal: [copiar de proyecto.json; nunca sustituirla por la recomendación].
+- Necesidad observada y comportamiento de búsqueda: [consultas, intención, formatos de SERP, fuentes y fecha; separar datos de inferencias].
+- Cliente y viabilidad fuera del buscador: [capacidad de cumplir la promesa, diferenciación, materiales, señales de clientes/conversión disponibles y lo que todavía habría que validar].
+
+| Opción | Público, oferta, acción e ingresos | Evidencia a favor y en contra | Páginas/contenido afectados | Dependencias y riesgo | Decisión |
+|---|---|---|---|---|---|
+| Mantener idea original | [sin inventar cambios] | [hallazgos y límites] | [rutas] | [incógnitas] | [vigente/propuesta] |
+| Ajustar enfoque dentro del alcance | [mismo negocio; lenguaje, jerarquía o intención] | [hallazgos y límites] | [rutas] | [incógnitas] | [aplicado y registrado/pendiente] |
+| Cambio material, si se justifica | [qué cambiaría exactamente] | [hallazgos y límites] | [rutas y cantidades] | [coste, integración o validación adicional] | [pendiente de decisión expresa/aceptado/rechazado] |
+
+Recomendación razonada: [mantener / ajustar / proponer cambio material, con motivo y confianza cualitativa]. Idea vigente para el contenido: [texto]. Decisión del usuario sobre cualquier cambio material: [respuesta literal, fecha o pendiente]. Aprobar el presupuesto no equivale a aceptar la modificación. Si sigue pendiente, avanzar solo en trabajo independiente y no diseñar ni publicar una oferta distinta por inferencia. Si se rechaza, respetar la idea original y explicar sus límites. Búsquedas y SERP revelan comportamiento de búsqueda; por sí solos no prueban intención de compra, rentabilidad ni necesidad de descartar una idea nueva.
+
 ## Oportunidad antes del diseño
 
 Conclusión: [oportunidad razonada / oportunidad limitada / evidencia insuficiente], con confianza cualitativa y justificación. No asignar una probabilidad de éxito sin un método validado para ello.

@@ -169,6 +169,7 @@ export function createProject(template, intake, root) {
     'Navegación, enlaces, imágenes, teclado, contraste y flujos críticos comprobados en navegador.',
     'Catálogo completo de skills SEO AgriciDaniel evaluado y auditoría SEO total del alcance aplicable con correcciones verificadas; medición y dependencias faltantes registradas con evidencia.',
     'Exploración inicial cerrada y presupuesto SEO concreto aprobado expresamente antes de la investigación completa.',
+    'Idea original conservada; diagnóstico de necesidades y oportunidades del sector documentado antes de contenido/diseño, con decisión expresa para cualquier cambio material.',
     'SEO-STRATEGY.md: oportunidad orgánica sin campaña off-page nueva evaluada antes del diseño; escenarios de clics mensuales a 3/6/12 meses con fuentes y supuestos, o no_estimable justificado.',
     'Recomendaciones off-page opcionales, específicas del rubro y documentadas al cierre; su ejecución no está autorizada ni se presupone en la estimación.',
   ];
@@ -176,6 +177,18 @@ export function createProject(template, intake, root) {
     status: 'brief_completado', project_id: intake.slug, campaign_id: `${intake.slug}-inicial`,
     idea: intake.idea, publico: intake.audience, accion_principal: intake.action,
   });
+  project.validacion_idea = {
+    ...project.validacion_idea,
+    idea_original: intake.idea,
+    idea_vigente: intake.idea,
+    estado: 'pendiente_investigacion',
+    diagnostico_preliminar: null,
+    recomendacion: null,
+    evidencias: [],
+    ajustes_editoriales: [],
+    cambio_material_propuesto: null,
+    decision_usuario: null,
+  };
   project.mercado = { ...project.mercado, pais: intake.country, ciudad_o_zona: intake.zone, idioma: intake.language, dispositivo_serp: null };
   project.alcance = {
     ...project.alcance, objetivo: `Crear ${intake.name} para ${intake.audience} en ${intake.country} (${intake.zone}), orientada a ${intake.action}.`,
@@ -250,7 +263,8 @@ export function createProject(template, intake, root) {
 }
 
 export function codexPrompt(slug) {
-  return `Inicia el proyecto proyectos/${slug}. Lee AGENTS.md, PERFILES-Y-CALIDAD.md, SEO-COMPLETO.md, plantillas/PRESUPUESTO-SEO.md y plantillas/SEO-STRATEGY.md; en proyectos/${slug}/ lee META.md, ESTADO.md, proyecto.json e INICIAR-CODEX.md. Muestra su META enriquecida y concreta cantidades antes de trabajar. Sol 6.1 high coordina, hace consultoría SEO, contenido y auditoría. Evalúa el catálogo completo de skills SEO AgriciDaniel disponible y registra cobertura aplicable, evidencia y motivos de no_aplica en SEO-COBERTURA.md; no uses herramientas de pago irrelevantes. Realiza solo la pequeña exploración inicial previamente autorizada, cierra sus pagos y presenta en PRESUPUESTO-SEO.md un presupuesto concreto (ya gastado + reservas pendientes + máximo adicional = máximo total, tarifas/endpoints/cantidades/fecha/exclusiones); espera aprobación explícita antes de la investigación completa. Esa aprobación habilita investigación completa y contenido dentro de los límites acordados. Antes del diseño, prepara SEO-STRATEGY.md: evalúa la oportunidad orgánica sin campaña off-page nueva, prioriza búsquedas/páginas con evidencia y estima rangos de clics orgánicos de Google por mes a 3/6/12 meses desde publicación solo con datos y supuestos defendibles; si faltan, registra no_estimable. No presupongas enlaces ni contenido futuro ni conviertas demanda en visitas garantizadas. Al cierre entrega en ese informe recomendaciones off-page opcionales y específicas del rubro, con fuentes, prioridad, esfuerzo, costes conocidos y medición; no ejecutarlas ni asumir su efecto en los escenarios. Para diseño usa el rol disenador si está disponible y verifica Astra ultra: tres mockups de homepage A/B/C con contenido real, escritorio/móvil y URL comprobada; espera elección A/B/C o combinación concreta. Después verifica Astra ultra en el rol desarrollador para implementar TODA la web elegida en Astro + Tailwind CSS + TypeScript. Sol 6.1 high realiza después la auditoría SEO total del alcance aplicable y coordina correcciones con Astra ultra hasta verificar la entrega. Verifica la selección real en cada fase; un prompt no cambia el modelo. Respeta presupuesto y registro compartido, no reinicies autorizaciones/gasto desde otro chat o clon y no prometas rankings. No publiques sin autorización explícita.`;
+  const ideaPrompt = 'Antes de redactar contenido o diseñar, contrasta la idea original con necesidades, intención de búsqueda, competencia y capacidad real del proyecto. Muestra hipótesis preliminares en PRESUPUESTO-SEO.md y diagnóstico, opciones y recomendación sustentada en SEO-STRATEGY.md. Conserva la idea original; registra ajustes editoriales dentro del alcance. Si propones cambiar público, oferta, acción, ingresos, páginas, integraciones o gasto, solicita decisión expresa para ese cambio y continúa lo independiente. Aprobar el presupuesto no aprueba el giro de la idea.';
+  return `${ideaPrompt} Inicia el proyecto proyectos/${slug}. Lee AGENTS.md, PERFILES-Y-CALIDAD.md, SEO-COMPLETO.md, plantillas/PRESUPUESTO-SEO.md y plantillas/SEO-STRATEGY.md; en proyectos/${slug}/ lee META.md, ESTADO.md, proyecto.json e INICIAR-CODEX.md. Muestra su META enriquecida y concreta cantidades antes de trabajar. Sol 6.1 high coordina, hace consultoría SEO, contenido y auditoría. Evalúa el catálogo completo de skills SEO AgriciDaniel disponible y registra cobertura aplicable, evidencia y motivos de no_aplica en SEO-COBERTURA.md; no uses herramientas de pago irrelevantes. Realiza solo la pequeña exploración inicial previamente autorizada, cierra sus pagos y presenta en PRESUPUESTO-SEO.md un presupuesto concreto (ya gastado + reservas pendientes + máximo adicional = máximo total, tarifas/endpoints/cantidades/fecha/exclusiones); espera aprobación explícita antes de la investigación completa. Esa aprobación habilita investigación completa y contenido dentro de los límites acordados. Antes del diseño, prepara SEO-STRATEGY.md: evalúa la oportunidad orgánica sin campaña off-page nueva, prioriza búsquedas/páginas con evidencia y estima rangos de clics orgánicos de Google por mes a 3/6/12 meses desde publicación solo con datos y supuestos defendibles; si faltan, registra no_estimable. No presupongas enlaces ni contenido futuro ni conviertas demanda en visitas garantizadas. Al cierre entrega en ese informe recomendaciones off-page opcionales y específicas del rubro, con fuentes, prioridad, esfuerzo, costes conocidos y medición; no ejecutarlas ni asumir su efecto en los escenarios. Para diseño usa el rol disenador si está disponible y verifica Astra ultra: tres mockups de homepage A/B/C con contenido real, escritorio/móvil y URL comprobada; espera elección A/B/C o combinación concreta. Después verifica Astra ultra en el rol desarrollador para implementar TODA la web elegida en Astro + Tailwind CSS + TypeScript. Sol 6.1 high realiza después la auditoría SEO total del alcance aplicable y coordina correcciones con Astra ultra hasta verificar la entrega. Verifica la selección real en cada fase; un prompt no cambia el modelo. Respeta presupuesto y registro compartido, no reinicies autorizaciones/gasto desde otro chat o clon y no prometas rankings. No publiques sin autorización explícita.`;
 }
 
 function renderMeta(project) {

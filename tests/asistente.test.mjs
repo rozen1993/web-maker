@@ -46,6 +46,10 @@ test('tubería conserva todas las líneas, usa la plantilla vigente y muestra un
   const streams = io(base());
   const result = await runAssistant({ root, ...streams, launch: () => assert.fail('No debe abrir CLI sin TTY') });
   assert.equal(result.project.idea, 'Ayudar a empresas con video');
+  assert.equal(result.project.validacion_idea.idea_original, 'Ayudar a empresas con video');
+  assert.equal(result.project.validacion_idea.idea_vigente, 'Ayudar a empresas con video');
+  assert.equal(result.project.validacion_idea.estado, 'pendiente_investigacion');
+  assert.equal(result.project.validacion_idea.decision_usuario, null);
   assert.equal(result.project.mercado.ciudad_o_zona, 'Lima');
   assert.equal(result.project.mercado.idioma, 'español');
   assert.equal(result.project.meta.cantidad_paginas, 3);
@@ -76,6 +80,9 @@ test('tubería conserva todas las líneas, usa la plantilla vigente y muestra un
   const initialState = await readFile(join(result.directory, 'ESTADO.md'), 'utf8');
   assert.match(initialState, /no_aplica: publicación fuera de esta entrega de preview/);
   assert.doesNotMatch(initialState, /pendiente: publicación/);
+  const handoff = await readFile(join(result.directory, 'INICIAR-CODEX.md'), 'utf8');
+  assert.match(handoff, /Conserva la idea original/);
+  assert.match(handoff, /Aprobar el presupuesto no aprueba el giro de la idea/);
   assert.match(streams.text(), /Empresas locales/);
   assert.match(streams.text(), /pega exactamente/);
   assert.deepEqual((await readdir(result.directory)).sort(), ['ESTADO.md', 'INICIAR-CODEX.md', 'META.md', 'proyecto.json']);

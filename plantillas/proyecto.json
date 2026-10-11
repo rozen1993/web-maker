@@ -5,6 +5,17 @@
   "campaign_id": null,
   "lot_id": null,
   "idea": null,
+  "validacion_idea": {
+    "idea_original": null,
+    "idea_vigente": null,
+    "estado": "pendiente_investigacion",
+    "diagnostico_preliminar": null,
+    "recomendacion": null,
+    "evidencias": [],
+    "ajustes_editoriales": [],
+    "cambio_material_propuesto": null,
+    "decision_usuario": null
+  },
   "accion_principal": null,
   "publico": null,
   "mercado": {
