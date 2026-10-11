@@ -94,7 +94,7 @@ Leer y ejecutar el `SKILL.md` instalado de `seo-audit`. Protocolo: caché compar
 
 Delegar en paralelo cuando el entorno lo permita; con recursos limitados ejecutar secuencialmente sin recortar disciplinas. Subagentes no hacen compras: solicitan datasets al coordinador. La disponibilidad de un conector no autoriza endpoints, créditos ni cambios externos.
 
-Generar los entregables de la skill (`FULL-AUDIT-REPORT.md`, `ACTION-PLAN.md`, capturas y caché pertinentes), enlazarlos desde `ESTADO.md` y actualizar `SEO-COBERTURA.md`. Ofrecer el PDF opcional del informe conforme a la skill; no convertirlo en otra pausa necesaria ni modificar el PDF histórico del kit.
+Generar los entregables de la skill (`FULL-AUDIT-REPORT.md`, `ACTION-PLAN.md`, capturas y caché pertinentes), enlazarlos desde `ESTADO.md` y actualizar `SEO-COBERTURA.md`. Ofrecer el PDF opcional del informe conforme a la skill; no convertirlo en otra pausa necesaria ni confundirlo con la guía de uso del kit.
 
 Separar resultados aprobados, fallos, pendientes y no aplicables por comprobación. No otorgar puntos favorables a una prueba ausente ni comunicar una puntuación como prueba de ventas. Una preview permite revisar código, navegación, contenido y pruebas de laboratorio; no demuestra indexación pública, rendimiento de campo, GSC, GBP, visitas ni conversiones reales. En entrega local esas evidencias externas conservan su pendiente y límites.
 

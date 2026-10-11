@@ -54,7 +54,7 @@ La configuración solicita los modelos, pero no garantiza acceso de tu cuenta ni
 | [plantillas/PRESUPUESTO-SEO.md](plantillas/PRESUPUESTO-SEO.md) | Propuesta de costes que prepara el coordinador antes de pedir aprobación |
 | [plantillas/SEO-STRATEGY.md](plantillas/SEO-STRATEGY.md) | Oportunidad orgánica, escenarios fundamentados y recomendaciones off-page opcionales |
 
-Conserva `.codex/` al clonar. La [guía PDF del 9/10/2026](output/pdf/guia-de-uso.pdf) es histórica y no contiene este flujo; sigue los archivos actuales.
+Conserva `.codex/` al clonar. La [guía PDF](output/pdf/guia-de-uso.pdf) se genera desde `EMPEZAR.md` con `python scripts/generar_guia_pdf.py`; vuelve a generarla cuando cambie esa guía.
 
 ## Un kit, varios proyectos privados
 

@@ -89,7 +89,7 @@ Aplicar las comprobaciones comunes y de cada módulo activo de `PERFILES-Y-CALID
 
 Leer el contrato y los precios vigentes del endpoint antes de usarlo. Sin precio máximo verificable, saldo suficiente conocido, autorización vigente y presupuesto restante reconciliado: **no pagar**. Tampoco pagar si existen reservas cuyo coste impide demostrar que queda presupuesto.
 
-Localizar el helper de costes desde el `SKILL.md` de la instalación disponible y consultar su uso; no asumir una ruta fija. En la instalación original, el 9/10/2026 se observó en `C:/Users/MARCO/.codex/skills/seo/scripts/dataforseo_costs.py` (referencia histórica, no requisito del clon). Sus operaciones `check <endpoint> --count N` y `log <endpoint> <cost>` ayudan a estimar/registrar; verificar que sigan disponibles. Sus tarifas pueden estar desactualizadas y su log global no sustituye el registro de esta cartera. Un código de salida 0 NO es autorización ni prueba de que se cumpla el presupuesto.
+Localizar el helper de costes desde el `SKILL.md` de la instalación disponible y consultar su uso; no asumir una ruta fija. Si incluye operaciones como `check <endpoint> --count N` y `log <endpoint> <cost>`, comprobar que sigan disponibles antes de usarlas. Sus tarifas pueden estar desactualizadas y su log global no sustituye el registro de esta cartera. Un código de salida 0 NO es autorización ni prueba de que se cumpla el presupuesto.
 
 Para cada intento, usar un `request_id` único y eventos JSONL con fecha, proyecto, campaña, fase (`exploracion` o `investigacion`), ID de autorización/propuesta/version, lote autorizado, endpoint, parámetros, coste máximo reservado, coste real si se conoce y estado. Estados: `propuesta`, `reservado`, `completado`, `costependiente`.
 

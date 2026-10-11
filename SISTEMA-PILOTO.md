@@ -10,7 +10,7 @@ Para empezar: [EMPEZAR.md](EMPEZAR.md). Ejecutar `node iniciar.mjs` desde la ra�
 
 | Fase | Responsable | Trabajo y condición para avanzar |
 |---|---|---|
-| Entrevista y meta | Sol high | Una pregunta cada vez; resolver alcance esencial y escribir/muestra `META.md` con páginas, cantidades, funciones, contenidos, criterios, entrega, límites y pendientes. Sin aprobación extra del plan. |
+| Entrevista y meta | Sol high | Una pregunta cada vez; resolver alcance esencial y escribir y mostrar `META.md` con páginas, cantidades, funciones, contenidos, criterios, entrega, límites y pendientes. Sin aprobación extra del plan. |
 | Exploración acotada | Sol high | Revisar idea, fuentes y demanda inicial con datos gratuitos y el cupo previo autorizado. Evaluar qué investigación necesita la meta; guardar fuentes originales. |
 | Presupuesto de investigación | Sol high; aprobación del usuario | Presentar `PRESUPUESTO-SEO.md` identificado/versionado. Esperar aprobación explícita de sus límites; registrar autorización exacta. |
 | Investigación y contenido completos | Sol high | Aplicar principal `seo`, evaluar las 26 subskills y ejecutar los procedimientos pertinentes; oportunidad orgánica fundamentada en `SEO-STRATEGY.md`, arquitectura y texto real antes del diseño. |
