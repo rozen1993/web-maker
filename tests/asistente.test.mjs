@@ -21,6 +21,7 @@ async function fixture(t) {
   const template = JSON.parse(await readFile(join(kitRoot, 'plantillas', 'proyecto.json'), 'utf8'));
   template.future_field = { must_be_preserved: true };
   await writeFile(join(root, 'plantillas', 'proyecto.json'), JSON.stringify(template));
+  await copyFile(join(kitRoot, 'plantillas', 'MEJORAS.md'), join(root, 'plantillas', 'MEJORAS.md'));
   return root;
 }
 
@@ -36,7 +37,7 @@ function io(answers, { tty = false } = {}) {
 }
 
 const base = ({ name = 'Mi Web', action = '1', pages = 'Inicio, Servicios, Contacto', budget = '' } = {}) => [
-  name, 'Ayudar a empresas con video', 'Empresas locales', 'Perú', 'Lima', '',
+  '1', name, 'Ayudar a empresas con video', 'Empresas locales', 'Perú', 'Lima', '',
   action, pages, 'Fotos propias y servicios', 'contacto@example.test', '', '',
   '', budget,
 ];
@@ -63,7 +64,13 @@ test('tubería conserva todas las líneas, usa la plantilla vigente y muestra un
   assert.equal(result.project.dataforseo.investigacion.proposal, null);
   assert.equal(result.project.dataforseo.investigacion.additional_budget_usd, null);
   assert.equal(result.project.dataforseo.investigacion.approved_project_total_usd, null);
-  assert.equal(result.project.schema_version, 4);
+  assert.equal(result.project.schema_version, 5);
+  assert.equal(result.project.intake.version, 2);
+  assert.equal(result.project.modalidad, 'nueva');
+  assert.equal(result.project.renovacion.estado, 'no_aplica');
+  assert.equal(result.project.alcance.web_existente, null);
+  assert.deepEqual(result.project.dataforseo.investigacion.options, []);
+  assert.equal(result.project.dataforseo.investigacion.selected_option_id, null);
   assert.equal(result.project.dataforseo.investigacion.freeze_new_paid_calls_while_awaiting_approval, true);
   assert.equal(result.project.dataforseo.investigacion.approval_must_match_proposal_id_and_version, true);
   assert.ok(result.project.dataforseo.investigacion.proposal_required_fields.includes('pricing_sources'));
@@ -85,7 +92,11 @@ test('tubería conserva todas las líneas, usa la plantilla vigente y muestra un
   assert.match(handoff, /Aprobar el presupuesto no aprueba el giro de la idea/);
   assert.match(streams.text(), /Empresas locales/);
   assert.match(streams.text(), /pega exactamente/);
-  assert.deepEqual((await readdir(result.directory)).sort(), ['ESTADO.md', 'INICIAR-CODEX.md', 'META.md', 'proyecto.json']);
+  const event = JSON.parse(await readFile(join(result.directory, 'BITACORA.jsonl'), 'utf8'));
+  assert.equal(event.type, 'entrevista_completada');
+  assert.equal(event.phase, 'brief');
+  assert.equal(event.project_id, 'mi-web');
+  assert.deepEqual((await readdir(result.directory)).sort(), ['BITACORA.jsonl', 'ESTADO.md', 'INICIAR-CODEX.md', 'MEJORAS.md', 'META.md', 'proyecto.json']);
   assert.deepEqual((await readdir(root)).sort(), ['plantillas', 'proyectos']);
 });
 
@@ -157,14 +168,44 @@ test('nombres seguros, traversal y colisiones no sobreescriben', async t => {
   const original = await readFile(join(first.directory, 'proyecto.json'), 'utf8');
   await assert.rejects(saveProject({ root, intake }), { code: 'EEXIST' });
   assert.equal(await readFile(join(first.directory, 'proyecto.json'), 'utf8'), original);
-  const repeatedName = await interview({ root, ...io(['Mi Web', ...base({ name: 'Otro Nombre' })]) });
+  const repeatedName = await interview({ root, ...io(['1', 'Mi Web', ...base({ name: 'Otro Nombre' }).slice(1)]) });
   assert.equal(repeatedName.slug, 'otro-nombre');
+});
+
+test('presupuestos con fracciones de centavo se rechazan antes de confirmar o guardar', async t => {
+  for (const invalid of ['0.104', '0.004', '0,0049', '0.999', '1.000']) {
+    assert.throws(() => parseBudget(invalid), /dos decimales/, invalid);
+  }
+  // Todos los importes admitidos se muestran y persisten con el mismo valor.
+  for (let cents = 0; cents <= 100; cents++) {
+    const displayed = (cents / 100).toFixed(2);
+    assert.equal(parseBudget(displayed), cents / 100);
+    assert.equal(parseBudget(displayed.replace('.', ',')), cents / 100);
+  }
+  const root = await fixture(t);
+  const streams = io([...base({ budget: '0.104' }), '0.004', '0,10', 'sí']);
+  const saved = await runAssistant({ root, ...streams, prepareOnly: true });
+  const persisted = JSON.parse(await readFile(join(saved.directory, 'proyecto.json'), 'utf8'));
+  const confirmationAmounts = [...streams.text().matchAll(/Autorizas expresamente hasta USD (\d+\.\d{2})/g)].map(match => match[1]);
+  assert.deepEqual(confirmationAmounts, ['0.10']);
+  assert.match(streams.text(), /dos decimales/);
+  assert.equal(persisted.dataforseo.exploracion.budget_usd, 0.1);
+  assert.equal(persisted.dataforseo.exploracion.authorization.budget_usd, 0.1);
+  assert.equal(persisted.intake.responses.presupuesto.raw, '0,10');
+  assert.equal(persisted.dataforseo.investigacion.authorization, null);
+
+  const anotherRoot = await fixture(t);
+  const intake = await interview({ root: anotherRoot, ...io(base()) });
+  for (const budget of [0.104, 0.004, NaN, Infinity, '0.10']) {
+    await assert.rejects(saveProject({ root: anotherRoot, intake: { ...intake, budget } }), /dos decimales/);
+  }
+  assert.deepEqual(await readdir(anotherRoot), ['plantillas']);
 });
 
 test('preguntas adaptativas de tienda y reservas conservan el pago y sus dependencias', async t => {
   const root = await fixture(t);
   const answers = base({ action: '2 y 5', pages: 'Inicio, Productos, Reservar' });
-  answers.splice(12, 0, 'Proveedor en sandbox', 'Inventario servidor', 'Recogida en Lima', 'Calendario existente', 'Sí, mismo proveedor');
+  answers.splice(13, 0, 'Proveedor en sandbox', 'Inventario servidor', 'Recogida en Lima', 'Calendario existente', 'Sí, mismo proveedor');
   const streams = io(answers);
   const result = await runAssistant({ root, ...streams, prepareOnly: true });
   assert.deepEqual(result.project.arquitectura.modulos, ['tienda', 'reservas']);
@@ -180,7 +221,7 @@ test('preguntas adaptativas de tienda y reservas conservan el pago y sus depende
 test('catálogo pregunta recepción de pedidos sin convertirlo en tienda', async t => {
   const root = await fixture(t);
   const answers = base({ action: '3' });
-  answers.splice(12, 0, 'WhatsApp y lista actualizada por el equipo');
+  answers.splice(13, 0, 'WhatsApp y lista actualizada por el equipo');
   const streams = io(answers);
   const result = await runAssistant({ root, ...streams, prepareOnly: true });
   assert.ok(result.project.arquitectura.modulos.includes('catalogo'));
@@ -204,7 +245,7 @@ test('límites numéricos rechazan valores desconocidos y cuentas solo explícit
 test('texto libre comprar online pide pagos y stock; las negaciones no activan módulos', async t => {
   const root = await fixture(t);
   const answers = base({ action: 'comprar online', pages: 'Inicio, productos, carrito, checkout, sin cuentas ni reservas' });
-  answers.splice(12, 0, 'por elegir', 'pendiente', 'pendiente');
+  answers.splice(13, 0, 'por elegir', 'pendiente', 'pendiente');
   const result = await runAssistant({ root, ...io(answers), prepareOnly: true });
   assert.deepEqual(result.project.arquitectura.modulos, ['tienda']);
   assert.ok(result.project.intake.responses.pagos);
@@ -216,8 +257,8 @@ test('publicación conserva solicitud y solo un sí explícito con destino regis
   for (const [confirmation, authorized] of [['no', false], ['sí', true]]) {
     const root = await fixture(t);
     const answers = base();
-    answers[12] = 'Autorizo publicar en mi dominio existente';
-    answers.splice(13, 0, 'https://ejemplo.test, proyecto existente', confirmation);
+    answers[13] = 'Autorizo publicar en mi dominio existente';
+    answers.splice(14, 0, 'https://ejemplo.test, proyecto existente', confirmation);
     const streams = io(answers);
     const result = await runAssistant({ root, ...streams, prepareOnly: true });
     assert.equal(result.project.alcance.entrega_solicitada, 'Autorizo publicar en mi dominio existente');
@@ -316,6 +357,8 @@ test('entrypoint CLI funciona con stdin en un kit temporal y --solo-preparar', a
   await mkdir(join(root, 'scripts'));
   await copyFile(join(kitRoot, 'iniciar.mjs'), join(root, 'iniciar.mjs'));
   await copyFile(join(kitRoot, 'scripts', 'asistente.mjs'), join(root, 'scripts', 'asistente.mjs'));
+  await copyFile(join(kitRoot, 'scripts', 'guardar-proyecto.mjs'), join(root, 'scripts', 'guardar-proyecto.mjs'));
+  await copyFile(join(kitRoot, 'scripts', 'bitacora.mjs'), join(root, 'scripts', 'bitacora.mjs'));
   const output = await new Promise((resolveResult, reject) => {
     const child = spawn(process.execPath, [join(root, 'iniciar.mjs'), '--solo-preparar'], { shell: false, stdio: ['pipe', 'pipe', 'pipe'] });
     let text = '';

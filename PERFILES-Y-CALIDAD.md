@@ -7,9 +7,9 @@ No hay que ejecutar todos los módulos, contratar servicios ni construir funcion
 ## Uso sencillo
 
 1. El usuario describe su idea con sus propias palabras; no necesita clasificarla técnicamente.
-2. La entrevista terminal (`node iniciar.mjs`) o Sol pregunta **una cosa cada vez** y reutiliza las respuestas. Solo activa preguntas de tienda, reservas u otros módulos cuando correspondan.
+2. La entrevista terminal (`node iniciar.mjs`) o Sol pregunta **una cosa cada vez** y reutiliza las respuestas. Distingue web nueva/renovación y solo activa preguntas de migración, tienda, reservas u otros módulos cuando correspondan.
 3. Registra módulos, recorrido y pendientes en `proyecto.json` y `ESTADO.md`; muestra `META.md` con páginas/cantidades, funciones, entregables, exclusiones y flujos de comprobación. Completa la meta a partir de las respuestas antes de investigar, sin una aprobación adicional.
-4. **GPT-6.1 Sol / high** realiza una exploración acotada con fuentes gratuitas y el cupo previo autorizado; presenta el presupuesto principal identificado/versionado y espera aprobación explícita. El total incluye gasto y reservas previos, máximo adicional y margen; no existe un USD 1 universal para toda la investigación.
+4. **GPT-6.1 Sol / high** realiza una exploración acotada con fuentes gratuitas y el cupo previo autorizado; compara mínimo/estándar/óptimo, recomienda con motivos y espera aprobación explícita de opción/ID/versión. Cada total incluye la misma base de gasto y reservas previos, su máximo adicional y margen; no se suman los tres ni existe un USD 1 universal para toda la investigación.
 5. Sol aplica la skill principal `seo` de AgriciDaniel y evalúa sus **26 subskills** en `SEO-COBERTURA.md`, según [SEO-COMPLETO.md](SEO-COMPLETO.md). Ejecuta los procedimientos completos pertinentes y prepara arquitectura/contenido; mencionar una disciplina no acredita trabajo.
 6. **GPT-6 Astra / ultra** diseña y revisa tres homepages mockup A/B/C en el rol `disenador`. El usuario elige A/B/C o combinación concreta; Astra desarrolla **toda la web** elegida en el rol `desarrollador`.
 7. Sol ejecuta auditoría SEO completa y pruebas; Astra corrige defectos de código/diseño y Sol verifica hasta la entrega contra `META.md`. Comprobar selección y delegación reales de los roles `.codex/`, sin atribuir ejecución por escribir un nombre.
@@ -40,6 +40,8 @@ Las cuentas se añaden únicamente cuando el recorrido lo exige; una web editori
 La columna de skills da ejemplos pertinentes, no una selección reducida por defecto: evaluar las 26 conforme a `SEO-COMPLETO.md`. Leer y aplicar cada procedimiento cuando corresponda; la tabla no autoriza consultas de pago. Falta de acceso o evidencia externa se registra como pendiente/bloqueo, no como `no_aplica`.
 
 ## Decisiones esenciales por naturaleza del sitio
+
+**Renovación:** modalidad transversal a todos los módulos. Seguir [MIGRACIONES.md](MIGRACIONES.md): distinguir conservar dominio y conservar rutas, registrar prioridades/accesos y comprobar baseline, mapa de URLs/archivos, equivalencias, continuidad de funciones, respaldo y reversión. No sustituir la web pública con una entrega parcial. Registrar por separado pruebas en preview, públicas y seguimiento posterior autorizado; no garantizar posiciones ni tráfico por cambiar tecnología.
 
 **Venta:** preguntar si se busca un catálogo para consultar por WhatsApp/formulario o comprar y pagar dentro del sitio.
 No elegir una de estas opciones por el usuario. Un botón de WhatsApp no completa una tienda con checkout solicitado.
@@ -130,6 +132,7 @@ Tras publicar con autorización, verificar URLs y recorrido público; si faltan 
 ## Correcciones y cierre
 
 Sol high documenta defectos concretos de código/diseño; Astra ultra los corrige dentro del alcance autorizado y Sol verifica las partes afectadas.
+Registrar cada incidencia y su cierre con el helper de [BITACORA.md](BITACORA.md): hallazgo, impacto, causa conocida o hipótesis, corrección y evidencia de verificación. `MEJORAS.md` enlaza esos eventos y aprendizajes; no marca resuelto un cambio sin comprobar. Un aprendizaje puede mejorar pruebas o instrucciones del proyecto dentro del alcance, sin modificar skills globales ni otros proyectos por inferencia.
 Realizar como máximo dos ciclos amplios de revisión; después, usar una lista concreta de defectos, causas y acciones.
 Ese límite evita auditorías repetidas: no autoriza cerrar como listo un proyecto con fallos críticos conocidos.
 Si algo requiere una decisión o acceso externo, continuar tareas independientes y dejar la condición de cierre explícita.
@@ -148,6 +151,8 @@ Entorno y URL: local / vista previa / público
 Comprobación | Resultado: aprobado / fallo / pendiente / no_aplica | Evidencia y fecha
 Integraciones: simulada / prueba del proveedor / real verificada
 Defectos que impiden la entrega y siguiente acción:
+Bitácora, incidencias abiertas y aprendizajes verificados: enlaces
+Renovación: baseline, mapa de URLs, respaldo/reversión y pruebas públicas pendientes
 Pendientes que no impiden la entrega, responsable y alcance afectado:
 Estado final y límite de lo demostrado:
 ```

@@ -43,8 +43,8 @@ def register_fonts():
 
 REGULAR, BOLD, MONO = register_fonts()
 styles = getSampleStyleSheet()
-styles.add(ParagraphStyle("BodyGuide", fontName=REGULAR, fontSize=10, leading=14.5,
-                          textColor=INK, spaceAfter=8))
+styles.add(ParagraphStyle("BodyGuide", fontName=REGULAR, fontSize=10, leading=14,
+                          textColor=INK, spaceAfter=6, allowWidows=0, allowOrphans=0))
 styles.add(ParagraphStyle("SmallGuide", parent=styles["BodyGuide"], fontSize=8.6,
                           leading=12, textColor=MUTED, spaceAfter=6))
 styles.add(ParagraphStyle("TitleGuide", fontName=BOLD, fontSize=25, leading=29,
@@ -100,6 +100,8 @@ def story_from_markdown(markdown):
             index += 1
             continue
         if line.startswith("```"):
+            if story and isinstance(story[-1], Paragraph):
+                story[-1].keepWithNext = True
             code = []
             index += 1
             while index < len(lines) and not lines[index].strip().startswith("```"):

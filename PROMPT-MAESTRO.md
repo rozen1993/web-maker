@@ -12,6 +12,10 @@ Quiero una web sobre [idea], para [público/mercado], cuyo objetivo es [acción]
 Materiales disponibles: [materiales]. Crea proyectos/[nombre] en este kit.
 
 Pregunta lo que falte UNA COSA CADA VEZ y reutiliza mis respuestas.
+Identifica web nueva o renovación. Si renuevo, recoge URL, continuidad de dominio,
+mejoras/conservación, prioridades y accesos; aplica MIGRACIONES.md y prepara
+MIGRACION-SEO.md con baseline, mapa de URLs, respaldo, transición y reversión.
+No exijas que yo inventaríe keywords ni atribuyas permisos por elegir renovación.
 Conserva mi idea y modalidad de inversión/asociación. Resuelve funciones esenciales:
 pago frente a contacto, editor, stock/disponibilidad, materiales y destino.
 No me pidas JSON ni selección de subskills. Preexploración de pago USD 0 por ahora.
@@ -27,11 +31,14 @@ desarrollador en .codex/. Si falta acceso, registra el bloqueo y prepara traspas
 no atribuyas selección a un nombre en el prompt ni sustituyas sin avisar.
 
 Haz una exploración pequeña con fuentes gratuitas y cualquier cupo previo autorizado.
-Presenta PRESUPUESTO-SEO.md identificado/versionado, con consultas y parámetros,
-tarifas actuales verificadas, evidencia, incertidumbre y margen incluido.
-Muestra gasto/reservas previos, máximo adicional y total acumulado del proyecto.
-Explica cobertura/entregables y exclusiones. Espera mi aprobación explícita de esa
-propuesta antes de comprar la investigación principal; autorización null hasta entonces.
+Presenta PRESUPUESTO-SEO.md con minimo, estandar y optimo identificados/versionados:
+plan de consultas/parámetros, tarifas verificadas, evidencia, incertidumbre y margen
+por opción viable. Mantén controles esenciales; marca opciones sin valor o inviables.
+Recomienda una con motivos y valor marginal. Compara máximos adicionales y totales
+sobre la misma base de gasto/reservas; no sumes los tres ni compres planes alternativos.
+Espera mi elección y aprobación expresa de opción/ID/versión antes de investigar;
+selected_option_id y authorization siguen null hasta entonces. Rellena proposal y
+límites solo con la opción aprobada. No elijas por mí ante una respuesta ambigua.
 No impongas USD 1 como presupuesto universal ni reinicies gastos de la exploración.
 Al cerrar la exploración, congela compras hasta aprobar para conservar la base.
 Después de aprobar, todas las llamadas nuevas consumen el máximo adicional,
@@ -59,6 +66,9 @@ con fuentes, método y supuestos. No son cifras acumuladas ni visitas garantizad
 Datos insuficientes: no_estimable, sin inventar volúmenes, CTR, posiciones ni
 probabilidades de éxito. Cero también es posible. No supongas contenido mensual
 adicional ni acciones del usuario para sostener el escenario base.
+Los tres presupuestos no equivalen a escenarios de tráfico. Más investigación
+de la misma web no justifica prometer más visitas. En renovación distingue baseline
+observada, total previsto e incremento, con periodos/mercado comparables.
 Explica una oportunidad débil o incierta antes de diseñar, sin decidir por mí,
 cambiar silenciosamente el alcance ni añadir otra aprobación ordinaria.
 
@@ -89,6 +99,11 @@ acciones externas ni compras adicionales por recomendarlas. No presupongas que
 las aplicaré ni incluyas su efecto en el escenario base. Completar las skills no
 demuestra tráfico: separa SEO listo de resultados observados tras publicar.
 La recomendación de mantenimiento no activa gastos recurrentes.
+Mantén BITACORA.jsonl y MEJORAS.md conforme a BITACORA.md: hechos, decisiones,
+verificaciones, incidencias, corrección, prueba y aprendizaje. Usa el helper local;
+no cierres incidencias sin evidencia ni modifiques reglas o permisos por aprender.
+No registres secretos ni razonamiento interno. ESTADO resume y enlaza; el registro
+financiero conserva su función exclusiva. No inventes historia de proyectos previos.
 ```
 
 ## Autorizar únicamente la preexploración
@@ -110,11 +125,13 @@ No autoriza investigación principal, servicios, publicación ni seguimiento.
 Usa los límites exactos de la propuesta que hayas revisado. No sustituirlos por un presupuesto genérico ni interpretar copiar este ejemplo como autorización.
 
 ```text
-Apruebo PRESUPUESTO-SEO.md, propuesta [ID], versión [versión], para
-proyectos/[nombre]. Autorizo su máximo adicional de USD [importe],
+Apruebo PRESUPUESTO-SEO.md, propuesta [ID], versión [versión], opción
+[minimo / estandar / optimo: elegir una], para proyectos/[nombre].
+Autorizo exclusivamente su máximo adicional de USD [importe],
 con total máximo acumulado del proyecto USD [total], incluidos gasto y reservas
 previos que muestra la propuesta. Apruebo los endpoints, cantidades, parámetros,
 máximos por llamada y cupos/reintentos allí identificados, con margen incluido.
+No apruebo las otras opciones ni la suma de sus presupuestos.
 Sol es el único comprador y debe verificar precio, saldo y registro antes de pagar.
 No pidas aprobación por llamadas cubiertas. No autoriza otros servicios,
 publicación, SEM, revisiones recurrentes ni un reinicio de gasto/reservas.
@@ -127,10 +144,13 @@ Un lote existente necesita su ID, proyectos y límites aprobados; no crearlo por
 ```text
 Retoma proyectos/[nombre]. Lee META.md, proyecto.json, ESTADO.md,
 CONTENIDO.md, PRESUPUESTO-SEO.md, SEO-STRATEGY.md, SEO-COBERTURA.md y caché disponibles.
+Consulta BITACORA.jsonl y MEJORAS.md; MIGRACION-SEO.md si es renovación.
 Conserva alcance, modelos, decisiones, autorizaciones y costes acumulados.
 Reconcilia registro privado, gasto y reservas antes de cualquier compra.
 Continúa la siguiente tarea pendiente; no repitas entrevista, aprobación del
 presupuesto ni elección visual ya resueltas. Contrasta entrega contra META.
+En proyectos anteriores incorpora registros desde hoy sin inventar historial ni
+cambiar autorizaciones vigentes por actualizar una plantilla.
 ```
 
 ## Revisión posterior concreta

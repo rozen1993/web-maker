@@ -1,6 +1,6 @@
 ﻿# Sistema repetible de webs con SEO y presupuesto por proyecto
 
-Versión 6 — 11 de octubre de 2026. Entrevista, exploración pequeña, presupuesto aprobado, estrategia orgánica fundamentada, SEO completo, tres homepages y entrega verificada.
+Versión 7 — 11 de octubre de 2026. Web nueva o renovación, bitácora verificable, tres presupuestos, estrategia orgánica fundamentada, SEO completo, tres homepages y entrega verificada.
 
 El usuario elige idea y modalidad de negocio o asociación. **GPT-6.1 Sol / high** coordina, investiga, prepara contenido y verifica; **GPT-6 Astra / ultra** diseña las propuestas y desarrolla toda la web en **Astro + Tailwind CSS**. Las skills de AgriciDaniel y DataForSEO aportan procedimientos y evidencia según el proyecto. El SEO comprobado no garantiza resultados orgánicos.
 
@@ -12,7 +12,7 @@ Para empezar: [EMPEZAR.md](EMPEZAR.md). Ejecutar `node iniciar.mjs` desde la ra�
 |---|---|---|
 | Entrevista y meta | Sol high | Una pregunta cada vez; resolver alcance esencial y escribir y mostrar `META.md` con páginas, cantidades, funciones, contenidos, criterios, entrega, límites y pendientes. Sin aprobación extra del plan. |
 | Exploración acotada | Sol high | Revisar idea original, fuentes, necesidades expresadas y demanda inicial con datos gratuitos y el cupo previo autorizado. Adelantar hipótesis de oportunidad o ajuste; evaluar qué investigación necesita la meta y guardar fuentes originales. |
-| Presupuesto de investigación | Sol high; aprobación del usuario | Presentar `PRESUPUESTO-SEO.md` identificado/versionado. Esperar aprobación explícita de sus límites; registrar autorización exacta. |
+| Presupuesto de investigación | Sol high; aprobación del usuario | Comparar `minimo`, `estandar` y `optimo` en `PRESUPUESTO-SEO.md`, recomendar con motivos y esperar aprobación explícita de opción/ID/versión y límites. No comprar las tres. |
 | Investigación y contenido completos | Sol high | Aplicar principal `seo`, evaluar las 26 subskills y ejecutar los procedimientos pertinentes; diagnosticar la idea original y recomendar mantenerla, enfocarla o modificarla antes de la arquitectura y el texto real. Registrar decisión expresa para cambios materiales; documentar oportunidad orgánica en `SEO-STRATEGY.md` antes del diseño. |
 | Tres homepages | Astra ultra, rol `disenador` | Mockups A/B/C con contenido real, URL comprobada, navegador, escritorio y móvil; interior representativo cuando aporte. Revisar internamente antes de presentar. |
 | Elección visual | Usuario | Elegir A, B, C o combinación concreta; guardar elección/ajustes en ficha y `ESTADO.md`. |
@@ -29,7 +29,11 @@ Aplicar [PERFILES-Y-CALIDAD.md](PERFILES-Y-CALIDAD.md): servicios, portfolio, bl
 
 La entrevista resuelve pagar dentro del sitio frente a pedir por contacto, editor, stock/disponibilidad, materiales, integraciones y destino de entrega. Reutilizar respuestas y explicitar supuestos reversibles. Una tienda con pago no se sustituye por catálogo; una reserva simulada no se declara confirmada. Proveedores o accesos pendientes se registran y no se contratan automáticamente.
 
+La modalidad inicial distingue `nueva` y `renovacion`. Renovar activa preguntas de URL, continuidad de dominio, mejoras/conservación, prioridades y accesos, sin exigir un inventario manual. Aplicar [MIGRACIONES.md](MIGRACIONES.md): baseline previa, mapa de URLs/archivos, preservación comprobable, respaldo, transición y reversión. La nueva tecnología no garantiza conservar posiciones; la verificación pública y el seguimiento se distinguen de la preview. No cambiar el destino de publicación ya autorizado sin decisión expresa.
+
 Antes de explorar, concretar `META.md`; la investigación puede precisar arquitectura sin ampliar o reducir silenciosamente la entrega. Mantener `proyecto.json`, `META.md`, `ESTADO.md`, `CONTENIDO.md`, `PRESUPUESTO-SEO.md`, `SEO-STRATEGY.md`, `SEO-COBERTURA.md` y `.seo-cache/`. Crear `evidencias/` cuando existan capturas/artefactos, sin informes duplicados. Las versiones, lockfile y APIs de Astro/Tailwind se contrastan con documentación oficial vigente y el proyecto real; no actualizar una web existente indiscriminadamente ni copiar APIs obsoletas de ejemplos locales.
+
+El iniciador guarda también `BITACORA.jsonl` y `MEJORAS.md`, y al renovar añade `MIGRACION-SEO.md`. Seguir [BITACORA.md](BITACORA.md): el coordinador registra decisiones, transiciones, pruebas y correcciones, con evidencia para cada cierre. ESTADO resume; la bitácora general no sustituye ni duplica el registro financiero. Proyectos anteriores se amplían desde el momento actual conservando permisos y sin inventar historia.
 
 ## 3. Preexploración: cupo pequeño y separado
 
@@ -52,9 +56,11 @@ Con USD 0, usar fuentes gratuitas para preparar la propuesta y declarar incertid
 
 Después de explorar, dimensionar la investigación completa de este proyecto: temas, URLs, mercados, decisiones de conversión y disciplinas de [SEO-COMPLETO.md](SEO-COMPLETO.md). No aplicar el antiguo USD 1 como límite universal. Evitar compras repetidas entre módulos y subskills.
 
+Comparar mínimo suficiente, estándar y óptimo según `plantillas/PRESUPUESTO-SEO.md`. Los tres conservan el alcance comprometido y los controles esenciales; varía la profundidad útil de la evidencia. Cada opción viable tiene su plan completo, preguntas que resuelve, incertidumbre, fuentes, límites y exclusiones. Explicar el valor marginal y recomendar una; marcar no viable o no justificada cuando corresponda en vez de fabricar tres escalones. Cambios en cantidad de páginas, funciones o mercado acordado se presentan como decisiones de alcance separadas.
+
 `PRESUPUESTO-SEO.md` y su vista en la ficha deben contener:
 
-- ID y versión de la propuesta, fecha, proyecto, objetivo y estado de conciliación del registro.
+- ID y versión de la propuesta, ID de opción, fecha, proyecto, objetivo y estado de conciliación del registro.
 - Gasto confirmado previo, reservas pendientes previas y operaciones/cupos consumidos de la preexploración y otras fases.
 - Por endpoint: finalidad, contrato/parámetros, tareas/llamadas, cantidad máxima de ítems, ubicación, idioma, dispositivo y extras pertinentes.
 - Tarifas máximas verificadas, fuente y fecha de comprobación; máximos por llamada y por endpoint, cupos de intentos y reintentos.
@@ -62,9 +68,13 @@ Después de explorar, dimensionar la investigación completa de este proyecto: t
 - **Máximo adicional**, con margen explícito incluido, y **total máximo acumulado del proyecto**: gasto previo + reservas previas + máximo adicional.
 - Qué queda fuera: hosting, servicios comerciales, créditos ajenos, activación SEM u otras operaciones no incluidas; alternativas si cambian alcance o evidencia.
 - Recomendación de mantenimiento/consultoría separada, que no autoriza recurrencia ni compras futuras.
-- Autorización `null` hasta aprobación explícita; después, texto exacto del usuario, fecha, propuesta/versión y límites aprobados.
+- Autorización `null` y `selected_option_id: null` hasta selección/aprobación explícita; después, texto exacto, fecha, opción, propuesta/versión y límites aprobados.
 
 Presentar una estimación comprensible antes de comprar la investigación principal. El máximo adicional es dinero nuevo permitido; el total acumulado ya incluye gastos/reservas previos, que **no se reinician ni se suman dos veces**. Si cambia versión, no trasladar por inferencia la aprobación a un presupuesto mayor o distinto. Actualizar el proyecto con la autorización exacta y comprobar su compatibilidad con los límites de cuenta/cartera/lote existentes.
+
+La base de gasto/reservas es común a las alternativas; no sumar sus máximos entre sí. Guardarlas en `dataforseo.investigacion.options`. La aprobación de la opción/version fija `selected_option_id`, `proposal`, `authorization.option_id`, máximos y límites efectivos exclusivamente de esa alternativa. Un «sí» sin opción inequívoca no basta. La selección y aprobación ocurren en la misma pausa habitual. Conservar autorizaciones previas válidas de proyectos antiguos sin inventar una elección retrospectiva.
+
+Los escenarios conservador/base/favorable no son esos tres niveles de precio. Mostrar rangos preliminares a 3/6/12 meses solo si son defendibles; de lo contrario, `no_estimable`. Tras investigar la opción aprobada, actualizar sus escenarios en SEO-STRATEGY. Misma web con más investigación no justifica multiplicar tráfico. En renovaciones registrar baseline observada, total previsto y diferencia comparable, sin duplicar visitas existentes. Definir objetivo/horizonte de éxito sin asignar porcentajes de probabilidad no calibrados.
 
 Al cerrar la preexploración, congelar nuevas compras mientras se espera aprobación: la base de gasto/reservas de la propuesta debe permanecer estable. **Toda llamada nueva después de aprobar consume el máximo adicional**, aunque aclare una pregunta de preexploración. Una reserva previa pendiente no se libera ni se repite sin evidencia.
 

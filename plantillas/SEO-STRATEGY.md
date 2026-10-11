@@ -6,9 +6,37 @@ Estado: **pendiente de investigación**. Plantilla sin previsión ni resultados 
 
 - Oferta real, público, mercado y acción útil: [datos confirmados].
 - Objetivo: captar búsquedas relevantes mediante la web y su contenido inicial, sin suponer una nueva campaña off-page.
+- Éxito que se desea medir: [métrica de negocio o búsqueda, valor objetivo, horizonte y fuente; separar aspiración, previsión y criterio de entrega]. No asignar un porcentaje de probabilidad por terminar fases o aprobar una auditoría.
 - Alcance incluido: [páginas, contenidos y funciones de META.md; URL prevista o pública].
+- Modalidad y fecha de referencia: [web nueva / renovación; publicación o sustitución prevista/real, sin reiniciar plazos por una indexación tardía].
 - Dominio y línea base: [nuevo/existente, señales verificadas y datos de GSC si hay acceso; desconocido no equivale a cero].
 - Evidencia: [fuentes, fecha, país, ciudad cuando corresponda, idioma, dispositivo y cobertura real de volúmenes/SERP].
+
+## Investigación elegida y decisiones que permite mejorar
+
+- Opción aprobada: [`minimo` / `estandar` / `optimo`, ID de propuesta y versión; enlace a PRESUPUESTO-SEO.md y autorización].
+- Preguntas previstas y hallazgos obtenidos: [qué decisiones se resolvieron con cada dataset o fuente; compartir referencias con SEO-COBERTURA.md].
+- Incertidumbres que persisten: [lo que los datos no permiten concluir; sin compras adicionales automáticas].
+- Utilidad del gasto: [evidencia adicional que cambió o confirmó una decisión; no atribuir tráfico al coste de investigar].
+- Diferencia respecto de la previsión preliminar: [fecha, nueva evidencia, supuestos revisados y efecto en los rangos; conservar la referencia anterior].
+
+Las tres opciones de presupuesto son niveles de investigación. Los escenarios conservador/base/favorable son posibles evoluciones de la web entregada. No emparejarlos ni producir tres previsiones ascendentes por haber tres precios. Si distintas opciones llevarían a la misma entrega, la expectativa no cambia por gastar más; puede mejorar su fundamento o revelar que era demasiado optimista. Una diferencia de páginas, oferta, público o funciones requiere su propia decisión de alcance antes de incluir su efecto.
+
+## Línea base para una renovación
+
+Aplicabilidad: [renovación / no_aplica por web nueva]. Enlazar el plan de migración, inventario de URLs y evidencia anterior; no sustituirlos por esta tabla. Registrar la situación antes de reemplazar la web.
+
+| Dato observado | Valor y unidad | Periodo y páginas/consultas incluidas | Mercado, dispositivo y tipo de búsqueda | Fuente, fecha y limitaciones |
+|---|---|---|---|---|
+| Clics orgánicos de Google | [valor o pendiente; no confundir sesiones con clics] | [fechas y cobertura] | [segmentación disponible] | [GSC/exportación y cobertura] |
+| Impresiones y posición | [datos por página/consulta cuando aporten; no solo promedio global] | [fechas y cobertura] | [segmentación] | [fuente] |
+| Acciones útiles | [contactos/pedidos/reservas y definición] | [fechas y atribución] | [canal y cobertura] | [analítica/recepción verificada o pendiente] |
+| Páginas y consultas prioritarias que preservar | [referencia al inventario y motivos] | [fechas; marca/no marca si se distingue] | [mercado] | [evidencia] |
+
+- Base comparable por horizonte: [mes o periodo histórico pertinente para 3/6/12 meses, años disponibles y ajuste de estacionalidad explicitado; un mes reciente no representa todo el año].
+- Cambios externos conocidos: [campañas anteriores, caída previa, estacionalidad, dominio/URLs o mercado; no atribuirlos a la nueva web sin evidencia].
+- Sin acceso suficiente: [qué falta y cómo limita las estimaciones; no marcar ausencia de datos como ausencia de tráfico].
+- Preservación prevista: [URLs y contenido útiles, señales a conservar, redirecciones solo donde correspondan y comprobación pública pendiente]. No garantizar estabilidad absoluta de posiciones por conservar el dominio o cambiar de tecnología.
 
 ## Diagnóstico de la idea original antes de redactar
 
@@ -41,7 +69,9 @@ Conclusión: [oportunidad razonada / oportunidad limitada / evidencia insuficien
 
 Estado: [pendiente / estimada_con_supuestos / no_estimable]. Si no es estimable, explicar qué falta. No rellenar rangos con cifras inventadas para cumplir el formato.
 
-Métrica: **clics orgánicos de resultados web de Google durante un mes alrededor de cada horizonte**, desde la fecha de publicación. No son acumulados, visitantes únicos, sesiones, contactos ni ventas. La primera observación de indexación se registra por separado; no reinicia el horizonte.
+Fecha y versión de la estimación: [fecha / versión]. Evidencia: [preliminar de exploración / investigación elegida ejecutada / actualización autorizada]. El presupuesto aprobado permite investigar; no acredita que la investigación ya se haya realizado.
+
+Métrica: **clics orgánicos de resultados web de Google durante un mes alrededor de cada horizonte**, desde la fecha de publicación (sustitución efectiva en una renovación). No son acumulados, visitantes únicos, sesiones, contactos ni ventas. La primera observación de indexación se registra por separado; no reinicia el horizonte. La siguiente tabla representa el **total esperado de las páginas incluidas**, tanto nuevas como conservadas: no añadirle después el tráfico histórico.
 
 | Horizonte desde publicación | Conservador | Base | Favorable | Condiciones e incertidumbres principales |
 |---|---|---|---|---|
@@ -51,11 +81,21 @@ Métrica: **clics orgánicos de resultados web de Google durante un mes alrededo
 
 Todos estos escenarios excluyen campañas off-page nuevas. Se basan en las páginas entregadas y en las señales actuales verificables; no presuponen publicación continua de artículos, adquisición futura de enlaces, creación de GBP, reseñas o tráfico de marca nuevo. Separar cualquier ampliación futura y sus dependencias.
 
+En renovaciones, añadir la comparación solo si existe una base defendible:
+
+| Horizonte | Base histórica comparable de las mismas páginas/mercado | Variación conservadora frente a la base | Variación base | Variación favorable | Método de comparación y límites |
+|---|---|---|---|---|---|
+| 3 meses | [clics/mes y periodo, o no_estimable] | [rango de aumento/disminución, o no_estimable] | [ídem] | [ídem] | [estacionalidad, cobertura y supuestos] |
+| 6 meses | [clics/mes y periodo, o no_estimable] | [rango o no_estimable] | [ídem] | [ídem] | [límites] |
+| 12 meses | [clics/mes y periodo, o no_estimable] | [rango o no_estimable] | [ídem] | [ídem] | [límites] |
+
+La variación es la diferencia frente a una base comparable, no tráfico adicional que se suma otra vez al total. Si la base es un rango, documentar cómo se obtiene la diferencia y su incertidumbre. Una comparación histórica no prueba el efecto causal de la renovación ni equivale a saber qué habría sucedido manteniendo la web anterior. Separar páginas conservadas y nuevas sin duplicar consultas/clics. Contemplar disminuciones temporales y escenarios que no recuperan la línea base en el plazo analizado; no imponer recuperación automática. Si no se puede comparar, mostrar el total cuando sea defendible y marcar la variación `no_estimable`.
+
 Para que la estimación se pueda revisar:
 
 1. Enumerar las consultas consideradas, páginas y volúmenes con fuentes, fechas y ámbito geográfico. Evitar sumar dos veces variantes agrupadas por el proveedor o una consulta asignada a varias páginas; explicar el tratamiento de solapamientos y estacionalidad.
 2. Documentar el método. Una aproximación posible es sumar, por consulta sin duplicación, `búsquedas mensuales × fracción de clics que podría captar el sitio`. Justificar esa fracción mediante hipótesis explícitas de visibilidad/posición y CTR, con sus fuentes o límites; no aplicar un porcentaje universal a toda la demanda.
-3. Explicar por qué cada hipótesis podría cumplirse en ese plazo: intención, competidores observados, señales del dominio, contenido y funciones entregados. Contemplar falta de indexación/visibilidad y resultado cero; no imponer aumentos automáticos con el paso del tiempo.
+3. Explicar por qué cada hipótesis podría cumplirse en ese plazo: intención, competidores observados, señales del dominio, contenido y funciones entregados. Contemplar falta de indexación/visibilidad y resultado cero; no imponer aumentos automáticos con el paso del tiempo. En renovaciones, incluir riesgo de transición, páginas existentes y línea base, sin asumir que una tecnología nueva mejora el posicionamiento por sí misma.
 4. Mostrar sensibilidad a los supuestos decisivos, cobertura de la estimación y confianza cualitativa. Los escenarios no son intervalos estadísticos ni una garantía de mínimos. El favorable tampoco supone posiciones que la investigación no pueda defender.
 5. Separar datos observados, estimaciones del proveedor e hipótesis propias. El tráfico estimado de un competidor no es una previsión de esta web. No derivar ventas sin tasas de conversión justificadas.
 
@@ -77,6 +117,7 @@ No inventar oportunidades para llenar la tabla. Si faltan fuentes, declarar la l
 - Comprobaciones técnicas, contenido y flujos: [enlaces a auditoría y evidencia, entorno y pendientes].
 - Medición: [GSC para clics/indexación; analítica y recepción/registro para acciones útiles; estado real de accesos/configuración].
 - Resultados observados: [pendiente hasta disponer de evidencia; registrar fuente, período y métrica; una auditoría aprobada no acredita tráfico].
+- Comparación posterior: [objetivo y horizonte acordados, previsión versionada y dato observado comparable; distinguir desviación de la previsión, problemas de medición y defectos corregibles]. En renovaciones, conservar la línea base anterior y registrar pérdidas o mejoras sin ocultarlas tras promedios globales.
 - Revisión sugerida: [fecha/condición y siguiente mejora según indexación, impresiones, clics o conversiones; su ejecución no queda autorizada por escribirla].
 
 ## Referencias metodológicas

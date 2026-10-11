@@ -27,6 +27,8 @@ Encabezado de `SEO-COBERTURA.md`: proyecto, fecha, versión/catálogo descubiert
 
 La falta de GSC, GBP, API, dominio público o créditos se registra como pendiente/bloqueo del trabajo que corresponda. Si una parte se comprobó y otra sigue pendiente, describir ambas y conservar el estado pendiente de la fila. Añadir a la matriz los criterios de calidad que necesita esa disciplina.
 
+En renovación, aplicar también [MIGRACIONES.md](MIGRACIONES.md). Capturar baseline antes de modificar, combinar fuentes de inventario y enlazar mapa de URLs, preservación de contenido/recursos y diferencias en `MIGRACION-SEO.md`. `seo-drift` compara cambios y `seo-google` aporta datos observados cuando existan accesos; ninguna prueba local ni estimación externa sustituye evidencia pública o histórica faltante.
+
 ## Catálogo que debe evaluarse
 
 | Skill | Trabajo y criterio de aplicación |
@@ -66,6 +68,8 @@ Cerrada la exploración, congelar compras durante esa espera para conservar la b
 
 La propuesta debe justificar datasets, número de consultas, mercados, resultados esperados, incertidumbre, margen incluido, coste adicional máximo y total acumulado con gasto/reservas previos. No existe un USD 1 universal ni una tarifa vigente por copiar ejemplos históricos. La matriz determina la cobertura necesaria; el presupuesto aprobado permite los datos concretos, no una compra por subskill. Si el alcance excede lo aprobado, presentar una ampliación concreta conservando gasto y reservas; continuar el trabajo independiente.
 
+Usar la plantilla para comparar `minimo`, `estandar` y `optimo`, con plan completo por alternativa viable y base común congelada. Mantener en las tres la evaluación integral y los controles esenciales; justificar profundidad adicional por decisiones que puede mejorar, no por cantidad de herramientas usadas. No comprar las tres opciones ni heredar límites entre ellas; esperar opción/ID/versión expresos. Si no hay diferencias útiles, indicarlo y recomendar la suficiente. El precio de investigación no es una probabilidad de éxito ni identifica escenarios conservador/base/favorable.
+
 Para DataForSEO, leer contrato/precio vigentes de cada endpoint y descubrir el helper de costes desde la skill instalada. Su check/log no sustituye autorización ni registro de cartera. Los defaults US/English/depth 100 de la subskill **ceden ante el país, idioma, dispositivo y límites explícitos del proyecto**. Declarar granularidad real de ubicación y diferencias entre volumen y SERP. Guardar respuestas originales, fecha, parámetros y coste. Caché: SERP 7 días y volúmenes 30 días; una solicitud de evidencia actual requiere consulta nueva autorizada.
 
 Cubrir una disciplina no obliga a pagar todas sus APIs: utilizar evidencia gratuita válida cuando satisfaga el procedimiento y señalar qué no permite concluir. Nunca sustituir un dato real pedido por una estimación sin identificarla.
@@ -81,6 +85,8 @@ El escenario base considera la web y el contenido inicial acordados, el dominio 
 Estimar clics mensuales de Google a 3/6/12 meses únicamente cuando haya base suficiente. Documentar consultas sin duplicación, volúmenes y granularidad real, estacionalidad, páginas incluidas, hipótesis de visibilidad/posición y CTR por escenario, con su justificación y fuentes. Identificar como supuestos los valores no observados y comprobar sensibilidad; si cambiar una hipótesis razonable elimina el tráfico, mostrarlo. No suponer top 3 para todas las páginas, crecimiento automático por mes, suma de variantes de un mismo volumen ni conversiones sin datos. Separar marca/no marca cuando pueda identificarse; no mezclar clics de resultados web con Maps, referencias de IA o sesiones de Analytics.
 
 El endpoint de DataForSEO `bulk_traffic_estimation` aproxima tráfico según posiciones y datos que ya observa; no predice el futuro de una web aún sin posicionamiento. Ninguna API ni porcentaje de auditoría reemplaza los supuestos de la proyección. `no_estimable` con explicación es válido; fabricar rangos para rellenar la tabla no lo es. No añadir llamadas fuera de la propuesta aprobada para completar cifras.
+
+El presupuesto presenta previsiones preliminares solo si tiene evidencia suficiente; la investigación elegida las revisa antes del diseño. En una renovación separar baseline de clics observados, total proyectado y diferencia frente a un periodo comparable; no sumar de nuevo el tráfico existente. Una disminución también es un resultado posible. La mejora de decisión que aporta una opción más profunda debe justificarse sin inventar una ganancia de tráfico para una web idéntica.
 
 Al cierre, entregar oportunidades off-page concretas y opcionales en el mismo informe: por qué encajan con ese negocio, fuente/URL y fecha, acción del propietario, esfuerzo, coste conocido o por confirmar, beneficio esperado sin garantía y medición. Investigar no autoriza contactar terceros, editar perfiles, publicar ni comprar enlaces. Revisar `seo-backlinks`, `seo-local`, `seo-maps` y `seo-plan` en la matriz según pertinencia; separar análisis de ejecución. Para un negocio local, una recomendación sobre GBP puede ser importante para Maps, pero no puede contarse como realizada ni como tráfico futuro del sitio.
 
