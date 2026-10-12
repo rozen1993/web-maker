@@ -27,6 +27,8 @@ dist/
 evidencias/
 /proyectos/
 /projects/
+/out/*
+!/out/.gitkeep
 
 # Temporales y cachés; conservar scripts y el PDF de la guía
 tmp/

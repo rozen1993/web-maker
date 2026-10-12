@@ -1,6 +1,13 @@
 ﻿# Mensajes para iniciar, autorizar o retomar
 
-La entrada habitual es `node iniciar.mjs` desde la raíz; [EMPEZAR.md](EMPEZAR.md) explica el uso. `--solo-preparar` deja el mensaje para el IDE. La entrevista pregunta una cosa cada vez y guarda la meta; no necesitas preparar un megaprompt por web.
+La entrada habitual es este chat con la carpeta del kit abierta; [EMPEZAR.md](EMPEZAR.md) explica el uso. Basta escribir:
+
+```text
+$iniciar-web [nombre]
+Si ya existe el proyecto, retoma sus respuestas y pregunta solo lo que falte.
+```
+
+Puedes omitir el nombre o escribir `$iniciar-web retoma`. La skill local está en `.agents/skills/iniciar-web/`; un proyecto por copia y código en `out/`, según ENTREGA.md. La IA guarda respuestas y pendientes conforme avanza. `node iniciar.mjs` queda como alternativa opcional por terminal; `--solo-preparar` conserva su función de guardar sin abrir Codex. No necesitas usar esos comandos ni pegar el mensaje largo siguiente para empezar por chat.
 
 ## Iniciar en el chat
 
@@ -9,9 +16,18 @@ Este mensaje no autoriza datos de pago ni publicación:
 ```text
 Lee AGENTS.md, PERFILES-Y-CALIDAD.md, SISTEMA-PILOTO.md y SEO-COMPLETO.md.
 Quiero una web sobre [idea], para [público/mercado], cuyo objetivo es [acción].
-Materiales disponibles: [materiales]. Crea proyectos/[nombre] en este kit.
+Materiales disponibles: [materiales]. Lee ENTREGA.md. Una sola web en esta copia:
+ficha e informes en proyectos/[nombre], código completo en out/. Usa el helper
+abrirProyectoChat de scripts/iniciar-chat.mjs para iniciar o retomar;
+si ya existe, lee y retoma sus archivos sin sobrescribir decisiones ni autorizaciones.
 
 Pregunta lo que falte UNA COSA CADA VEZ y reutiliza mis respuestas.
+Formula preguntas adicionales según lo que vaya respondiendo, solo cuando cambien
+una decisión de alcance, datos, accesos, coste o entrega. Usa supuestos explícitos
+para detalles reversibles. No me envíes a otro asistente ni a un cuestionario terminal.
+Guarda cada respuesta y el siguiente pendiente en la ficha y ESTADO.md. Durante
+el brief usa brief_en_curso; no declares entrevista completada antes de resolver
+el alcance esencial ni conviertas una declaración de intención en autorización.
 Identifica web nueva o renovación. Si renuevo, recoge URL, continuidad de dominio,
 mejoras/conservación, prioridades y accesos; aplica MIGRACIONES.md y prepara
 MIGRACION-SEO.md con baseline, mapa de URLs, respaldo, transición y reversión.
@@ -24,8 +40,14 @@ Escribe y muestra META.md: público, páginas/cantidades, funciones, contenido,
 entrega prevista, criterios comprobables, límites, exclusiones y pendientes.
 Concreta la meta antes de explorar, sin otra aprobación ordinaria del plan.
 
+Usa GPT-6 Astra / high, rol entrevistador, únicamente para la entrevista por chat.
+El coordinador transmite las respuestas reales, presenta una pregunta cada vez
+y guarda el estado; no me pidas usar terminal ni cambiar de conversación.
 Usa GPT-6.1 Sol / high para coordinación, investigación, contenido, SEO y QA.
-Usa GPT-6 Astra / ultra para los mockups Y EL DESARROLLO DE TODA LA WEB.
+Usa GPT-6 Astra / ultra para diseñar y revisar TODA LA PARTE VISUAL.
+Usa GPT-6.1 Sol / high para programar TODO: mockups navegables, estilos, páginas,
+interacciones, lógica, integraciones y correcciones. Astra transfiere especificaciones
+y revisa capturas/recorridos; Sol implementa fielmente esa dirección visual.
 Comprueba configuración/modelo/esfuerzo reales y delegación de disenador y
 desarrollador en .codex/. Si falta acceso, registra el bloqueo y prepara traspaso;
 no atribuyas selección a un nombre en el prompt ni sustituyas sin avisar.
@@ -53,7 +75,13 @@ subagentes solicitan datasets. Guarda respuestas originales y caché compartida.
 
 Antes del diseño, completa SEO-STRATEGY.md desde su plantilla: contrasta la
 idea original con necesidades, intención, competencia y oportunidades del
-sector. Recomienda mantenerla, ajustar su enfoque o proponer un cambio concreto
+sector. Registra literalmente lo que creo que desea el público; contrasta cada
+hipótesis con evidencia a favor/en contra, fuentes, límites y estado apoyada,
+contradicha o inconclusa. Vincula los cambios a páginas y acciones medibles.
+Define qué resultado útil contará, objetivo/horizonte, baseline, fuente y estado
+de medición; clics, contactos recibidos y ventas son métricas distintas.
+No tomes búsquedas como prueba de voluntad de compra ni prometas resultados.
+Recomienda mantenerla, ajustar su enfoque o proponer un cambio concreto
 con fuentes y límites. Aplica y registra ajustes editoriales dentro del alcance;
 un cambio de público, oferta, acción, ingresos, páginas o integraciones requiere
 mi decisión expresa. Aprobar el presupuesto no acepta un giro de la idea.
@@ -73,7 +101,7 @@ Explica una oportunidad débil o incierta antes de diseñar, sin decidir por mí
 cambiar silenciosamente el alcance ni añadir otra aprobación ordinaria.
 
 Prepara arquitectura y contenido real antes del diseño; no inventes pruebas,
-precios, casos ni credenciales. Astra ultra prepara 3 homepages mockup A/B/C
+precios, casos ni credenciales. Astra ultra diseña 3 homepages mockup A/B/C; Sol high las programa
 navegables, distintas en composición, tipografía y lenguaje visual, responsive,
 con URLs reales comprobadas y revisión en navegador escritorio/móvil.
 Añade un interior representativo cuando aporte, sin construir 3 webs enteras.
@@ -84,7 +112,7 @@ Construye en Astro + Tailwind CSS, con TypeScript, componentes reutilizables,
 datos centralizados/validados y versiones compatibles verificadas.
 Sol ejecuta seo-audit completo con sus 8 especialistas siempre y 7 condicionales,
 además de tipos, build, rutas, enlaces, accesibilidad y E2E de flujos críticos.
-Astra ultra corrige código/diseño; Sol verifica hasta cumplir META o señalar
+Astra ultra revisa el diseño; Sol 6.1 high corrige el código; Sol verifica hasta cumplir META o señalar
 un bloqueo externo concreto. Registra evidencia y pendientes, sin declarar
 operativas integraciones simuladas ni indexación real desde una preview.
 

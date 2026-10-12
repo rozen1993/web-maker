@@ -1,0 +1,4 @@
+interface:
+  display_name: "Iniciar web"
+  short_description: "Inicia o retoma tu única web desde el chat"
+  default_prompt: "Usa $iniciar-web para iniciar o retomar mi proyecto y hacerme una pregunta cada vez."

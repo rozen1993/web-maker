@@ -4,7 +4,7 @@ Este protocolo amplía `AGENTS.md` para `modalidad: renovacion`. Se aplica a cua
 
 ## Entrevista y meta
 
-El iniciador distingue web nueva y renovación. En renovación recoge URL actual, continuidad o cambio de dominio, mejoras, elementos que deben conservarse, páginas y funciones prioritarias, disponibilidad de Search Console/analítica, tecnología, alojamiento, código, respaldo y responsable. Pregunta una cosa cada vez y reutiliza lo respondido. No pide contraseñas ni un inventario manual de keywords al usuario.
+La entrevista principal por chat, o el iniciador terminal opcional, distingue web nueva y renovación. En renovación recoge URL actual, continuidad o cambio de dominio, mejoras, elementos que deben conservarse, páginas y funciones prioritarias, disponibilidad de Search Console/analítica, tecnología, alojamiento, código, respaldo y responsable. Pregunta una cosa cada vez y reutiliza lo respondido; Sol añade aclaraciones cuando cambien una decisión. No pide contraseñas ni un inventario manual de keywords al usuario.
 
 Sol convierte las respuestas en alcance comprobable; completa `MIGRACION-SEO.md` desde su plantilla y lo enlaza en META/ESTADO. Un dato declarado no prueba que haya acceso, respaldo restaurable o funcionalidad operativa. Si aparece una web existente en un proyecto antiguo, incorporar esta modalidad conservando respuestas, decisiones, costes y autorizaciones; no repetir la entrevista completa ni reiniciar la cartera.
 

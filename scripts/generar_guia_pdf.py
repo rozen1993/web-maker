@@ -146,7 +146,7 @@ def build():
     doc = SimpleDocTemplate(str(OUTPUT), pagesize=A4,
                             leftMargin=18 * mm, rightMargin=18 * mm,
                             topMargin=18 * mm, bottomMargin=23 * mm,
-                            title="Empieza una web desde la terminal | PLAN",
+                            title="Empieza una web desde el chat | PLAN",
                             author="PLAN", subject="Guía generada desde EMPEZAR.md",
                             pageCompression=1)
     story = story_from_markdown(SOURCE.read_text(encoding="utf-8-sig"))

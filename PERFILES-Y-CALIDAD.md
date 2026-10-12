@@ -6,13 +6,17 @@ No hay que ejecutar todos los módulos, contratar servicios ni construir funcion
 
 ## Uso sencillo
 
+Invocar `$iniciar-web` en el chat. Un solo proyecto por copia: ficha e informes en
+`proyectos/<nombre>/` y toda la web en `out/`. Seguir `ENTREGA.md` para empaquetado,
+comprobaciones y despliegue; no marcar lista la entrega solo por existir archivos.
+
 1. El usuario describe su idea con sus propias palabras; no necesita clasificarla técnicamente.
-2. La entrevista terminal (`node iniciar.mjs`) o Sol pregunta **una cosa cada vez** y reutiliza las respuestas. Distingue web nueva/renovación y solo activa preguntas de migración, tienda, reservas u otros módulos cuando correspondan.
-3. Registra módulos, recorrido y pendientes en `proyecto.json` y `ESTADO.md`; muestra `META.md` con páginas/cantidades, funciones, entregables, exclusiones y flujos de comprobación. Completa la meta a partir de las respuestas antes de investigar, sin una aprobación adicional.
+2. Astra high entrevista **en el chat, una cosa cada vez**, reutiliza respuestas y añade preguntas decisivas según el proyecto. Distingue web nueva/renovación y pregunta por migración, tienda, reservas u otros módulos cuando correspondan. Guarda respuestas parciales para retomar; si existe la carpeta, lee su estado sin exigir recrearla. `node iniciar.mjs` queda como alternativa opcional.
+3. Sol registra módulos, recorrido y pendientes en `proyecto.json` y `ESTADO.md`; muestra `META.md` con páginas/cantidades, funciones, entregables, exclusiones y flujos de comprobación. Completa la meta a partir de las respuestas antes de investigar, sin una aprobación adicional.
 4. **GPT-6.1 Sol / high** realiza una exploración acotada con fuentes gratuitas y el cupo previo autorizado; compara mínimo/estándar/óptimo, recomienda con motivos y espera aprobación explícita de opción/ID/versión. Cada total incluye la misma base de gasto y reservas previos, su máximo adicional y margen; no se suman los tres ni existe un USD 1 universal para toda la investigación.
 5. Sol aplica la skill principal `seo` de AgriciDaniel y evalúa sus **26 subskills** en `SEO-COBERTURA.md`, según [SEO-COMPLETO.md](SEO-COMPLETO.md). Ejecuta los procedimientos completos pertinentes y prepara arquitectura/contenido; mencionar una disciplina no acredita trabajo.
-6. **GPT-6 Astra / ultra** diseña y revisa tres homepages mockup A/B/C en el rol `disenador`. El usuario elige A/B/C o combinación concreta; Astra desarrolla **toda la web** elegida en el rol `desarrollador`.
-7. Sol ejecuta auditoría SEO completa y pruebas; Astra corrige defectos de código/diseño y Sol verifica hasta la entrega contra `META.md`. Comprobar selección y delegación reales de los roles `.codex/`, sin atribuir ejecución por escribir un nombre.
+6. **GPT-6 Astra / ultra** diseña y revisa tres homepages mockup A/B/C en el rol `disenador`; Sol high las programa en el rol `desarrollador`. El usuario elige A/B/C o combinación concreta; Sol 6.1 high desarrolla **toda la web** elegida en el rol `desarrollador`.
+7. Sol ejecuta auditoría SEO completa y pruebas; Astra revisa el diseño y Sol 6.1 high corrige el código y Sol verifica hasta la entrega contra `META.md`. Comprobar selección y delegación reales de los roles `.codex/`, sin atribuir ejecución por escribir un nombre.
 
 Las dos pausas ordinarias después de la entrevista son **presupuesto y elección visual**. Cerrada la exploración, congelar compras hasta aprobar la propuesta para conservar una base acumulada estable. Todas las compras nuevas posteriores consumen su máximo adicional, incluso si aclaran una pregunta de exploración.
 
@@ -104,9 +108,9 @@ Revisar las propuestas internamente con capturas completas y recorridos; corregi
 El usuario elige A, B, C o una combinación concreta; registrar `esperando_eleccion_visual` antes de la pausa, guardar elección/ajustes antes de extenderla y continuar sin nuevas confirmaciones por fase.
 Registrar tipografía, paleta, espaciado, tratamiento de imágenes, componentes y comportamiento responsive de la elegida.
 Reutilizar primitivas no obliga a repetir hero, composición, colores, fotografía ni recorrido entre negocios.
-**Astra ultra desarrolla toda la web** con el diseño elegido, incluyendo páginas interiores y flujos; una portada cuidada con páginas interiores genéricas no cumple el criterio.
+**Sol 6.1 high desarrolla toda la web** con el diseño elegido, incluyendo páginas interiores y flujos; una portada cuidada con páginas interiores genéricas no cumple el criterio.
 Revisar textos largos, imágenes ausentes y estados lentos, vacíos o de error que existan realmente en ese proyecto.
-El nombre del modelo en un prompt no cambia la selección: comprobar modelo/esfuerzo reales y soporte de delegación, o preparar el traspaso a Astra ultra. Que este entorno lo admita no demuestra acceso en otro cliente. Un prompt o modelo no garantiza calidad ni posiciones SEO.
+El nombre del modelo en un prompt no cambia la selección: comprobar modelo/esfuerzo reales y soporte de delegación, o preparar el traspaso al modelo correspondiente: Astra ultra para diseño y Sol high para código. Que este entorno lo admita no demuestra acceso en otro cliente. Un prompt o modelo no garantiza calidad ni posiciones SEO.
 
 ## Criterios comunes de entrega
 
@@ -131,7 +135,7 @@ Tras publicar con autorización, verificar URLs y recorrido público; si faltan 
 
 ## Correcciones y cierre
 
-Sol high documenta defectos concretos de código/diseño; Astra ultra los corrige dentro del alcance autorizado y Sol verifica las partes afectadas.
+Sol high documenta defectos concretos de código/diseño; Sol 6.1 high los corrige siguiendo la revisión visual de Astra ultra dentro del alcance autorizado y Sol verifica las partes afectadas.
 Registrar cada incidencia y su cierre con el helper de [BITACORA.md](BITACORA.md): hallazgo, impacto, causa conocida o hipótesis, corrección y evidencia de verificación. `MEJORAS.md` enlaza esos eventos y aprendizajes; no marca resuelto un cambio sin comprobar. Un aprendizaje puede mejorar pruebas o instrucciones del proyecto dentro del alcance, sin modificar skills globales ni otros proyectos por inferencia.
 Realizar como máximo dos ciclos amplios de revisión; después, usar una lista concreta de defectos, causas y acciones.
 Ese límite evita auditorías repetidas: no autoriza cerrar como listo un proyecto con fallos críticos conocidos.

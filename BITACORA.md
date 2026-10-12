@@ -9,7 +9,7 @@ La bitácora permite reconstruir decisiones, avances, comprobaciones y correccio
 - `ESTADO.md`: fase, situación de entrega, pendientes y siguiente acción. La bitácora no lo actualiza automáticamente.
 - `.control/dataforseo.jsonl` o el registro privado vinculado sigue siendo la fuente de verdad financiera. Referenciar un `request_id` cuando sea necesario; no duplicar contadores de gasto aquí.
 
-El asistente guarda el primer evento de entrevista junto a los archivos iniciales. Después, el coordinador usa el helper al cambiar de fase, registrar una decisión del usuario, ejecutar una comprobación relevante o detectar/corregir un fallo. No genera un evento por cada pensamiento, lectura o detalle irrelevante. Registrar una decisión no la inventa ni concede autorización; enlazar su evidencia original y respetar las reglas de presupuesto, elección visual y publicación.
+El iniciador terminal guarda el primer evento de entrevista junto a los archivos iniciales. En chat, el coordinador conserva respuestas parciales en ficha/ESTADO y puede registrar el inicio como `accion`; utiliza `entrevista_completada` únicamente cuando el brief esencial esté resuelto y la META preparada. Después usa el helper al cambiar de fase, registrar una decisión del usuario, ejecutar una comprobación relevante o detectar/corregir un fallo. No genera un evento por cada pensamiento, lectura o detalle irrelevante. Registrar una decisión no la inventa ni concede autorización; enlazar su evidencia original y respetar las reglas de presupuesto, elección visual y publicación.
 
 ## Uso local
 

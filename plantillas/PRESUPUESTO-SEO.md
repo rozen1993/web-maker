@@ -9,6 +9,8 @@ Estado: **propuesta, sin aprobación**. Este documento vacío no autoriza consul
 - Modalidad: [web nueva / renovación; enlazar el plan de migración y su línea base si corresponde].
 - Evidencia de exploración: [consultas, fecha, enlaces/caché y límites de la muestra].
 - Idea original conservada: [texto de proyecto.json; no reescribirla como si ya se hubiera aceptado una variante].
+- Lo que el usuario cree que desea el público: [suposición literal y fundamento declarado; no hecho validado].
+- Contraste preliminar: [indicios a favor/en contra, fuentes, límites y dudas decisivas; cada opción explica cuáles podrá investigar y cuáles quedarán abiertas].
 - Diagnóstico preliminar de la idea: [qué necesidad parece buscar la gente, cómo se manifiesta en resultados, qué alternativas u oportunidades dentro del sector aparecen y qué evidencia falta].
 - Posible ajuste de enfoque: [mantener / ajuste editorial dentro del alcance / cambio material propuesto; efectos tentativos en público, oferta, acción, páginas o ingresos; no aplicarlo sin decisión cuando sea material].
 - Pregunta estratégica que resolverá la investigación aprobada: [hipótesis contrastable, fuentes y límite de la muestra exploratoria].

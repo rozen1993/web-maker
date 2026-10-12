@@ -2,6 +2,12 @@
   "schema_version": 5,
   "status": "plantilla",
   "project_id": null,
+  "workspace": {
+    "mode": "un_proyecto_por_copia",
+    "site_root": "out",
+    "paths_relative_to": "kit_root",
+    "deployment_document": "out/DESPLIEGUE.md"
+  },
   "campaign_id": null,
   "lot_id": null,
   "modalidad": null,
@@ -46,6 +52,8 @@
     "idea_vigente": null,
     "estado": "pendiente_investigacion",
     "diagnostico_preliminar": null,
+    "suposicion_usuario_sobre_publico": null,
+    "hipotesis_publico": [],
     "recomendacion": null,
     "evidencias": [],
     "ajustes_editoriales": [],
@@ -53,6 +61,18 @@
     "decision_usuario": null
   },
   "accion_principal": null,
+  "resultado_objetivo": {
+    "accion_util": null,
+    "criterio_de_calificacion": null,
+    "metrica": null,
+    "baseline": null,
+    "objetivo_declarado": null,
+    "horizonte": null,
+    "fuente_medicion": null,
+    "estado_medicion": "pendiente",
+    "resultado_observado": null,
+    "seguimiento_authorization": null
+  },
   "publico": null,
   "mercado": {
     "pais": null,
@@ -126,6 +146,14 @@
     "operacion_verificada": false
   },
   "models": {
+    "entrevista": {
+      "model": "GPT-6 Astra",
+      "model_id": "gpt-6-astra",
+      "reasoning": "high",
+      "agent_role": "entrevistador",
+      "aplica_a": ["entrevista_chat"],
+      "selection_verified": false
+    },
     "produccion": {
       "model": "GPT-6.1 Sol",
       "model_id": "gpt-6.1-sol",
@@ -141,9 +169,9 @@
       "selection_verified": false
     },
     "desarrollo": {
-      "model": "GPT-6 Astra",
-      "model_id": "gpt-6-astra",
-      "reasoning": "ultra",
+      "model": "GPT-6.1 Sol",
+      "model_id": "gpt-6.1-sol",
+      "reasoning": "high",
       "agent_role": "desarrollador",
       "aplica_a": ["web_completa", "programacion", "integraciones", "correcciones"],
       "selection_verified": false

@@ -304,15 +304,25 @@ test('arranque TTY solicita Sol high con argumentos separados y sin shell; stub,
   assert.equal(invocation.options.shell, false);
   assert.equal(invocation.options.stdio, 'inherit');
   assert.equal(result.project.models.produccion.selection_verified, false);
+  assert.equal(result.project.models.entrevista.model_id, 'gpt-6-astra');
+  assert.equal(result.project.models.entrevista.reasoning, 'high');
+  assert.equal(result.project.models.entrevista.agent_role, 'entrevistador');
+  assert.equal(result.project.models.entrevista.selection_verified, false);
+  assert.match(invocation.args.at(-1), /entrevistador Astra high/);
+  assert.equal(result.project.validacion_idea.suposicion_usuario_sobre_publico, null);
+  assert.deepEqual(result.project.validacion_idea.hipotesis_publico, []);
+  assert.equal(result.project.resultado_objetivo.resultado_observado, null);
+  assert.equal(result.project.resultado_objetivo.seguimiento_authorization, null);
   assert.equal(result.project.models.diseno.reasoning, 'ultra');
   assert.deepEqual(result.project.models.produccion.aplica_a, ['coordinacion', 'consultoria_seo', 'investigacion', 'contenido', 'auditoria']);
-  assert.equal(result.project.models.desarrollo.model_id, 'gpt-6-astra');
-  assert.equal(result.project.models.desarrollo.reasoning, 'ultra');
+  assert.equal(result.project.models.desarrollo.model_id, 'gpt-6.1-sol');
+  assert.equal(result.project.models.desarrollo.reasoning, 'high');
   assert.equal(result.project.models.desarrollo.agent_role, 'desarrollador');
   assert.equal(result.project.models.desarrollo.selection_verified, false);
   assert.deepEqual(result.project.models.desarrollo.aplica_a, ['web_completa', 'programacion', 'integraciones', 'correcciones']);
   assert.match(invocation.args.at(-1), /rol disenador/);
-  assert.match(invocation.args.at(-1), /Astra ultra en el rol desarrollador para implementar TODA la web/);
+  assert.match(invocation.args.at(-1), /Sol 6.1 high en el rol desarrollador para implementar TODA la web/);
+  assert.match(invocation.args.at(-1), /Sol high programa sus mockups/);
   assert.match(invocation.args.at(-1), /catálogo completo de skills SEO AgriciDaniel/);
   for (const path of ['SEO-COMPLETO.md', 'plantillas/PRESUPUESTO-SEO.md', 'plantillas/SEO-STRATEGY.md']) {
     assert.ok(invocation.args.at(-1).includes(path));
@@ -320,13 +330,13 @@ test('arranque TTY solicita Sol high con argumentos separados y sin shell; stub,
   assert.match(invocation.args.at(-1), /ya gastado \+ reservas pendientes \+ máximo adicional = máximo total/);
   assert.match(invocation.args.at(-1), /espera aprobación explícita antes de la investigación completa/);
   assert.match(invocation.args.at(-1), /auditoría SEO total/);
-  assert.doesNotMatch(invocation.args.at(-1), /vuelve a Sol|Sol 6\.1 high.*programación/);
+  assert.doesNotMatch(invocation.args.at(-1), /Astra ultra en el rol desarrollador/);
   const handoff = await readFile(join(result.directory, 'INICIAR-CODEX.md'), 'utf8');
   assert.match(handoff, /Primera pausa planificada/);
   assert.match(handoff, /El coordinador lee SEO-COMPLETO\.md/);
   assert.ok(handoff.includes('plantillas/SEO-STRATEGY.md'));
   assert.match(handoff, /Segunda pausa planificada/);
-  assert.match(handoff, /Astra ultra, rol desarrollador, implementa toda la web/);
+  assert.match(handoff, /Sol 6.1 high, rol desarrollador, implementa toda la web/);
   assert.match(handoff, /endpoints, cantidades, precios vigentes, fecha y exclusiones/);
   assert.match(handoff, /otro chat, clon o cuenta no reinicia gasto ni autorizaciones/);
 });
@@ -359,6 +369,7 @@ test('entrypoint CLI funciona con stdin en un kit temporal y --solo-preparar', a
   await copyFile(join(kitRoot, 'scripts', 'asistente.mjs'), join(root, 'scripts', 'asistente.mjs'));
   await copyFile(join(kitRoot, 'scripts', 'guardar-proyecto.mjs'), join(root, 'scripts', 'guardar-proyecto.mjs'));
   await copyFile(join(kitRoot, 'scripts', 'bitacora.mjs'), join(root, 'scripts', 'bitacora.mjs'));
+  await copyFile(join(kitRoot, 'scripts', 'proyecto-unico.mjs'), join(root, 'scripts', 'proyecto-unico.mjs'));
   const output = await new Promise((resolveResult, reject) => {
     const child = spawn(process.execPath, [join(root, 'iniciar.mjs'), '--solo-preparar'], { shell: false, stdio: ['pipe', 'pipe', 'pipe'] });
     let text = '';

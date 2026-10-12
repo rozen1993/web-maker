@@ -38,6 +38,24 @@ Aplicabilidad: [renovación / no_aplica por web nueva]. Enlazar el plan de migra
 - Sin acceso suficiente: [qué falta y cómo limita las estimaciones; no marcar ausencia de datos como ausencia de tráfico].
 - Preservación prevista: [URLs y contenido útiles, señales a conservar, redirecciones solo donde correspondan y comprobación pública pendiente]. No garantizar estabilidad absoluta de posiciones por conservar el dominio o cambiar de tecnología.
 
+## Lo que creemos que desea el público y lo que respalda la evidencia
+
+Suposición original del usuario: [texto literal; conservar en validacion_idea.suposicion_usuario_sobre_publico]. Registrar cada hipótesis en validacion_idea.hipotesis_publico y enlazar esta tabla; no duplicar datasets.
+
+| ID / hipótesis, público y problema | Evidencia a favor y en contra | Fuente, fecha, mercado y límites | Conclusión | Recomendación y página/acción | Validación y métrica |
+|---|---|---|---|---|---|
+| [hipótesis contrastable] | [datos separados de inferencias] | [enlaces/caché; muestra y sesgos] | [apoyada / contradicha / inconclusa] | [mantener/ajustar/proponer; decisión material pendiente] | [dato que confirmaría o refutaría; fuente disponible o pendiente] |
+
+Priorizar incertidumbres decisivas antes del diseño. La intención de búsqueda no acredita voluntad de compra; una SERP no representa a todo el público. Incorporar objeciones, consultas y conversiones reales disponibles sin inventarlas. Si faltan, proponer validación acotada; entrevistas, contactos, experimentos públicos o compras adicionales requieren su autorización correspondiente. No interpretar ausencia de volumen como inexistencia de necesidad. Mostrar contradicciones aunque reduzcan la expectativa inicial.
+
+## Resultado que se comprobará
+
+| Acción útil y definición exacta | Métrica y baseline / periodo | Objetivo y horizonte | Fuente y estado real | Responsable y revisión |
+|---|---|---|---|---|
+| [p. ej. consulta recibida que cumple criterios acordados; no simple clic] | [observado o desconocido] | [aspiración y previsión diferenciadas; pendiente si falta base] | [GSC, analítica, formulario/CRM o proveedor; acceso/prueba pendiente o verificada] | [quién revisa, cuándo y alcance autorizado o propuesto] |
+
+Separar impresiones, clics, acciones de contacto, contactos recibidos y ventas. Un clic en WhatsApp no es un lead confirmado. La instrumentación y sus pruebas se entregan según META; resultados comerciales y su atribución requieren evidencia posterior. El plan de revisión no activa seguimiento recurrente ni gastos. Ante desviaciones, comprobar medición, indexación, intención y recorrido antes de recomendar más páginas o datos.
+
 ## Diagnóstico de la idea original antes de redactar
 
 - Idea original literal: [copiar de proyecto.json; nunca sustituirla por la recomendación].
